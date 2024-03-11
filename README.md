@@ -1,2 +1,4 @@
-# G88.2024.T05.GE2
-Guided Exercise 2
+# Guided Exercise 2.1
+# student 1  [email] [github user]
+# student 2 [email] [github user]
+# student 3  [email] [github user]
