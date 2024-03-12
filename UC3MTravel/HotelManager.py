@@ -14,8 +14,8 @@ class HotelManager:
         # of the number
         numbers = [int(digit) for digit in str(x)]
 
-        # Step 2: Double every second digit starting from the right according to
-        # the Luhn algorithm
+        # Step 2: Double every second digit starting from the right
+        # according to the Luhn algorithm
         for i in range(len(numbers) - 2, -1, -2):
             numbers[i] *= 2
             if numbers[i] > 9:
@@ -26,9 +26,10 @@ class HotelManager:
         for i in range(len(numbers)):
             total += numbers[i]
 
-        # Step 4: Check if the total module 10 is equal to 0. If it is, then the
-        # credit card number is correct, and we return True. If it is not,
-        # then the credit card number is incorrect, and we return False.
+        # Step 4: Check if the total module 10 is equal to 0. If it is,
+        # then the credit card number is correct, and we return True. If it
+        # is not, then the credit card number is incorrect, and we return
+        # False.
         return total % 10 == 0
 
     def ReaddatafromJSOn( self, fi):
