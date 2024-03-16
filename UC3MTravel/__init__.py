@@ -85,7 +85,7 @@ def room_reservation (credit_card, name_surname, id_Card, phone_number,
     for existing_reservation in existing_data:
         if existing_reservation['name_surname'] == name_surname:
             raise HotelManagementException(
-                "The person's name already has a reservation")
+                "%s already has a reservation" % name_surname)
 
     # Append new reservation data
     existing_data.append(reservation_data)
