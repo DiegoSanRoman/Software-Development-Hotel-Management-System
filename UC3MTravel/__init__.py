@@ -13,6 +13,7 @@ def room_reservation (credit_card, name_surname, id_Card, phone_number,
 
     # Credit_card
     #Check if it is the correct format
+    credit_card = str(credit_card)
     if (credit_card.isdigit() == False) or len(credit_card) != 16:
         raise HotelManagementException("Invalid credit card format")
     # Check if the number is valid
@@ -28,6 +29,7 @@ def room_reservation (credit_card, name_surname, id_Card, phone_number,
     # I don't know how to check this
 
     # phone_number
+    phone_number = str(phone_number)
     if len(phone_number) != 9:
         raise HotelManagementException("Invalid phone number")
 
@@ -57,3 +59,23 @@ def room_reservation (credit_card, name_surname, id_Card, phone_number,
     # num_days
     if num_days < 1 or num_days > 10:
         raise HotelManagementException("Invalid number of days")
+
+    # If we have reached this point, it means that all inputs are correct
+
+    # PROCESS 2 (Create reservation)
+    reservation = HotelReservation(id_Card, credit_card, name_surname, phone_number, room_type, num_days)
+    localizer = reservation.LOCALIZER
+    return localizer
+
+# Main
+# Valid inputs
+credit_card = 5555555555554444
+name_surname = "Diego San Roman Posada"
+id_Card = 1234
+phone_number = 567368928
+room_type = "single"
+arrival_date = "09/11/2025"
+num_days = 4
+
+result = room_reservation(credit_card, name_surname, id_Card, phone_number, room_type, arrival_date, num_days)
+print(result)
