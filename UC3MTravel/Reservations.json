@@ -1,0 +1,20 @@
+[
+    {
+        "id_card": 1234,
+        "name_surname": "Diego San Roman Posada",
+        "credit_card": "5555555555554444",
+        "phone_number:": "567368898",
+        "arrival_date": 1710607973.848756,
+        "num_days": 10,
+        "room_type": "double"
+    },
+    {
+        "id_card": 1234,
+        "name_surname": "Diego San Roman Posada",
+        "credit_card": "5555555555554444",
+        "phone_number:": "567368898",
+        "arrival_date": 1710607973.850755,
+        "num_days": 10,
+        "room_type": "double"
+    }
+]

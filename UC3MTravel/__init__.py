@@ -3,6 +3,7 @@ from UC3MTravel.HotelManager import HotelManager
 from UC3MTravel.HotelManagementException import HotelManagementException
 
 import datetime
+import json
 
 def room_reservation (credit_card, name_surname, id_Card, phone_number,
                       room_type, arrival_date, num_days):
@@ -65,6 +66,27 @@ def room_reservation (credit_card, name_surname, id_Card, phone_number,
     # PROCESS 2 (Create reservation)
     reservation = HotelReservation(id_Card, credit_card, name_surname, phone_number, room_type, num_days)
     localizer = reservation.LOCALIZER
+
+    # PROCESS 3 (Store data in JSON file)
+    # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
+    json_string = str(reservation).replace("HotelReservation:", "").replace(
+        "'", '"')
+    # Convert the JSON string into a Python dictionary
+    reservation_data = json.loads(json_string)
+    # Try to load existing data
+    try:
+        with open('Reservations.json', 'r') as f:
+            existing_data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        # If the file does not exist or is empty, initialize existing_data as an empty list
+        existing_data = []
+    # Append new reservation data
+    existing_data.append(reservation_data)
+    # Write updated data back to file
+    with open('Reservations.json', 'w') as f:
+        json.dump(existing_data, f, indent=4)
+
+    # We return the localizer
     return localizer
 
 # Main
@@ -72,10 +94,10 @@ def room_reservation (credit_card, name_surname, id_Card, phone_number,
 credit_card = 5555555555554444
 name_surname = "Diego San Roman Posada"
 id_Card = 1234
-phone_number = 567368928
-room_type = "single"
-arrival_date = "09/11/2025"
-num_days = 4
+phone_number = 567368898
+room_type = "double"
+arrival_date = "06/06/2026"
+num_days = 10
 
 result = room_reservation(credit_card, name_surname, id_Card, phone_number, room_type, arrival_date, num_days)
 print(result)
