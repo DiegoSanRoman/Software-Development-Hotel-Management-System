@@ -4,17 +4,17 @@
         "name_surname": "Diego San Roman Posada",
         "credit_card": "5555555555554444",
         "phone_number:": "567368898",
-        "arrival_date": 1710607973.848756,
+        "arrival_date": 1710608346.959308,
         "num_days": 10,
         "room_type": "double"
     },
     {
-        "id_card": 1234,
-        "name_surname": "Diego San Roman Posada",
+        "id_card": 1235,
+        "name_surname": "Marta Pomelo",
         "credit_card": "5555555555554444",
-        "phone_number:": "567368898",
-        "arrival_date": 1710607973.850755,
-        "num_days": 10,
-        "room_type": "double"
+        "phone_number:": "567361111",
+        "arrival_date": 1710608492.320476,
+        "num_days": 5,
+        "room_type": "single"
     }
 ]
