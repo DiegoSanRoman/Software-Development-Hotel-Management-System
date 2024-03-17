@@ -121,8 +121,12 @@ argument-naming-style=snake_case
 # naming style.
 #argument-rgx=
 
+#MODIFIED RULE
+#ORIGINAL RULE
 # Naming style matching correct attribute names.
-attr-naming-style=snake_case
+# attr-naming-style=snake_case
+
+attr-naming-style=camelCase
 
 # Regular expression matching correct attribute names. Overrides attr-naming-
 # style. If left empty, attribute names will be checked with the set naming
@@ -157,8 +161,13 @@ class-const-naming-style=UPPER_CASE
 # the set naming style.
 #class-const-rgx=
 
+#MODIFIED RULE
+#ORIGINAL RULE
 # Naming style matching correct class names.
-class-naming-style=PascalCase
+# class-naming-style=PascalCase
+
+class-naming-style=camelCase
+
 
 # Regular expression matching correct class names. Overrides class-naming-
 # style. If left empty, class names will be checked with the set naming style.
@@ -207,15 +216,24 @@ inlinevar-naming-style=any
 # with the set naming style.
 #inlinevar-rgx=
 
+#MODIFIED RULE
+#ORIGINAL RULE
 # Naming style matching correct method names.
-method-naming-style=PascalCase
+# method-naming-style=snake_case
+
+method-naming-style=camelCase
 
 # Regular expression matching correct method names. Overrides method-naming-
 # style. If left empty, method names will be checked with the set naming style.
 #method-rgx=
 
+#MODIFIED RULE
+#ORIGINAL RULE
 # Naming style matching correct module names.
-module-naming-style=PascalCase
+# module-naming-style=PascalCase
+
+module-naming-style=camelCase
+
 
 # Regular expression matching correct module names. Overrides module-naming-
 # style. If left empty, module names will be checked with the set naming style.
@@ -242,8 +260,12 @@ property-classes=abc.abstractproperty
 # variable names will be checked with the set naming style.
 #typevar-rgx=
 
+#MODIFIED RULE
+#ORIGINAL RULE
 # Naming style matching correct variable names.
-variable-naming-style=snake_case
+# variable-naming-style=snake_case
+
+variable-naming-style=camelCase
 
 # Regular expression matching correct variable names. Overrides variable-
 # naming-style. If left empty, variable names will be checked with the set
