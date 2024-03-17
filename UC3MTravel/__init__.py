@@ -1,10 +1,11 @@
 from UC3MTravel.HotelReservation import HotelReservation
 from UC3MTravel.HotelManager import HotelManager
 from UC3MTravel.HotelManagementException import HotelManagementException
-
+from UC3MTravel.HotelStay import HotelStay
 import datetime
 import json
 
+# FIRST FUNCTION
 def room_reservation (credit_card, name_surname, id_Card, phone_number,
                       room_type, arrival_date, num_days):
 
@@ -96,17 +97,54 @@ def room_reservation (credit_card, name_surname, id_Card, phone_number,
     # We return the localizer
     return localizer
 
+def guest_arrival (file_path):
+
+    # First process of the function
+    try:
+        # Open the JSON file and load its contents
+        with open(file_path, 'r') as f:
+            data = json.load(f)
+
+        # Check if 'Localizer' key exists in the data
+        localizer_found = False
+        localizer = " "
+        for item in data:
+            if 'Localizer' in item:
+                localizer_found = True
+                localizer = item['Localizer']
+                break
+
+        if not localizer_found:
+            raise HotelManagementException("'Localizer' key missing in JSON")
+        # Check if the length of the localizer is correct (32 hexadecimal characters)
+        if len(localizer) != 32:
+            raise HotelManagementException("Invalid value for 'Localizer")
+
+        # Here you would typically check if the localizer exists in the reservation file
+        # and if it matches the data. Since this is just a placeholder, we'll return True.
+        return True
+
+    except FileNotFoundError:
+        raise HotelManagementException("The file was not found!!!")
+    except json.JSONDecodeError:
+        raise HotelManagementException("Invalid JSON format!!!")
+
+    # IF ALL IS CORRECT WE CONTINUE WITH PROCESS 2
+    hotelStay = HotelStay(data)
 
 
 # Main
 def main():
-    result = room_reservation(5555555555554444,
+    """result = room_reservation(5555555555554444,
                               "Marta Pomelo",
                               1235,
                               567361111,
                               "single",
                               "25/03/2029",
-                              5)
+                              5)"""
+    # Define the relative path to the file
+    file_path = './Reservations.json'
+    result = guest_arrival(file_path)
     print(result)
 
 
