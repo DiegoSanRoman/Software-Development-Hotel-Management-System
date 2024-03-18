@@ -227,12 +227,10 @@ method-naming-style=camelCase
 # style. If left empty, method names will be checked with the set naming style.
 #method-rgx=
 
-#MODIFIED RULE
-#ORIGINAL RULE
-# Naming style matching correct module names.
-# module-naming-style=PascalCase
 
-module-naming-style=camelCase
+# Naming style matching correct module names.
+module-naming-style=PascalCase
+
 
 
 # Regular expression matching correct module names. Overrides module-naming-
