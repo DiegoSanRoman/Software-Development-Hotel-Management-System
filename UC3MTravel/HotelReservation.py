@@ -1,4 +1,3 @@
-
 import hashlib
 import json
 from datetime import datetime
@@ -40,8 +39,34 @@ class HotelReservation:
     def IDCARD(self, value):
         self.__idcard = value
 
-
     @property
-    def LOCALIZER( self ):
+    def LOCALIZER(self):
         """Returns the md5 signature"""
-        return hashlib.md5(self.__str__().encode()).hexdigest()
+        json_info = {"id_card": self.__idcard,
+                     "name_surname": self.__NAME_SURNAME,
+                     "credit_card": self.__crEDITcardnumber,
+                     "phone_number:": self.__phonenumber,
+                     "arrival_date": self.__ARRIVAL,
+                     "num_days": self.__num_days,
+                     "room_type": self.__roomtype,
+                     }
+        json_string = str(json_info).replace("HotelReservation:", "").replace(
+            "'", '"')
+        return hashlib.md5(json_string.encode()).hexdigest()
+
+"""
+from datetime import datetime
+
+# Assume timestamp is the timestamp you got
+timestamp = datetime.timestamp(datetime.utcnow())
+
+# Convert timestamp to datetime
+dt_object = datetime.fromtimestamp(timestamp)
+
+# Format datetime as a string
+date_string = dt_object.strftime("%d/%m/%Y")
+
+print(timestamp)
+print(dt_object)
+print(date_string)
+"""

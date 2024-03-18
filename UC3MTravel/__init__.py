@@ -2,8 +2,10 @@ from UC3MTravel.HotelReservation import HotelReservation
 from UC3MTravel.HotelManager import HotelManager
 from UC3MTravel.HotelManagementException import HotelManagementException
 from UC3MTravel.HotelStay import HotelStay
+
 import datetime
 import json
+import hashlib
 
 # FIRST FUNCTION
 def room_reservation (credit_card, name_surname, id_Card, phone_number,
@@ -12,7 +14,6 @@ def room_reservation (credit_card, name_surname, id_Card, phone_number,
     hotel = HotelManager()
 
     # PROCESS 1 (Check Inputs)
-
     # Credit_card
     #Check if it is the correct format
     credit_card = str(credit_card)
@@ -81,13 +82,11 @@ def room_reservation (credit_card, name_surname, id_Card, phone_number,
     except (FileNotFoundError, json.JSONDecodeError):
         # If the file does not exist or is empty, initialize existing_data as an empty list
         existing_data = []
-
     # Check if a reservation already exists for the same person
     for existing_reservation in existing_data:
         if existing_reservation['name_surname'] == name_surname:
             raise HotelManagementException(
                 "%s already has a reservation" % name_surname)
-
     # Append new reservation data
     existing_data.append(reservation_data)
     # Write updated data back to file
@@ -97,6 +96,15 @@ def room_reservation (credit_card, name_surname, id_Card, phone_number,
     # We return the localizer
     return localizer
 
+
+
+
+
+
+
+
+
+# SECOND FUNCTION
 def guest_arrival (file_path):
 
     # First process of the function
@@ -133,20 +141,57 @@ def guest_arrival (file_path):
     hotelStay = HotelStay(data)
 
 
+
+# FUNCTION TO PROVE IF THE LOCALIZER EXISTS
+def check_localizer(localizer):
+    # Check if the localizer is in the correct format
+    if not isinstance(localizer, str) or len(localizer) != 32:
+        return False
+
+    # Try to load existing data
+    try:
+        with open('Reservations.json', 'r') as f:
+            existing_data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        # If the file does not exist or is empty, return False
+        return False
+
+    # Check if a reservation exists with the same localizer
+    for reservation in existing_data:
+        # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
+        json_string = str(reservation).replace("HotelReservation:", "").replace("'", '"')
+        # Generate the MD5 hash of the reservation data
+        reservation_hash = hashlib.md5(json_string.encode()).hexdigest()
+        # If the hashes match, return True
+        if reservation_hash == localizer:
+            return True
+
+    # If no matching reservation was found, return False
+    return False
+
 # Main
 def main():
-    """result = room_reservation(5555555555554444,
+    """
+    result = room_reservation(5555555555554444,
                               "Marta Pomelo",
-                              1235,
-                              567361111,
+                              1236,
+                              561321141,
                               "single",
-                              "25/03/2029",
-                              5)"""
+                              "15/07/2024",
+                              5)
+    print(result)
+    print(check_localizer("898846d21b4246c21367b6021324498a"))
+    print(check_localizer("4525f9f947b84e562153ff5216fd1e79"))
+    print(check_localizer("4525f9f947b84e562153ff5216fd1e7"))
+    print(check_localizer("4525f9f947b84e562153ff5216fd4e79"))
+    """
+
+    """
     # Define the relative path to the file
     file_path = './Reservations.json'
     result = guest_arrival(file_path)
     print(result)
-
+    """
 
 if __name__ == "__main__":
     main()
