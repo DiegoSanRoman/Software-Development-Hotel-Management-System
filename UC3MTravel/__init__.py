@@ -112,33 +112,56 @@ def guest_arrival (file_path):
         # Open the JSON file and load its contents
         with open(file_path, 'r') as f:
             data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        # If the file does not exist or is empty, return False
+        return False
+    # Check if 'Localizer' key exists in the data
+    localizer_found = False
+    localizer = " "
+    for item in data:
+        if 'Localizer' in item:
+            localizer_found = True
+            localizer = item['Localizer']
+            break
 
-        # Check if 'Localizer' key exists in the data
-        localizer_found = False
-        localizer = " "
+    if not localizer_found:
+        raise HotelManagementException("'Localizer' key missing in JSON")
+    # Check if the length of the localizer is correct (32 hexadecimal characters)
+    correct = check_localizer(localizer)
+    if correct:
+        print("information provided with respect to the localizer is GOD")
+    # Now we need to check if the locator info is correct (idCard)
+        try:
+            with open('Reservations.json', 'r') as f:
+                existing_data = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            # If the file does not exist or is empty, return False
+            return False
+
+        # Check if a reservation exists with the same localizer
+
+        # 1. load in id the idCard from Arrival
+        id_found = False
+        id = " "
         for item in data:
-            if 'Localizer' in item:
-                localizer_found = True
-                localizer = item['Localizer']
+            if 'IdCard' in item:
+                id_found = True
+                id = item['IdCard']
                 break
+        if not id_found:
+            raise HotelManagementException("'Id' key missing in JSON")
 
-        if not localizer_found:
-            raise HotelManagementException("'Localizer' key missing in JSON")
-        # Check if the length of the localizer is correct (32 hexadecimal characters)
-        if len(localizer) != 32:
-            raise HotelManagementException("Invalid value for 'Localizer")
+        # NOW CHECK IF THE ID OF BOTH JSON FILES IS THE SAME
+        id_correct = False
+        for reservation in existing_data:
+            if reservation["id_card"] == id:
+                id_correct = True
+                break
+        if not id_correct:
+            raise HotelManagementException("new IdCard is not in reservation")
+        else:
+            print("All the info of the new locator is correct")
 
-        # Here you would typically check if the localizer exists in the reservation file
-        # and if it matches the data. Since this is just a placeholder, we'll return True.
-        return True
-
-    except FileNotFoundError:
-        raise HotelManagementException("The file was not found!!!")
-    except json.JSONDecodeError:
-        raise HotelManagementException("Invalid JSON format!!!")
-
-    # IF ALL IS CORRECT WE CONTINUE WITH PROCESS 2
-    hotelStay = HotelStay(data)
 
 
 
@@ -171,27 +194,27 @@ def check_localizer(localizer):
 
 # Main
 def main():
-    """
-    result = room_reservation(5555555555554444,
+
+    """result = room_reservation(5555555555554444,
                               "Marta Pomelo",
                               1236,
                               561321141,
                               "single",
                               "15/07/2024",
                               5)
-    print(result)
-    print(check_localizer("898846d21b4246c21367b6021324498a"))
+    print(result)"""
+    """print(check_localizer("898846d21b4246c21367b6021324498a"))
     print(check_localizer("4525f9f947b84e562153ff5216fd1e79"))
     print(check_localizer("4525f9f947b84e562153ff5216fd1e7"))
     print(check_localizer("4525f9f947b84e562153ff5216fd4e79"))
     """
 
-    """
+
     # Define the relative path to the file
-    file_path = './Reservations.json'
+    file_path = './Arrival.json'
     result = guest_arrival(file_path)
     print(result)
-    """
+
 
 if __name__ == "__main__":
     main()
