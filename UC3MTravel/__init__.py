@@ -63,7 +63,7 @@ def guest_arrival(file_path):
     if not idCorrect:
         raise HotelManagementException("new IdCard is not in reservation")
     # SECOND PART OF THE FUNCTION
-    # First we charge numdays and roomtype from reservations.json
+    # First we charge numdays, roomtype and arrival from reservations.json
     roomtype = " "
     numdays = " "
     arrival = " "
@@ -80,6 +80,12 @@ def guest_arrival(file_path):
     if not founded:
         HotelManagementException("Number of days or room type or arrival_date "
                                  "are missing in the guest's info")
+    # Now we create an instance of HotelStay
+    myStay = hotelStay(id, localizer, numdays, roomtype)
+    if arrival == myStay.arrival:
+        print("All the information is correct, processing the room key")
+        return myStay.room_key
+    #CREATE
 
 # FUNCTION TO PROVE IF THE LOCALIZER EXISTS
 def check_localizer(localizer, existingdata):
