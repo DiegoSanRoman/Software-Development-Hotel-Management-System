@@ -133,7 +133,7 @@ class HotelManager:
         reservation_data = json.loads(json_string)
         # Try to load existing data
         try:
-            with open('Reservations.json', 'r') as f:
+            with open('../Reservations.json', 'r') as f:
                 existing_data = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             # If the file does not exist or is empty, initialize existing_data as an empty list
@@ -146,7 +146,7 @@ class HotelManager:
         # Append new reservation data
         existing_data.append(reservation_data)
         # Write updated data back to file
-        with open('Reservations.json', 'w') as f:
+        with open('../Reservations.json', 'w') as f:
             json.dump(existing_data, f, indent=4)
 
         # We return the localizer
@@ -166,7 +166,7 @@ class HotelManager:
             # If the file does not exist or is empty, return False
             return False
         try:
-            with open('Reservations.json', 'r', encoding='utf-8') as f:
+            with open('../Reservations.json', 'r', encoding='utf-8') as f:
                 existingData = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             # If the file does not exist or is empty, return False

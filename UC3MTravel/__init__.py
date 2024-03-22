@@ -23,7 +23,7 @@ def guest_arrival(file_path):
         # If the file does not exist or is empty, return False
         return False
     try:
-        with open('Reservations.json', 'r', encoding='utf-8') as f:
+        with open('../Reservations.json', 'r', encoding='utf-8') as f:
             existingData = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         # If the file does not exist or is empty, return False
@@ -69,14 +69,13 @@ def guest_arrival(file_path):
     arrival = " "
     founded = False
     for item in existingData:
-        if item['id_card'] == id:
-            if 'room_type' in item and 'num_days' in item and 'arrival_date ' \
-                                                              in item:
-                founded = True
-                roomtype = item['room_type']
-                numdays = item['num_days']
-                arrival = item['arrival_date']
-                break
+        if id == item['id_card'] and 'room_type' in item and 'num_days' in \
+                item and 'arrival_date' in item:
+            founded = True
+            roomtype = item['room_type']
+            numdays = item['num_days']
+            arrival = item['arrival_date']
+            break
     print(roomtype, numdays, arrival)
     if not founded:
         HotelManagementException("Number of days or room type or arrival_date "
