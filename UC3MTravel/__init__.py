@@ -14,7 +14,6 @@ def guest_arrival(file_path):
     """This is the second function of the assignment and it corresponds to
     the arrival of the guest to the hotel, where we need to check if he/she
     is actually the expected guest and all the info is correct"""
-
     # First we open both json files (data, existing_data)
     try:
         # Open the JSON file and load its contents
@@ -66,32 +65,32 @@ def guest_arrival(file_path):
             raise HotelManagementException("new IdCard is not in reservation")
     # SECOND PART OF THE FUNCTION
     # First we charge numdays and roomtype from reservations.json
-    founded = False
     roomtype = " "
-    numdays = 0
-    arrival = 0
+    numdays = " "
+    arrival = " "
+    founded = False
     for item in existingData:
-        if id == item['id_card'] and 'room_type' in item and 'num_days' in \
-                item and 'arrival_date' in item:
-            founded = True
-            roomtype = item['room_type']
-            numdays = item['num_days']
-            arrival = item['arrival_date']
-            break
-    print("roomtype: %s, numdays: %i, arrival: %f" %(roomtype, numdays, arrival))
+        if item['id_card'] == id:
+            if 'room_type' in item and 'num_days' in item and 'arrival_date ' \
+                                                              in item:
+                founded = True
+                roomtype = item['room_type']
+                numdays = item['num_days']
+                arrival = item['arrival_date']
+                break
     if not founded:
         HotelManagementException("Number of days or room type or arrival_date "
                                  "are missing in the guest's info")
 
     # NOW WE CREATE AN STAY INSTANCE
-    mystay = hotelStay(id, localizer, numdays, roomtype)
+    """mystay = hotelStay(id, localizer, numdays, roomtype)
 
     #FINALLY WE NEED TO CHECK THAT THE ARRIVAL DATE IS IN A RESERVATION
     goodArrival = datetime.fromtimestamp(arrival)
 
     if mystay.arrival == goodArrival:
         print("All information is correct")
-        return mystay.room_key
+        return mystay.room_key"""
 
 
 
