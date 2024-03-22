@@ -66,19 +66,19 @@ def guest_arrival(file_path):
             raise HotelManagementException("new IdCard is not in reservation")
     # SECOND PART OF THE FUNCTION
     # First we charge numdays and roomtype from reservations.json
-    roomtype = " "
-    numdays = " "
-    arrival = " "
     founded = False
+    roomtype = " "
+    numdays = 0
+    arrival = 0
     for item in existingData:
-        if item['id_card'] == id:
-            if 'room_type' in item and 'num_days' in item and 'arrival_date ' \
-                                                              in item:
-                founded = True
-                roomtype = item['room_type']
-                numdays = item['num_days']
-                arrival = item['arrival_date']
-                break
+        if id == item['id_card'] and 'room_type' in item and 'num_days' in \
+                item and 'arrival_date' in item:
+            founded = True
+            roomtype = item['room_type']
+            numdays = item['num_days']
+            arrival = item['arrival_date']
+            break
+    print("roomtype: %s, numdays: %i, arrival: %f" %(roomtype, numdays, arrival))
     if not founded:
         HotelManagementException("Number of days or room type or arrival_date "
                                  "are missing in the guest's info")

@@ -212,18 +212,19 @@ class HotelManager:
         arrival = " "
         founded = False
         for item in existingData:
-            if item['id_card'] == id:
-                if 'room_type' in item and 'num_days' in item and 'arrival_date ' \
-                        in item:
-                    founded = True
-                    roomtype = item['room_type']
-                    numdays = item['num_days']
-                    arrival = item['arrival_date']
-                    break
+            if id == item['id_card'] and 'room_type' in item and 'num_days' in \
+                    item and 'arrival_date' in item:
+                founded = True
+                roomtype = item['room_type']
+                numdays = item['num_days']
+                arrival = item['arrival_date']
+                break
         if not founded:
             HotelManagementException(
                 "Number of days or room type or arrival_date "
                 "are missing in the guest's info")
+        else:
+            print("bitches")
 
         # NOW WE CREATE AN STAY INSTANCE
         mystay = hotelStay(id, localizer, numdays, roomtype)
@@ -256,3 +257,4 @@ class HotelManager:
 
         # If no matching reservation was found, return False
         return False
+
