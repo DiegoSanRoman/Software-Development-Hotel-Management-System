@@ -51,7 +51,8 @@ class HotelManager:
             p = DATA["phoneNumber"]
             req = HotelReservation(IDCARD="12345678Z", creditcardNumb=c,
                                    nAMeAndSURNAME="John Doe", phonenumber=p,
-                                   room_type="single", numdays=3)
+                                   room_type="single", arrival_date =
+                                   "04/06/2034", numdays=3)
         except KeyError as e:
             raise HotelManagementException(
                 "JSON Decode Error - Invalid JSON Key") from e
@@ -119,7 +120,8 @@ class HotelManager:
 
         # PROCESS 2 (Create reservation)
         reservation = HotelReservation(id_Card, credit_card, name_surname,
-                                       phone_number, room_type, num_days)
+                                       phone_number, room_type,
+                                       arrival_date, num_days)
         localizer = reservation.LOCALIZER
 
         # PROCESS 3 (Store data in JSON file)
