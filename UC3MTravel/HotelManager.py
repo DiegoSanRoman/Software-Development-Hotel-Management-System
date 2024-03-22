@@ -158,65 +158,63 @@ class HotelManager:
         # First we open both json files (data, existing_data)
         try:
             # Open the JSON file and load its contents
-            with open(file_path, 'r') as f:
+            with open(file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             # If the file does not exist or is empty, return False
             return False
         try:
-            with open('Reservations.json', 'r') as f:
-                existing_data = json.load(f)
+            with open('Reservations.json', 'r', encoding='utf-8') as f:
+                existingData = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             # If the file does not exist or is empty, return False
             return False
         # Check if 'Localizer' key exists in the data
-        localizer_found = False
+        localizerFound = False
         localizer = " "
         id = " "
         for item in data:
             if 'Localizer' in item:
-                localizer_found = True
+                localizerFound = True
                 localizer = item['Localizer']
                 break
 
-        if not localizer_found:
+        if not localizerFound:
             raise HotelManagementException("'Localizer' key missing in JSON")
         # Check if the length of the localizer is correct (32 hexadecimal characters)
-        correct = self.check_localizer(localizer, existing_data)
+        correct = self.check_localizer(localizer, existingData)
         if correct:
             print("information provided with respect to the localizer is GOD")
             # Now we need to check if the locator info is correct (idCard)
             # 1. load in id the idCard from Arrival
-            id_found = False
+            idFound = False
             for item in data:
                 if 'IdCard' in item:
-                    id_found = True
+                    idFound = True
                     id = item['IdCard']
                     break
-            if not id_found:
+            if not idFound:
                 raise HotelManagementException("'Id' key missing in JSON")
 
             # NOW CHECK IF THE ID OF BOTH JSON FILES IS THE SAME
-            id_correct = False
-            for reservation in existing_data:
+            idCorrect = False
+            for reservation in existingData:
                 if reservation["id_card"] == id:
-                    id_correct = True
+                    idCorrect = True
                     break
-            if not id_correct:
+            if not idCorrect:
                 raise HotelManagementException(
                     "new IdCard is not in reservation")
-            else:
-                print("All the info of the new locator is correct")
         # SECOND PART OF THE FUNCTION
         # First we charge numdays and roomtype from reservations.json
         roomtype = " "
         numdays = " "
         arrival = " "
         founded = False
-        for item in existing_data:
+        for item in existingData:
             if item['id_card'] == id:
                 if 'room_type' in item and 'num_days' in item and 'arrival_date ' \
-                                                                  'in item':
+                        in item:
                     founded = True
                     roomtype = item['room_type']
                     numdays = item['num_days']
@@ -230,16 +228,17 @@ class HotelManager:
         # NOW WE CREATE AN STAY INSTANCE
         mystay = hotelStay(id, localizer, numdays, roomtype)
 
-        """FINALLY WE NEED TO CHECK THAT THE ARRIVAL DATE PROVIDED IS IN AN 
-        EXISTING RESERVATION"""
-        good_arrival = datetime.fromtimestamp(arrival)
+        # FINALLY WE NEED TO CHECK THAT THE ARRIVAL DATE IS IN A RESERVATION
+        goodArrival = datetime.fromtimestamp(arrival)
 
-        if mystay.arrival == good_arrival:
+        if mystay.arrival == goodArrival:
             print("All information is correct")
             return mystay.room_key
 
     # FUNCTION TO PROVE IF THE LOCALIZER EXISTS
     def check_localizer(self, localizer, existing_data):
+        """This is a function whose objective is to check if the localizer is
+        correct and there is already a reservation with that localizer"""
         # Check if the localizer is in the correct format
         if not isinstance(localizer, str) or len(localizer) != 32:
             return False
@@ -247,12 +246,12 @@ class HotelManager:
         # Check if a reservation exists with the same localizer
         for reservation in existing_data:
             # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
-            json_string = str(reservation).replace("HotelReservation:",
-                                                   "").replace("'", '"')
+            jsonString = str(reservation).replace("HotelReservation:",
+                                                  "").replace("'", '"')
             # Generate the MD5 hash of the reservation data
-            reservation_hash = hashlib.md5(json_string.encode()).hexdigest()
+            reservationHash = hashlib.md5(jsonString.encode()).hexdigest()
             # If the hashes match, return True
-            if reservation_hash == localizer:
+            if reservationHash == localizer:
                 return True
 
         # If no matching reservation was found, return False
