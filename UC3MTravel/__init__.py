@@ -10,7 +10,7 @@ import hashlib
 # SECOND FUNCTION
 def guest_arrival (file_path):
 
-    # First process of the function
+    # First we open both json files (data, existing_data)
     try:
         # Open the JSON file and load its contents
         with open(file_path, 'r') as f:
@@ -18,9 +18,16 @@ def guest_arrival (file_path):
     except (FileNotFoundError, json.JSONDecodeError):
         # If the file does not exist or is empty, return False
         return False
+    try:
+        with open('Reservations.json', 'r') as f:
+            existing_data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        # If the file does not exist or is empty, return False
+        return False
     # Check if 'Localizer' key exists in the data
     localizer_found = False
     localizer = " "
+    id = " "
     for item in data:
         if 'Localizer' in item:
             localizer_found = True
@@ -30,22 +37,12 @@ def guest_arrival (file_path):
     if not localizer_found:
         raise HotelManagementException("'Localizer' key missing in JSON")
     # Check if the length of the localizer is correct (32 hexadecimal characters)
-    correct = check_localizer(localizer)
+    correct = check_localizer(localizer, existing_data)
     if correct:
         print("information provided with respect to the localizer is GOD")
     # Now we need to check if the locator info is correct (idCard)
-        try:
-            with open('Reservations.json', 'r') as f:
-                existing_data = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError):
-            # If the file does not exist or is empty, return False
-            return False
-
-        # Check if a reservation exists with the same localizer
-
         # 1. load in id the idCard from Arrival
         id_found = False
-        id = " "
         for item in data:
             if 'IdCard' in item:
                 id_found = True
@@ -64,22 +61,44 @@ def guest_arrival (file_path):
             raise HotelManagementException("new IdCard is not in reservation")
         else:
             print("All the info of the new locator is correct")
+    # SECOND PART OF THE FUNCTION
+    # First we charge numdays and roomtype from reservations.json
+    roomtype = " "
+    numdays = " "
+    arrival = " "
+    founded = False
+    for item in existing_data:
+        if item['id_card'] == id:
+            if 'room_type' in item and 'num_days' in item and 'arrival_date ' \
+                                                              'in item':
+                founded = True
+                roomtype = item['room_type']
+                numdays = item['num_days']
+                arrival = item['arrival_date']
+                break
+    if not founded:
+        HotelManagementException("Number of days or room type or arrival_date "
+                                 "are missing in the guest's info")
+
+    # NOW WE CREATE AN STAY INSTANCE
+    mystay = HotelStay(id, localizer, numdays, roomtype)
+
+    """FINALLY WE NEED TO CHECK THAT THE ARRIVAL DATE PROVIDED IS IN AN 
+    EXISTING RESERVATION"""
+
+    if mystay.arrival == arrival:
+        print("All information is correct")
+
+
+
 
 
 
 
 # FUNCTION TO PROVE IF THE LOCALIZER EXISTS
-def check_localizer(localizer):
+def check_localizer(localizer, existing_data):
     # Check if the localizer is in the correct format
     if not isinstance(localizer, str) or len(localizer) != 32:
-        return False
-
-    # Try to load existing data
-    try:
-        with open('Reservations.json', 'r') as f:
-            existing_data = json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        # If the file does not exist or is empty, return False
         return False
 
     # Check if a reservation exists with the same localizer
@@ -99,8 +118,7 @@ def check_localizer(localizer):
 def main():
     # Define the relative path to the file
     file_path = './Arrival.json'
-    result = guest_arrival(file_path)
-    print(result)
+    guest_arrival(file_path)
 
 
 if __name__ == "__main__":
