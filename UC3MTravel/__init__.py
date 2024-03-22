@@ -90,8 +90,9 @@ def guest_arrival(file_path):
 
     """FINALLY WE NEED TO CHECK THAT THE ARRIVAL DATE PROVIDED IS IN AN 
     EXISTING RESERVATION"""
-    fecha_date = datetime.strptime(arrival, '%Y-%m-%d').date()
-    if mystay.arrival == fecha_date:
+    good_arrival = datetime.fromtimestamp(arrival)
+
+    if mystay.arrival == good_arrival:
         print("All information is correct")
         return mystay.room_key
 
