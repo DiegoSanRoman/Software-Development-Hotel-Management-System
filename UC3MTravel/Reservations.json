@@ -4,16 +4,7 @@
         "name_surname": "Marta Pomelo",
         "credit_card": "5555555555554444",
         "phone_number:": "561321141",
-        "arrival_date": 1710769746.953054,
-        "num_days": 5,
-        "room_type": "single"
-    },
-    {
-        "id_card": 1236,
-        "name_surname": "Paco Jimenez",
-        "credit_card": "5555555555554444",
-        "phone_number:": "561321141",
-        "arrival_date": 2352146400.0,
+        "arrival_date": 1710716400.0,
         "num_days": 5,
         "room_type": "single"
     }

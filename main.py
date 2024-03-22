@@ -7,11 +7,11 @@ def main():
     # MAIN PROGRAM
     Hotel = HotelManager()
     result = Hotel.room_reservation(5555555555554444,
-                                    "Paco Jimenez",
+                                    "Marta Pomelo",
                                     1236,
                                     561321141,
                                     "single",
-                                    "15/07/2044",
+                                    "18/03/2024",
                                     5)
     print(result)
 
