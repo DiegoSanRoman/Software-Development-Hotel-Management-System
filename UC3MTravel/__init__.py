@@ -1,14 +1,19 @@
-
+"""For now, we are using this file to record information about the functions
+of GE2. Then we will store those functions in HotelManager"""
+from datetime import datetime
+import json
+import hashlib
 from UC3MTravel.HotelReservation import HotelReservation
 from UC3MTravel.HotelManager import HotelManager
 from UC3MTravel.HotelManagementException import HotelManagementException
-from UC3MTravel.HotelStay import HotelStay
+from UC3MTravel.HotelStay import hotelStay
 
-import json
-import hashlib
 
 # SECOND FUNCTION
-def guest_arrival (file_path):
+def guest_arrival(file_path):
+    """This is the second function of the assignment and it corresponds to
+    the arrival of the guest to the hotel, where we need to check if he/she
+    is actually the expected guest and all the info is correct"""
 
     # First we open both json files (data, existing_data)
     try:
@@ -81,13 +86,14 @@ def guest_arrival (file_path):
                                  "are missing in the guest's info")
 
     # NOW WE CREATE AN STAY INSTANCE
-    mystay = HotelStay(id, localizer, numdays, roomtype)
+    mystay = hotelStay(id, localizer, numdays, roomtype)
 
     """FINALLY WE NEED TO CHECK THAT THE ARRIVAL DATE PROVIDED IS IN AN 
     EXISTING RESERVATION"""
-
-    if mystay.arrival == arrival:
+    fecha_date = datetime.strptime(arrival, '%Y-%m-%d').date()
+    if mystay.arrival == fecha_date:
         print("All information is correct")
+        return mystay.room_key
 
 
 
