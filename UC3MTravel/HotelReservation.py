@@ -3,11 +3,12 @@ import json
 from datetime import datetime
 
 class HotelReservation:
-    def __init__(self, IDCARD, creditcardNumb, nAMeAndSURNAME, phonenumber, room_type,numdays):
+    def __init__(self, IDCARD, creditcardNumb, nAMeAndSURNAME, phonenumber,
+                 room_type, arrival_date, numdays):
         self.__crEDITcardnumber = creditcardNumb
         self.__idcard = IDCARD
-        justnow = datetime.utcnow()
-        self.__ARRIVAL = datetime.timestamp(justnow)
+        arrival = datetime.strptime(arrival_date, "%d/%m/%Y")
+        self.__ARRIVAL = datetime.timestamp(arrival)
         self.__NAME_SURNAME = nAMeAndSURNAME
         self.__phonenumber = phonenumber
         self.__roomtype = room_type
