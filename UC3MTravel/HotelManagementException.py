@@ -1,5 +1,5 @@
 """gdfhgjhkjkhjghfgdf"""
-class HotelManagementException(Exception):
+class hotelManagementException(Exception):
     """HlwmkcnoaibcLIVOÑLEAHSEBLCSDLINHWKASKXFKHLILAJ"""
     def __init__(self, message):
         self.__message = message
