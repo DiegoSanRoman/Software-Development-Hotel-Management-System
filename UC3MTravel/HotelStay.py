@@ -17,7 +17,9 @@ class hotelStay():
         self.__departure = self.__arrival + (numdays * 24 * 60 * 60)
 
     def __signature_string(self):
-        """Composes the string to be used for generating the key for the room"""
+        """Composes the string to be used for generating the key for the room
+        I have added str in arrival and departure to not have errors in
+        the conversion"""
         return "{alg:" + self.__alg + ",typ:" + self.__type + ",localizer:" + \
             self.__localizer + ",arrival:" + str(self.__arrival) + \
             ",departure:" + str(self.__departure) + "}"
