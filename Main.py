@@ -1,12 +1,13 @@
-#THIS MAIN PROGRAM IS ONLY VALID FOR THE FIRST THREE WEEKS OF CLASS
-#IN GUIDED EXERCISE 2.2, TESTING MUST BE PERFORMED USING UNITTESTS.
+"""THIS MAIN PROGRAM IS ONLY VALID FOR THE FIRST THREE WEEKS OF CLASS
+IN GUIDED EXERCISE 2.2, TESTING MUST BE PERFORMED USING UNITTESTS."""
 
-from UC3MTravel import HotelManager
+from UC3MTravel.HotelManager import HotelManager
 
 def main():
+    """Function to try and check methods and functions"""
     # MAIN PROGRAM
-    Hotel = HotelManager()
-    result = Hotel.room_reservation(5555555555554444,
+    hotel = HotelManager()
+    result = hotel.room_reservation(5555555555554444,
                                     "Marta Pomelo",
                                     1236,
                                     561321141,
@@ -19,7 +20,7 @@ def main():
 
     mng = HotelManager()
     res = mng.ReaddatafromJSOn("test.json")
-    strRes = res.__str__()
+    strRes = str(res)
     print(strRes)
     print("CreditCard: " + res.CREDITCARD)
     print(res.LOCALIZER)

@@ -227,8 +227,8 @@ class HotelManager:
         myStay = hotelStay(id, localizer, numdays, roomtype)
         if arrival == myStay.arrival:
             print("All the information is correct, processing the room key")
-            print("Room key: %s" % myStay.room_key)
-            return myStay.room_key
+            print("Room key: %s" % myStay.roomKey)
+            return myStay.roomKey
 
     # FUNCTION TO PROVE IF THE LOCALIZER EXISTS
     def check_localizer(self, localizer, existing_data):

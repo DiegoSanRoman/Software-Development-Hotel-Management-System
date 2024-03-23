@@ -1,22 +1,25 @@
-''' Class HotelStay (GE2.2) '''
+""" Class HotelStay (GE2.2) """
 from datetime import datetime
 import hashlib
 
 class hotelStay():
+    """This class contains all the information related with the stay of the
+    guest, meaning, its localizer, idCard, information about the reservation
+    and also the room key that he/she needs for staying in the hotel."""
     def __init__(self, idcard, localizer, numdays, roomtype):
-        self.__alg = "SHA-256"
-        self.__type = roomtype
-        self.__idcard = idcard
-        self.__localizer = localizer
+        """We add a disabled message for pylint since our convention of naming
+        attributes is in camelCase, but we need private attributes (__)"""
+        self.__alg = "SHA-256" # pylint: disable=invalid-name
+        self.__type = roomtype # pylint: disable=invalid-name
+        self.__idcard = idcard # pylint: disable=invalid-name
+        self.__localizer = localizer # pylint: disable=invalid-name
         """justnow = datetime.utcnow()
         self.__arrival = justnow.timestamp()"""
         specificDate = datetime(year=2024, month=3, day=18)
-        self.__arrival = specificDate.timestamp()
-        #timestamp is represented in seconds.miliseconds
-        #to add the number of days we must express numdays in seconds
-        self.__departure = self.__arrival + (numdays * 24 * 60 * 60)
+        self.__arrival = specificDate.timestamp() # pylint: disable=invalid-name
+        self.__departure = self.__arrival + (numdays * 24 * 60 * 60) # pylint: disable=invalid-name
 
-    def __signature_string(self):
+    def __signature_string(self): # pylint: disable=invalid-name
         """Composes the string to be used for generating the key for the room
         I have added str in arrival and departure to not have errors in
         the conversion"""
@@ -30,7 +33,7 @@ class hotelStay():
         return self.__idcard
 
     @idCard.setter
-    def icCard(self, value):
+    def idCard(self, value):
         self.__idcard = value
 
     @property
@@ -48,7 +51,7 @@ class hotelStay():
         return self.__arrival
 
     @property
-    def room_key(self):
+    def roomKey(self):
         """Returns the sha256 signature of the date"""
         return hashlib.sha256(self.__signature_string().encode()).hexdigest()
 
