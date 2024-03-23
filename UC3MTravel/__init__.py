@@ -86,7 +86,6 @@ def guest_arrival(file_path):
         print("All the information is correct, processing the room key")
         print("Room key: %s" %myStay.room_key)
         return myStay.room_key
-    #CREATE
 
 # FUNCTION TO PROVE IF THE LOCALIZER EXISTS
 def check_localizer(localizer, existingdata):

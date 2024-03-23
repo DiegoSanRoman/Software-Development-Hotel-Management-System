@@ -154,9 +154,8 @@ class HotelManager:
 
     def guest_arrival(self, file_path):
         """This is the second function of the assignment and it corresponds to
-        the arrival of the guest to the hotel, where we need to check if he/she
-        is actually the expected guest and all the info is correct"""
-
+            the arrival of the guest to the hotel, where we need to check if he/she
+            is actually the expected guest and all the info is correct"""
         # First we open both json files (data, existing_data)
         try:
             # Open the JSON file and load its contents
@@ -185,30 +184,28 @@ class HotelManager:
             raise HotelManagementException("'Localizer' key missing in JSON")
         # Check if the length of the localizer is correct (32 hexadecimal characters)
         correct = self.check_localizer(localizer, existingData)
-        if correct:
-            print("information provided with respect to the localizer is GOD")
-            # Now we need to check if the locator info is correct (idCard)
-            # 1. load in id the idCard from Arrival
-            idFound = False
-            for item in data:
-                if 'IdCard' in item:
-                    idFound = True
-                    id = item['IdCard']
-                    break
-            if not idFound:
-                raise HotelManagementException("'Id' key missing in JSON")
-
-            # NOW CHECK IF THE ID OF BOTH JSON FILES IS THE SAME
-            idCorrect = False
-            for reservation in existingData:
-                if reservation["id_card"] == id:
-                    idCorrect = True
-                    break
-            if not idCorrect:
-                raise HotelManagementException(
-                    "new IdCard is not in reservation")
+        if not correct:
+            raise HotelManagementException("'Localizer' is not well defined")
+        # Now we need to check if the locator info is correct (idCard)
+        # 1. load in id the idCard from Arrival
+        idFound = False
+        for item in data:
+            if 'IdCard' in item:
+                idFound = True
+                id = item['IdCard']
+                break
+        if not idFound:
+            raise HotelManagementException("'Id' key missing in JSON")
+        # NOW CHECK IF THE ID OF BOTH JSON FILES IS THE SAME
+        idCorrect = False
+        for reservation in existingData:
+            if reservation["id_card"] == id:
+                idCorrect = True
+                break
+        if not idCorrect:
+            raise HotelManagementException("new IdCard is not in reservation")
         # SECOND PART OF THE FUNCTION
-        # First we charge numdays and roomtype from reservations.json
+        # First we charge numdays, roomtype and arrival from reservations.json
         roomtype = " "
         numdays = " "
         arrival = " "
@@ -221,22 +218,17 @@ class HotelManager:
                 numdays = item['num_days']
                 arrival = item['arrival_date']
                 break
+        print(roomtype, numdays, arrival)
         if not founded:
             HotelManagementException(
                 "Number of days or room type or arrival_date "
                 "are missing in the guest's info")
-        else:
-            print("bitches")
-
-        # NOW WE CREATE AN STAY INSTANCE
-        mystay = hotelStay(id, localizer, numdays, roomtype)
-
-        # FINALLY WE NEED TO CHECK THAT THE ARRIVAL DATE IS IN A RESERVATION
-        goodArrival = datetime.fromtimestamp(arrival)
-
-        if mystay.arrival == goodArrival:
-            print("All information is correct")
-            return mystay.room_key
+        # Now we create an instance of HotelStay
+        myStay = hotelStay(id, localizer, numdays, roomtype)
+        if arrival == myStay.arrival:
+            print("All the information is correct, processing the room key")
+            print("Room key: %s" % myStay.room_key)
+            return myStay.room_key
 
     # FUNCTION TO PROVE IF THE LOCALIZER EXISTS
     def check_localizer(self, localizer, existing_data):
