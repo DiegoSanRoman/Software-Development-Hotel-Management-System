@@ -86,7 +86,10 @@ class HotelManager:
             raise hotelManagementException("Invalid name and surname")
 
         # id_Card
-        # I don't know how to check this
+        # Check that the card id has 3 digits
+        id_Card = str(id_Card)
+        if len(id_Card) != 3:
+            raise hotelManagementException("Invalid ID card (3 digits needed")
 
         # phone_number
         phone_number = str(phone_number)
