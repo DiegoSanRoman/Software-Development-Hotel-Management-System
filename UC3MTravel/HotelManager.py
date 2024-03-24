@@ -77,6 +77,10 @@ class HotelManager:
             raise hotelManagementException("Invalid credit card number")
 
         # name_surname
+        # Check that the length of the string is correct
+        if len(name_surname) < 10 or len(name_surname) > 50:
+            raise hotelManagementException("Invalid name and surname")
+        # Check that the string contains at least two strings separated by a space
         strings = name_surname.split()
         if len(strings) < 2:
             raise hotelManagementException("Invalid name and surname")
