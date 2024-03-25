@@ -191,7 +191,7 @@ class HotelManager:
             raise hotelManagementException("'Localizer' key missing in JSON")
         # Check if the length of the localizer is correct (32 hexadecimal characters)
         correct = self.check_localizer(localizer, existingData)
-        if not correct:
+        if correct == 0:
             raise hotelManagementException("'Localizer' is not well defined")
         # Now we need to check if the locator info is correct (idCard)
         # 1. load in id the idCard from Arrival
@@ -205,10 +205,8 @@ class HotelManager:
             raise hotelManagementException("'Id' key missing in JSON")
         # NOW CHECK IF THE ID OF BOTH JSON FILES IS THE SAME
         idCorrect = False
-        for reservation in existingData:
-            if reservation["id_card"] == id:
-                idCorrect = True
-                break
+        if id == correct:
+            idCorrect = True
         if not idCorrect:
             raise hotelManagementException("new IdCard is not in reservation")
         # SECOND PART OF THE FUNCTION
@@ -243,7 +241,7 @@ class HotelManager:
                 reservation_data = json.loads(json_string)
                 # We write in a json file all info related to the hotelStay
                 try:
-                    with open('../Reservations.json', 'r') as f:
+                    with open('../Stay.json', 'r') as f:
                         stayData = json.load(f)
                 except (FileNotFoundError, json.JSONDecodeError):
                     # If the file does not exist or is empty, initialize existing_data as an empty list
@@ -261,7 +259,7 @@ class HotelManager:
         correct and there is already a reservation with that localizer"""
         # Check if the localizer is in the correct format
         if not isinstance(localizer, str) or len(localizer) != 32:
-            return False
+            return 0
 
         # Check if a reservation exists with the same localizer
         for reservation in existing_data:
@@ -272,10 +270,10 @@ class HotelManager:
             reservationHash = hashlib.md5(jsonString.encode()).hexdigest()
             # If the hashes match, return True
             if reservationHash == localizer:
-                return True
+                return reservation["id_card"]
 
         # If no matching reservation was found, return False
-        return False
+        return 0
 
     # THIRD FUNCTION
     def guest_checkout(self, room_key):

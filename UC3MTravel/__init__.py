@@ -42,7 +42,7 @@ def guest_arrival(file_path):
         raise hotelManagementException("'Localizer' key missing in JSON")
     # Check if the length of the localizer is correct (32 hexadecimal characters)
     correct = check_localizer(localizer, existingData)
-    if not correct:
+    if correct == 0:
         raise hotelManagementException("'Localizer' is not well defined")
     # Now we need to check if the locator info is correct (idCard)
     # 1. load in id the idCard from Arrival
@@ -56,10 +56,8 @@ def guest_arrival(file_path):
         raise hotelManagementException("'Id' key missing in JSON")
     # NOW CHECK IF THE ID OF BOTH JSON FILES IS THE SAME
     idCorrect = False
-    for reservation in existingData:
-        if reservation["id_card"] == id:
-            idCorrect = True
-            break
+    if id == correct:
+        idCorrect = True
     if not idCorrect:
         raise hotelManagementException("new IdCard is not in reservation")
     # SECOND PART OF THE FUNCTION
@@ -84,23 +82,27 @@ def guest_arrival(file_path):
     # Now we create an instance of HotelStay
     myStay = hotelStay(id, localizer, numdays, roomtype)
     if arrival == myStay.arrival:
-        # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
-        json_string = myStay.signature_string().replace("HotelReservation:",
-                                               "").replace(
-            "'", '"')
-        # Convert the JSON string into a Python dictionary
-        reservation_data = json.loads(json_string)
-        # We write in a json file all info related to the hotelStay
-        try:
-            with open('../Reservations.json', 'r') as f:
-                stayData = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError):
-            # If the file does not exist or is empty, initialize existing_data as an empty list
-            stayData = []
-        stayData.append(reservation_data)
-        # Write updated data back to file
-        with open('../Stay.json', 'w') as f:
-            json.dump(stayData, f)
+        if arrival == myStay.arrival:
+            # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
+            json_string = myStay.signature_string().replace(
+                "HotelReservation:",
+                "").replace(
+                "'", '"')
+            # Convert the JSON string into a Python dictionary
+            reservation_data = json.loads(json_string)
+            # We write in a json file all info related to the hotelStay
+            try:
+                with open('../Stay.json', 'r') as f:
+                    stayData = json.load(f)
+            except (FileNotFoundError, json.JSONDecodeError):
+                # If the file does not exist or is empty, initialize existing_data as an empty list
+                stayData = []
+            stayData.append(reservation_data)
+            # Write updated data back to file
+            with open('../Stay.json', 'w') as f:
+                json.dump(stayData, f)
+        print("Room key: %s" % myStay.roomKey)
+        return myStay.roomKey
 
 
 # FUNCTION TO PROVE IF THE LOCALIZER EXISTS
@@ -109,7 +111,7 @@ def check_localizer(localizer, existing_data):
     correct and there is already a reservation with that localizer"""
     # Check if the localizer is in the correct format
     if not isinstance(localizer, str) or len(localizer) != 32:
-        return False
+        return 0
 
     # Check if a reservation exists with the same localizer
     for reservation in existing_data:
@@ -120,10 +122,10 @@ def check_localizer(localizer, existing_data):
         reservationHash = hashlib.md5(jsonString.encode()).hexdigest()
         # If the hashes match, return True
         if reservationHash == localizer:
-            return True
+            return reservation["id_card"]
 
     # If no matching reservation was found, return False
-    return False
+    return 0
 
 # Main
 def main():
