@@ -19,14 +19,23 @@ class hotelStay():
         self.__arrival = specificDate.timestamp() # pylint: disable=invalid-name
         self.__departure = self.__arrival + (numdays * 24 * 60 * 60) # pylint: disable=invalid-name
 
-    def __signature_string(self): # pylint: disable=invalid-name
+    def signature_string(self): # pylint: disable=invalid-name
         """Composes the string to be used for generating the key for the room
-        I have added str in arrival and departure to not have errors in
-        the conversion"""
-        return "{alg:" + self.__alg + ",typ:" + self.__type + ",localizer:" + \
-            self.__localizer + ",arrival:" + str(self.__arrival) + \
-            ",departure:" + str(self.__departure) + "}"
+         """
+        # Original code
 
+        """return "{alg:" + self.__alg + ",typ:" + self.__type + ",localizer:" + \
+            self.__localizer + ",arrival:" + str(self.__arrival) + \
+            ",departure:" + str(self.__departure) + "}"""
+
+        # New code
+        jsonInfo = {"alg:": self.__alg,
+                     "typ:": self.__type,
+                     "localizer:": self.__localizer,
+                     "arrival:": self.__arrival,
+                     "departure:": self.__departure,
+                     }
+        return jsonInfo.__str__()
     @property
     def idCard(self):
         """Property that represents the product_id of the patient"""
@@ -53,7 +62,7 @@ class hotelStay():
     @property
     def roomKey(self):
         """Returns the sha256 signature of the date"""
-        return hashlib.sha256(self.__signature_string().encode()).hexdigest()
+        return hashlib.sha256(self.signature_string().encode()).hexdigest()
 
     @property
     def departure(self):

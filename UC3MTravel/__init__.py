@@ -84,9 +84,23 @@ def guest_arrival(file_path):
     # Now we create an instance of HotelStay
     myStay = hotelStay(id, localizer, numdays, roomtype)
     if arrival == myStay.arrival:
-        print("All the information is correct, processing the room key")
-        print(f"Room key: {myStay.roomKey}")
-        return myStay.roomKey
+        # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
+        json_string = myStay.signature_string().replace("HotelReservation:",
+                                               "").replace(
+            "'", '"')
+        # Convert the JSON string into a Python dictionary
+        reservation_data = json.loads(json_string)
+        # We write in a json file all info related to the hotelStay
+        try:
+            with open('../Reservations.json', 'r') as f:
+                stayData = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            # If the file does not exist or is empty, initialize existing_data as an empty list
+            stayData = []
+        stayData.append(reservation_data)
+        # Write updated data back to file
+        with open('../Stay.json', 'w') as f:
+            json.dump(stayData, f)
 
 
 # FUNCTION TO PROVE IF THE LOCALIZER EXISTS
@@ -115,7 +129,7 @@ def check_localizer(localizer, existing_data):
 def main():
     """A main created to try and see if the function works"""
     # Define the relative path to the file
-    filePath = './Arrival.json'
+    filePath = '../Arrival.json'
     guest_arrival(filePath)
 
 
