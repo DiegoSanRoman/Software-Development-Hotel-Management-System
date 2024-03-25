@@ -85,7 +85,7 @@ def guest_arrival(file_path):
     myStay = hotelStay(id, localizer, numdays, roomtype)
     if arrival == myStay.arrival:
         print("All the information is correct, processing the room key")
-        print("Room key: %s" % myStay.roomKey)
+        print(f"Room key: {myStay.roomKey}")
         return myStay.roomKey
 
 
