@@ -666,3 +666,14 @@ init-import=no
 # List of qualified module names which can have objects that can redefine
 # builtins.
 redefining-builtins-modules=six.moves,past.builtins,future.builtins,builtins,io
+
+# NEW RULE
+[FILES-NAMES]
+
+# Regular expression matching correct file names. Overrides file-naming-style.
+# If left empty, file names will be checked with the set naming style.
+#file-rgx=
+
+# NEW RULE
+# Naming style matching correct file names.
+file-naming-style=PascalCase|camelCase
