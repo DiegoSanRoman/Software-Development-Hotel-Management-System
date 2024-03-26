@@ -681,3 +681,22 @@ redefining-builtins-modules=six.moves,past.builtins,future.builtins,builtins,io
 # NEW RULE
 # Naming style matching correct file names.
 file-naming-style=PascalCase|camelCase
+
+
+[COPYRIGHT-START]
+# Regular expression matching correct copyright start.
+copyright-start-rgx=^\"\"\"Copyright © [0-9]{4} [A-Za-z ]+\nWritten on [A-Za-z ]+\nUniversity Carlos III of Madrid\n\"\"\"
+
+# Description of the rule.
+copyright-start-description=Ensures that the copyright notice at the beginning of Python files follows the required format.
+
+
+[COMMENTS-STRUCTURE]
+# Regular expression matching correct short comment structure.
+short-comment-rgx=^#\s.*$
+
+# Regular expression matching correct long comment structure.
+long-comment-rgx=^\"\"\".*\"\"\"$
+
+# Description of the rule.
+comments-structure-description=Defines the structure of comments in Python, requiring short comments to start with "#" and long comments to be enclosed within triple double quotes (\"\"\").
