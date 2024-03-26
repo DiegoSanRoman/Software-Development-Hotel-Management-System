@@ -14,9 +14,10 @@ class hotelStay():
         self.__idcard = idcard # pylint: disable=invalid-name
         self.__localizer = localizer # pylint: disable=invalid-name
         """justnow = datetime.utcnow()
-        self.__arrival = justnow.timestamp()"""
-        specificDate = datetime(year=2024, month=3, day=18)
-        self.__arrival = specificDate.timestamp() # pylint: disable=invalid-name
+        self.__arrival = justnow.timestamp() # pylint: disable=invalid-name"""
+        specificDate = datetime(2024, 3, 18)
+        timestamp = specificDate.timestamp() # pylint: disable=invalid-name
+        self.__arrival = timestamp # pylint: disable=invalid-name
         self.__departure = self.__arrival + (numdays * 24 * 60 * 60) # pylint: disable=invalid-name
 
     def signature_string(self): # pylint: disable=invalid-name
