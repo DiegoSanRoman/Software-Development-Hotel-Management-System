@@ -133,13 +133,22 @@ attr-naming-style=camelCase
 # style.
 #attr-rgx=
 
+# MODIFIED RULE
+# ORIGINAL RULE
 # Bad variable names which should always be refused, separated by a comma.
-bad-names=foo,
-          bar,
-          baz,
-          toto,
-          tutu,
-          tata
+# bad-names=foo,
+#          bar,
+#          baz,
+#          toto,
+#          tutu,
+#          tata
+
+bad-names=tonto,
+          tonta,
+          gilipollas,
+          imbecil,
+          feo,
+          fea
 
 # Bad variable names regexes, separated by a comma. If names match any regex,
 # they will always be refused

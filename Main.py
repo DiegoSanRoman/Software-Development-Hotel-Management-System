@@ -7,6 +7,7 @@ def main():
     """Function to try and check methods and functions"""
     # MAIN PROGRAM
     hotel = HotelManager()
+    print(hotel.validatecreditcard(3379513561108795))
     result = hotel.room_reservation(5555555555554444,
                                     "Marta Pomelo",
                                     1236,
