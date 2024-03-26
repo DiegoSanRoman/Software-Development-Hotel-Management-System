@@ -365,7 +365,11 @@ indent-after-paren=4
 # tab).
 indent-string='    '
 
+# MODIFIED RULE
+# ORIGINAL RULE
 # Maximum number of characters on a single line.
+# max-line-length=100
+
 max-line-length=150
 
 # Maximum number of lines in a module.
@@ -667,7 +671,7 @@ init-import=no
 # builtins.
 redefining-builtins-modules=six.moves,past.builtins,future.builtins,builtins,io
 
-# NEW RULE
+
 [FILES-NAMES]
 
 # Regular expression matching correct file names. Overrides file-naming-style.
