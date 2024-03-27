@@ -30,7 +30,7 @@ class testGuestArrival(unittest.TestCase):
         """Test for the second case, empty file"""
         # JSON empty file name
         myManager = HotelManager()
-        filePath = "emptyforTC2.json"
+        filePath = "JSONtestsFunction2/emptyforTC2.json"
         exception = None
         try:
             myManager.guest_arrival(filePath)
