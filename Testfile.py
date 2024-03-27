@@ -51,7 +51,7 @@ class testGuestArrival(unittest.TestCase):
         MOD, since with the other two the result will be the same.)"""
         # JSON empty file name
         myManager = HotelManager()
-        filePath = "JSONtestsFunction2/TC4MOD.json"
+        filePath = "JSONtestsFunction2/TC4.json"
         exception = None
         try:
             myManager.guest_arrival(filePath)
@@ -88,7 +88,7 @@ class testGuestArrival(unittest.TestCase):
         """Test for the seventh case, one of the fields is deleted. In this
         case only F1."""
 
-        fileName = "JSONtestsFunction2/TC7F1.json" # JSON empty file name
+        fileName = "JSONtestsFunction2/TC7F1.json"  # JSON empty file name
         myManager = HotelManager()
         exception = None
         try:
@@ -129,7 +129,7 @@ class testGuestArrival(unittest.TestCase):
         """Test for the ninth case, separator is modified"""
 
         # JSON file name
-        fileName = "JSONtestsFunction2/TC9MOD.json"
+        fileName = "JSONtestsFunction2/TC9.json"
         myManager = HotelManager()
         exception = None
         try:
@@ -144,7 +144,7 @@ class testGuestArrival(unittest.TestCase):
         """Test for the ninth case, separator is duplicated"""
 
         # JSON file name
-        fileName = "JSONtestsFunction2/TC9DUP.json"
+        fileName = "JSONtestsFunction2/TC9.json"
 
         myManager = HotelManager()
         exception = None
@@ -156,22 +156,13 @@ class testGuestArrival(unittest.TestCase):
         # verify exception
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "File not found or empty file")
+
     def testTc10DUP(self):
-        """Test for the tenth case, data1 or value1 duplicated. We only need
-        to test one of the cases (data1 or value1)"""
-        # Datos para el test con separador modificado
-        testData = {
-            "Localizer""Localizer": "d32ff67ec38aab9dda77c20b4aef2762",
-            "IdCard": 1236
-        }
-        testList = [testData]
+        """Test for the tenth case, data1 or value1 duplicated or deleted. We
+        only need to test one of the cases (data1 or value1 / DEL OR DUP)"""
 
         # JSON file name
-        fileName = "test.json"
-
-        # write data in JSON with modified separator
-        with open(fileName, "w", encoding='utf-8') as jsonFile:
-            json.dump(testList, jsonFile, separators=(',,', ';;'))
+        fileName = "JSONtestsFunction2/TC10.json"
 
         myManager = HotelManager()
         exception = None
@@ -183,5 +174,151 @@ class testGuestArrival(unittest.TestCase):
         # verify exception
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "File not found or empty file")
+
+    def testTc11DEL(self):
+        """Test for the eleventh case, data2 or value2 duplicated or
+        deleted. We only need to test one of the cases (data2 or value2 /
+        DEL OR DUP)"""
+
+        # JSON file name
+        fileName = "JSONtestsFunction2/TC11.json"
+
+        myManager = HotelManager()
+        exception = None
+        try:
+            myManager.guest_arrival(fileName)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "File not found or empty file")
+    def testTc12MOD(self):
+        """Test for the eleventh case, data2 or value2 duplicated or
+        deleted. We only need to test one of the cases (data2 or value2 /
+        DEL OR DUP), and only one json for all cases (result is the same)"""
+
+        # JSON file name
+        fileName = "JSONtestsFunction2/TC12.json"
+
+        myManager = HotelManager()
+        exception = None
+        try:
+            myManager.guest_arrival(fileName)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "File not found or empty file")
+    def testTc12DUP(self):
+        """Test for the 12th case, equality duplicated or
+        modified. We only need to test one of the cases (MOD OR DUP), and
+        only one json for all cases (result is the same)"""
+
+        # JSON file name
+        fileName = "JSONtestsFunction2/TC12.json"
+
+        myManager = HotelManager()
+        exception = None
+        try:
+            myManager.guest_arrival(fileName)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "File not found or empty file")
+    def testTc13(self):
+        """Test for the 13th case, any operation related with quotes. We only
+        need to test one of the cases (MOD/DUP/DEL) in any of the fields,and
+        only one json for all cases (result is the same)"""
+
+        # JSON file name
+        fileName = "JSONtestsFunction2/TC13.json"
+
+        myManager = HotelManager()
+        exception = None
+        try:
+            myManager.guest_arrival(fileName)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "File not found or empty file")
+    def testTc14(self):
+        """Test for the 14th case, any operation related with Localizer key. We
+        only need to test one of the cases (MOD/DUP/DEL), and only one json
+        for all cases (result is the same)"""
+
+        # JSON file name
+        fileName = "JSONtestsFunction2/TC14.json"
+
+        myManager = HotelManager()
+        exception = None
+        try:
+            myManager.guest_arrival(fileName)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "'Localizer' key missing in JSON")
+    def testTc15(self):
+        """Test for the 15th case, any operation related with Id key. We
+        only need to test one of the cases (MOD/DUP/DEL), and only one json
+        for all cases (result is the same)"""
+
+        # JSON file name
+        fileName = "JSONtestsFunction2/TC15.json"
+
+        myManager = HotelManager()
+        exception = None
+        try:
+            myManager.guest_arrival(fileName)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "'Id' key missing in JSON")
+    def testTc16(self):
+        """Test for the 16th case, any operation related with Localizer
+        value. We only need to test one of the cases (MOD/DUP/DEL), and only
+        one json for all cases (result is the same)"""
+
+        # JSON file name
+        fileName = "JSONtestsFunction2/TC16.json"
+
+        myManager = HotelManager()
+        exception = None
+        try:
+            myManager.guest_arrival(fileName)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "'Localizer' is not well defined")
+    def testTc17(self):
+        """Test for the 17th case, any operation related with Id value. We
+        only need to test one of the cases (MOD/DUP/DEL), and only one json
+        for all cases (result is the same). Consider DEL as putting value 0"""
+
+        # JSON file name
+        fileName = "JSONtestsFunction2/TC17.json"
+
+        myManager = HotelManager()
+        exception = None
+        try:
+            myManager.guest_arrival(fileName)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "new IdCard is not in reservation")
+
 if __name__ == '__main__':
     unittest.main()
