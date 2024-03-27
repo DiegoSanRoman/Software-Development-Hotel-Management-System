@@ -79,17 +79,17 @@ class HotelManager:
         # name_surname
         # Check that the length of the string is correct
         if len(name_surname) < 10 or len(name_surname) > 50:
-            raise hotelManagementException("Invalid name and surname")
+            raise hotelManagementException("Invalid name and surname length")
         # Check that the string contains at least two strings separated by a space
         strings = name_surname.split()
         if len(strings) < 2:
-            raise hotelManagementException("Invalid name and surname")
+            raise hotelManagementException("Invalid name and surname format")
 
         # id_Card
         # Check that the card id has 3 digits
         id_Card = str(id_Card)
         if len(id_Card) != 3:
-            raise hotelManagementException("Invalid ID card (3 digits needed")
+            raise hotelManagementException("Invalid ID card (3 digits needed)")
 
         # phone_number
         phone_number = str(phone_number)
