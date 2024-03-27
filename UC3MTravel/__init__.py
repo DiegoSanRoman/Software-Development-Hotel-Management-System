@@ -133,6 +133,12 @@ def main():
     # Define the relative path to the file
     filePath = '../Arrival.json'
     guest_arrival(filePath)
+    # ROOM KEY = 256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac6
+
+    # temporary tests for the development of function 3
+    myManager = HotelManager()
+    myManager.guest_checkout("256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac6")
+    myManager.guest_checkout("256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac7")
 
 
 if __name__ == "__main__":
