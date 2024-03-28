@@ -8,14 +8,18 @@ def main():
     # MAIN PROGRAM
     hotel = HotelManager()
     print(hotel.validatecreditcard(3379513561108795))
-    result = hotel.room_reservation(5555555555554444,
+    """result = hotel.room_reservation(5555555555554444,
                                     "Marta Pomelo",
-                                    1236,
+                                    136,
                                     561321141,
                                     "single",
                                     "18/03/2024",
                                     5)
-    print(result)
+    print(result)"""
+    beibe= hotel.room_reservation(5555555555554444, "Santiago P",100,
+                                  100000000, "single",
+                "01/01/2024", 1)
+    print(beibe)
 
 
 

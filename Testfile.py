@@ -3,6 +3,39 @@ import json
 import unittest
 from UC3MTravel import hotelManagementException
 from UC3MTravel.HotelManager import HotelManager
+
+class testRoomReservation(unittest.TestCase):
+    """Test cases for the first function"""
+
+    def testTc1Valid(self):
+        """Valid case in which all the information is correct and the person
+        does not already have a reservation"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC1Valid
+        value = myManager.room_reservation(*info)
+        self.assertEqual(value, 'ea0a2dcb07062ade04d6b9097ae096b1')
+
+    def testTc2(self):
+        """Invalid case in which all the information is correct but the person
+        already has a reservation"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), info[1] + " already has a reservation")
+
 class testGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
 
