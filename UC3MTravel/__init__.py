@@ -138,7 +138,20 @@ def main():
     # temporary tests for the development of function 3
     myManager = HotelManager()
     myManager.guest_checkout("256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac6")
-    myManager.guest_checkout("256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac7")
+    #myManager.guest_checkout("256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac7")
+
+    specificDate = datetime(2024, 3, 18)
+    timestamp = specificDate.timestamp()
+    print(timestamp) # POSIX timestamp
+    date_to_utc = datetime.utcfromtimestamp(timestamp)
+    print(date_to_utc)
+    time_now = datetime.utcnow()
+    print(time_now)
+
+    time1 = date_to_utc.strftime('%Y-%m-%d')
+    time2 = time_now.strftime('%Y-%m-%d')
+    print(time1)
+    print(time2)
 
 
 if __name__ == "__main__":
