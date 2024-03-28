@@ -1,6 +1,8 @@
 """File with all the tests of each function"""
 import json
+from datetime import datetime
 import unittest
+from freezegun import freeze_time
 from UC3MTravel import hotelManagementException
 from UC3MTravel.HotelManager import HotelManager
 
@@ -38,7 +40,7 @@ class testRoomReservation(unittest.TestCase):
 
 class testGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
-
+    @freeze_time("2024/03/18")
     def testTc1Valid(self):
         """Valid case in which all the information is correct"""
 

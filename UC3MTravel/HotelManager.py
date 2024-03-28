@@ -115,7 +115,7 @@ class HotelManager:
             raise hotelManagementException("Invalid day in arrival date")
         if month < 1 or month > 12:
             raise hotelManagementException("Invalid month in arrival date")
-        current_year = datetime.datetime.now().year
+        current_year = datetime.now().year
         if year < current_year or year > 9999:
             raise hotelManagementException("Invalid year in arrival date")
 
