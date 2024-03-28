@@ -359,6 +359,7 @@ class HotelManager:
         with open('../checkOut.json', 'w') as f:
             json.dump(checkout_data, f)
 
+        return True
 
 
 
