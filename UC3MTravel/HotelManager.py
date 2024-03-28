@@ -296,14 +296,14 @@ class HotelManager:
                 reservationsData = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             # If the file does not exist or it is empty, we raise an error.
-            raise hotelManagementException("File not found or empty file.")
+            raise hotelManagementException("Reservations file not found or empty file.")
         try:
             # Open the JSON file and load its contents.
             with open('../Arrival.json', 'r', encoding='utf-8') as f:
                 arrivalData = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             # If the file does not exist or it is empty, we raise an error.
-            raise hotelManagementException("File not found or empty file.")
+            raise hotelManagementException("Arrivals file not found or empty file.")
 
         aux_localizer, aux_id, aux_days, aux_room = 0, 0, 0, 0
         valid_key = False
