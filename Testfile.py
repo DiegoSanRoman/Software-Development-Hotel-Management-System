@@ -251,6 +251,58 @@ class testRoomReservation(unittest.TestCase):
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "Invalid ID card")
 
+    def testTc15(self):
+        """Invalid case in which the phone number is of the incorrect datatype"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, "phonenumber",
+                "single", "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid phone number")
+
+    def testTc16(self):
+        """Invalid case in which the phone number has 10 digits (instead of
+        9)"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 7853498219,
+                "single", "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid phone number")
+
+    def testTc17(self):
+        """Invalid case in which the phone number has only 8 digits (instead of 9)"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 12345678,
+                "single", "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid phone number")
+
 
 class testGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
