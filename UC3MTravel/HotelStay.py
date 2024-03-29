@@ -1,5 +1,5 @@
 """ Class HotelStay (GE2.2) """
-from datetime import datetime
+import datetime
 import hashlib
 
 class hotelStay():
@@ -15,7 +15,7 @@ class hotelStay():
         self.__localizer = localizer # pylint: disable=invalid-name
         """justnow = datetime.utcnow()
         self.__arrival = justnow.timestamp() # pylint: disable=invalid-name"""
-        specificDate = datetime(2024, 3, 18)
+        specificDate = datetime.datetime(2024, 3, 18)
         timestamp = specificDate.timestamp() # pylint: disable=invalid-name
         self.__arrival = timestamp # pylint: disable=invalid-name
         self.__departure = self.__arrival + (numdays * 24 * 60 * 60) # pylint: disable=invalid-name
