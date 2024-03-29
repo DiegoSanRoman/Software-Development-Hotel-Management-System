@@ -15,13 +15,7 @@ def main():
                                     "single",
                                     "18/03/2024",
                                     5)
-    filepath = (str(Path.home()) +
-                    "\G88.2024.T05"
-                    ".GE2\Arrival.json")
-    result2 =hotel.guest_arrival(filepath)
-
-    result3 = hotel.guest_checkout(result2)
-    print(result3)
+    print(result1)
 
 
 
