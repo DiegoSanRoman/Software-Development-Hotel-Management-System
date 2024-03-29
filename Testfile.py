@@ -38,6 +38,77 @@ class testRoomReservation(unittest.TestCase):
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), info[1] + " already has a reservation")
 
+    def testTc3(self):
+        """Invalid case in which the credit card number is not of the
+        correct datatype"""
+
+        myManager = HotelManager()
+        info = ("credit_card_number", "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid credit card format")
+
+    def testTc4(self):
+        """Invalid case in which the credit card number is too long"""
+
+        myManager = HotelManager()
+        info = (55555555555544444, "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid credit card format")
+
+    def testTc5(self):
+        """Invalid case in which the credit card number is too short"""
+
+        myManager = HotelManager()
+        info = (555555555555444, "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid credit card format")
+
+    def testTc6(self):
+        """Invalid case in which the credit card number is with the correct
+        format (16 digits) but the number is not valid"""
+
+        myManager = HotelManager()
+        info = (1234567812345678, "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid credit card number")
+
+
 class testGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
     @freeze_time("2024/03/18")
