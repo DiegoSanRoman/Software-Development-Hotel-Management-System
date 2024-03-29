@@ -303,6 +303,41 @@ class testRoomReservation(unittest.TestCase):
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "Invalid phone number")
 
+    def testTc18(self):
+        """Invalid case in which the room type is of the incorrect datatype"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                45, "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid room type")
+
+    def testTc19(self):
+        """Invalid case in which the room type is not one of the accepted
+        values (single, double, suite)"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                "premium", "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid room type")
+
 
 class testGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
