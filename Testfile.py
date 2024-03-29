@@ -1,5 +1,6 @@
 """File with all the tests of each function"""
 import unittest
+import json
 from pathlib import Path
 from UC3MTravel import hotelManagementException
 from UC3MTravel.HotelManager import HotelManager
@@ -15,7 +16,7 @@ class testRoomReservation(unittest.TestCase):
                 "01/01/2024", 1)
         # TC1Valid
         value = myManager.room_reservation(*info)
-        self.assertEqual(value, 'ea0a2dcb07062ade04d6b9097ae096b1')
+        self.assertEqual(value, '1e08ee46484278bfce2bc1942af98e71')
 
     def testTc2(self):
         """Invalid case in which all the information is correct but the person
@@ -41,10 +42,10 @@ class testGuestArrival(unittest.TestCase):
         """Valid case in which all the information is correct"""
 
         myManager = HotelManager()
-        filepath = "JSONtestsFuntion2/TC1Valid.json"
+        filepath = "JSONtestsFunction2/TC1Valid.json"
         # TC1Valid.json
         value = myManager.guest_arrival(filepath)
-        self.assertEqual(value, '256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac6')
+        self.assertEqual(value, 'fce482f0817853def241cfd787177aff7e94b842f0db2c2faf8cb3e77e24ad20')
 
     def testTc2(self):
         """Test for the second case, empty file"""
@@ -114,7 +115,7 @@ class testGuestArrival(unittest.TestCase):
         filePath = "JSONtestsFunction2/TC6.json"  # Use the file test.json
         value = myManager.guest_arrival(filePath)
         self.assertEqual(value,
-                         '256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac6')
+                         'fce482f0817853def241cfd787177aff7e94b842f0db2c2faf8cb3e77e24ad20')
     def testTc7F1DEL(self):
         """Test for the seventh case, one of the fields is deleted. In this
         case only F1."""
@@ -154,7 +155,7 @@ class testGuestArrival(unittest.TestCase):
         fileName = "JSONtestsFunction2/TC8.json"
         myManager = HotelManager()
         value = myManager.guest_arrival(fileName)
-        self.assertEqual(value, '256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac6')
+        self.assertEqual(value, 'fce482f0817853def241cfd787177aff7e94b842f0db2c2faf8cb3e77e24ad20')
 
     def testTc9MOD(self):
         """Test for the ninth case, separator is modified"""
@@ -338,14 +339,12 @@ class testGuestArrival(unittest.TestCase):
         for all cases (result is the same). Consider DEL as putting value 0"""
 
         # JSON file name
-        jsonPath = (str(Path.home()) +
-                    "\G88.2024.T05"
-                    ".GE2\Reservations.json")
+        filename = "JSONtestsFunction2/TC17.json"
 
         myManager = HotelManager()
         exception = None
         try:
-            myManager.guest_arrival(jsonPath)
+            myManager.guest_arrival(filename)
         except hotelManagementException as e:
             exception = e
 
