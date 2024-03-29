@@ -198,6 +198,59 @@ class testRoomReservation(unittest.TestCase):
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "Invalid name and surname length")
 
+    def testTc12(self):
+        """Invalid case in which the id card is of the incorrect datatype"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Belen Izantina", "cool_number", 100000000,
+                "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid ID card")
+
+    def testTc13(self):
+        """Invalid case in which the id card has 4 digits (instead of 3)"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Belen Izantina", 7777, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid ID card")
+
+    def testTc14(self):
+        """Invalid case in which the id card has only two digits (instead of
+        3)"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Belen Izantina", 33, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid ID card")
+
 
 class testGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
