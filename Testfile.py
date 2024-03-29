@@ -108,6 +108,96 @@ class testRoomReservation(unittest.TestCase):
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "Invalid credit card number")
 
+    def testTc7(self):
+        """Invalid case in which the name and surname are of the incorrect
+        datatype"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, 56.78, 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid name and surname format")
+
+    def testTc8(self):
+        """Invalid case in which the name and surname are separated by an
+        incorrect separator (not a blank space)"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Marta,Pombo", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid name and surname format")
+
+    def testTc9(self):
+        """Invalid case in which the person has just a name and not a
+        surname"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Dulceida", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid name and surname format")
+
+    def testTc10(self):
+        """Invalid case in which the name and surname are a very short
+        string"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "Lu Tema", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid name and surname length")
+
+    def testTc11(self):
+        """Invalid case in which the name and surname are a very long
+        string"""
+
+        myManager = HotelManager()
+        info = (5555555555554444, "This is a toooooooooooooooooooooooooooooo long name", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.room_reservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid name and surname length")
+
 
 class testGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
