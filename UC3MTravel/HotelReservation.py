@@ -8,7 +8,7 @@ class HotelReservation:
         self.__crEDITcardnumber = creditcardNumb
         self.__idcard = IDCARD
         arrival = datetime.strptime(arrival_date, "%d/%m/%Y")
-        self.__ARRIVAL = datetime.timestamp(arrival)
+        self.__ARRIVAL = arrival
         self.__NAME_SURNAME = nAMeAndSURNAME
         self.__phonenumber = phonenumber
         self.__roomtype = room_type

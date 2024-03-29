@@ -133,13 +133,22 @@ attr-naming-style=camelCase
 # style.
 #attr-rgx=
 
+# MODIFIED RULE
+# ORIGINAL RULE
 # Bad variable names which should always be refused, separated by a comma.
-bad-names=foo,
-          bar,
-          baz,
-          toto,
-          tutu,
-          tata
+# bad-names=foo,
+#          bar,
+#          baz,
+#          toto,
+#          tutu,
+#          tata
+
+bad-names=tonto,
+          tonta,
+          gilipollas,
+          imbecil,
+          feo,
+          fea
 
 # Bad variable names regexes, separated by a comma. If names match any regex,
 # they will always be refused
@@ -356,7 +365,11 @@ indent-after-paren=4
 # tab).
 indent-string='    '
 
+# MODIFIED RULE
+# ORIGINAL RULE
 # Maximum number of characters on a single line.
+# max-line-length=100
+
 max-line-length=150
 
 # Maximum number of lines in a module.
@@ -657,3 +670,33 @@ init-import=no
 # List of qualified module names which can have objects that can redefine
 # builtins.
 redefining-builtins-modules=six.moves,past.builtins,future.builtins,builtins,io
+
+
+[FILES-NAMES]
+
+# Regular expression matching correct file names. Overrides file-naming-style.
+# If left empty, file names will be checked with the set naming style.
+#file-rgx=
+
+# NEW RULE
+# Naming style matching correct file names.
+file-naming-style=PascalCase|camelCase
+
+
+[COPYRIGHT-START]
+# Regular expression matching correct copyright start.
+copyright-start-rgx=^\"\"\"Copyright © [0-9]{4} [A-Za-z ]+\nWritten on [A-Za-z ]+\nUniversity Carlos III of Madrid\n\"\"\"
+
+# Description of the rule.
+copyright-start-description=Ensures that the copyright notice at the beginning of Python files follows the required format.
+
+
+[COMMENTS-STRUCTURE]
+# Regular expression matching correct short comment structure.
+short-comment-rgx=^#\s.*$
+
+# Regular expression matching correct long comment structure.
+long-comment-rgx=^\"\"\".*\"\"\"$
+
+# Description of the rule.
+comments-structure-description=Defines the structure of comments in Python, requiring short comments to start with "#" and long comments to be enclosed within triple double quotes (\"\"\").

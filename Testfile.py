@@ -345,7 +345,7 @@ class testGuestArrival(unittest.TestCase):
         myManager = HotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guest_arrival(jsonPath)
         except hotelManagementException as e:
             exception = e
 
