@@ -43,7 +43,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = ("credit_card_number", "Santiago P", 100, 100000000, "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC3
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -60,7 +60,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (55555555555544444, "Santiago P", 100, 100000000, "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC4
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -77,7 +77,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (555555555555444, "Santiago P", 100, 100000000, "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC5
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -95,7 +95,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (1234567812345678, "Santiago P", 100, 100000000, "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC6
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -113,7 +113,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, 56.78, 100, 100000000, "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC7
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -131,7 +131,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Marta,Pombo", 100, 100000000, "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC8
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -149,7 +149,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Dulceida", 100, 100000000, "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC9
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -167,7 +167,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Lu Tema", 100, 100000000, "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC10
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -185,7 +185,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "This is a toooooooooooooooooooooooooooooo long name", 100, 100000000, "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC11
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -203,7 +203,7 @@ class testRoomReservation(unittest.TestCase):
         info = (5555555555554444, "Belen Izantina", "cool_number", 100000000,
                 "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC12
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -220,7 +220,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 7777, 100000000, "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC13
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -238,7 +238,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 33, 100000000, "single",
                 "01/01/2024", 1)
-        # TC2
+        # TC14
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -255,7 +255,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, "phonenumber",
                 "single", "01/01/2024", 1)
-        # TC2
+        # TC15
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -273,7 +273,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 7853498219,
                 "single", "01/01/2024", 1)
-        # TC2
+        # TC16
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -290,7 +290,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 12345678,
                 "single", "01/01/2024", 1)
-        # TC2
+        # TC17
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -307,7 +307,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 45, "01/01/2024", 1)
-        # TC2
+        # TC18
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -325,7 +325,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "premium", "01/01/2024", 1)
-        # TC2
+        # TC19
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -343,7 +343,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", 56, 1)
-        # TC2
+        # TC20
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -361,7 +361,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "icandoeverything", 1)
-        # TC2
+        # TC21
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -379,7 +379,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "oops", 1)
-        # TC2
+        # TC22
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -398,7 +398,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "0103//2024", 1)
-        # TC2
+        # TC23
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -417,7 +417,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "00/11/2024", 1)
-        # TC2
+        # TC24
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -436,7 +436,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "32/112024", 1)
-        # TC2
+        # TC25
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -455,7 +455,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "11/00/2024", 1)
-        # TC2
+        # TC26
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -474,7 +474,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "11/132024", 1)
-        # TC2
+        # TC27
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -493,7 +493,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "11/11/2023", 1)
-        # TC2
+        # TC28
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -512,7 +512,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "11/11/10000", 1)
-        # TC2
+        # TC29
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -530,7 +530,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "11/11/2031", "nini")
-        # TC2
+        # TC30
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -548,7 +548,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "11/11/2031", 0)
-        # TC2
+        # TC31
         exception = None
         try:
             myManager.roomReservation(*info)
@@ -566,7 +566,7 @@ class testRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
                 "single", "11/11/2031", 11)
-        # TC2
+        # TC32
         exception = None
         try:
             myManager.roomReservation(*info)
