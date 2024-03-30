@@ -409,6 +409,120 @@ class testRoomReservation(unittest.TestCase):
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "Invalid arrival date format")
 
+    def testTc24(self):
+        """Invalid case in which the arrival date is a string, has the
+        correct length (10 characters) and the correct format (DD/MM/YYYY),
+        but the day is not one of the accepted values (01-31)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                "single", "00/11/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid day in arrival date")
+
+    def testTc25(self):
+        """Invalid case in which the arrival date is a string, has the
+        correct length (10 characters) and the correct format (DD/MM/YYYY),
+        but the day is not one of the accepted values (01-31)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                "single", "32/112024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid day in arrival date")
+
+    def testTc26(self):
+        """Invalid case in which the arrival date is a string, has the
+        correct length (10 characters) and the correct format (DD/MM/YYYY),
+        but the month is not one of the accepted values (01-12)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                "single", "11/00/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid month in arrival date")
+
+    def testTc27(self):
+        """Invalid case in which the arrival date is a string, has the
+        correct length (10 characters) and the correct format (DD/MM/YYYY),
+        but the month is not one of the accepted values (01-12)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                "single", "11/132024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid month in arrival date")
+
+    def testTc28(self):
+        """Invalid case in which the arrival date is a string, has the
+        correct length (10 characters) and the correct format (DD/MM/YYYY),
+        but the year is not one of the accepted values (current year-9999)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                "single", "11/11/2023", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid year in arrival date")
+
+    def testTc29(self):
+        """Invalid case in which the arrival date is a string, has the
+        correct length (10 characters) and the correct format (DD/MM/YYYY),
+        but the year is not one of the accepted values (current year-9999)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                "single", "11/11/10000", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid year in arrival date")
+
 
 class testGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
