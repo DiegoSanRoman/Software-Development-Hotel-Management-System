@@ -1,6 +1,7 @@
 """For now, we are using this file to record information about the functions
 of GE2. Then we will store those functions in HotelManager"""
 from datetime import datetime
+from datetime import timedelta
 import json
 import hashlib
 from pathlib import Path
@@ -15,30 +16,20 @@ def main():
     """A main created to try and see if the function works"""
     # Define the relative path to the file
     myManager = HotelManager()
+    #print("Result: " + myManager.room_reservation(4539677908016808, "Maria Sanchez", 999, 999999999, "suite", "01/01/2024", 1))
     filePath = (str(Path.home()) +
                 "\G88.2024.T05"
                 ".GE2\Arrival.json")
-    myManager.guest_arrival(filePath)
-    # ROOM KEY = 256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac6
+    print(myManager.guest_arrival(filePath))
+    #myManager.guest_checkout("33f55582784c90b0435378800b0fbb788a6020c37577b7ae63858406d1bb2ec5")
 
-    # temporary tests for the development of function 3
-
-    myManager.guest_checkout("256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac6")
-    #myManager.guest_checkout("256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac7")
-    '''
-    specificDate = datetime(2024, 3, 18)
-    timestamp = specificDate.timestamp()
-    print(timestamp) # POSIX timestamp
-    date_to_utc = datetime.utcfromtimestamp(timestamp)
-    print(date_to_utc)
+'''
     time_now = datetime.utcnow()
-    print(time_now)
-
-    time1 = date_to_utc.strftime('%Y-%m-%d')
-    time2 = time_now.strftime('%Y-%m-%d')
+    arrival_date = time_now - timedelta(2)
+    time1 = arrival_date.strftime('%Y-%m-%d')
     print(time1)
-    print(time2)
-    '''
+    print(time_now.timestamp())'''
+
 
 if __name__ == "__main__":
     main()

@@ -364,10 +364,13 @@ class HotelManager:
         # account).
         arrival_date = datetime.utcfromtimestamp(aux_arrival)
         departure_date = arrival_date + timedelta(aux_days)
+
         time1 = departure_date.strftime('%Y-%m-%d')
 
         time_now = datetime.utcnow()
         time2 = time_now.strftime('%Y-%m-%d')
+        print(time1)
+        print(time2)
         if time1 != time2:
             raise hotelManagementException("Departure date is not valid.")
 
@@ -386,7 +389,7 @@ class HotelManager:
         checkout_data.append(json_string)
         # Write updated data back to file
         with open(jsonPath3, 'w') as f:
-            json.dump(checkout_data, f)
+            json.dump(checkout_data, f, indent=4)
 
         return True
 
