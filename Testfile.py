@@ -523,6 +523,60 @@ class testRoomReservation(unittest.TestCase):
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "Invalid year in arrival date")
 
+    def testTc30(self):
+        """Invalid case in which the number of days is not of the correct
+        datatype"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                "single", "11/11/2031", "nini")
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid number of days")
+
+    def testTc31(self):
+        """Invalid case in which the number of days is not one of the
+        accepted values (1-10)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                "single", "11/11/2031", 0)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid number of days")
+
+    def testTc32(self):
+        """Invalid case in which the number of days is not one of the
+        accepted values (1-10)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                "single", "11/11/2031", 11)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid number of days")
+
 
 class testGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
