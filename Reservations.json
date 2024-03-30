@@ -1,14 +1,5 @@
 [
     {
-        "id_card": 236,
-        "name_surname": "Izan Sanchez",
-        "credit_card": "5555555555554444",
-        "phone_number:": "561321141",
-        "arrival_date": 1710716400.0,
-        "num_days": 5,
-        "room_type": "single"
-    },
-    {
         "id_card": 100,
         "name_surname": "Santiago P",
         "credit_card": "5555555555554444",

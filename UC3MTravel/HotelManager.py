@@ -1,6 +1,6 @@
 import json
-import datetime
 import hashlib
+from datetime import datetime
 from datetime import timedelta
 from pathlib import Path
 from UC3MTravel.HotelManagementException import hotelManagementException
@@ -118,7 +118,7 @@ class HotelManager:
             raise hotelManagementException("Invalid day in arrival date")
         if month < 1 or month > 12:
             raise hotelManagementException("Invalid month in arrival date")
-        current_year = datetime.datetime.now().year
+        current_year = datetime.now().year
         if year < current_year or year > 9999:
             raise hotelManagementException("Invalid year in arrival date")
 
@@ -328,7 +328,7 @@ class HotelManager:
             raise hotelManagementException(
                 "Arrivals file not found or empty file.")
 
-        aux_localizer, aux_id, aux_days, aux_room = 0, 0, 0, 0
+        aux_localizer, aux_id, aux_arrival, aux_days, aux_room = 0, 0, 0, 0, 0
         valid_key = False
         for item in arrivalData:
             localizer_found, all_data_retrieved = False, False

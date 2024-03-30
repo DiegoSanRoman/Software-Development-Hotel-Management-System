@@ -15,7 +15,7 @@ class hotelStay():
         self.__localizer = localizer # pylint: disable=invalid-name
         """justnow = datetime.utcnow()
         self.__arrival = justnow.timestamp() # pylint: disable=invalid-name"""
-        specificDate = datetime.datetime(2024, 3, 18)
+        specificDate = datetime.datetime(2024, 1, 1)
         timestamp = specificDate.timestamp() # pylint: disable=invalid-name
         self.__arrival = timestamp # pylint: disable=invalid-name
         self.__departure = self.__arrival + (numdays * 24 * 60 * 60) # pylint: disable=invalid-name
