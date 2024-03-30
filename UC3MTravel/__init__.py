@@ -5,7 +5,7 @@ import json
 import hashlib
 from pathlib import Path
 from UC3MTravel.HotelReservation import HotelReservation
-from UC3MTravel.HotelManager import HotelManager
+from UC3MTravel.HotelManager import hotelManager
 from UC3MTravel.HotelManagementException import hotelManagementException
 from UC3MTravel.HotelStay import hotelStay
 
@@ -14,16 +14,17 @@ from UC3MTravel.HotelStay import hotelStay
 def main():
     """A main created to try and see if the function works"""
     # Define the relative path to the file
-    myManager = HotelManager()
+    myManager = hotelManager()
     filePath = (str(Path.home()) +
                 "\G88.2024.T05"
                 ".GE2\Arrival.json")
-    myManager.guest_arrival(filePath)
+    myManager.guestArrival(filePath)
     # ROOM KEY = 256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac6
 
     # temporary tests for the development of function 3
 
-    myManager.guest_checkout("256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac6")
+    myManager.guestCheckout(
+        "256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac6")
     #myManager.guest_checkout("256a59af85d250a299da5d62bb797f7a1a1ef1007737f6b1dcc2d48114c21ac7")
     '''
     specificDate = datetime(2024, 3, 18)

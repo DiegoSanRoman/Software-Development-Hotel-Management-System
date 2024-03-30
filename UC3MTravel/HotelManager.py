@@ -10,14 +10,13 @@ from UC3MTravel.HotelManagementException import hotelManagementException
 from UC3MTravel.HotelReservation import HotelReservation
 from UC3MTravel.HotelStay import hotelStay
 
-class HotelManager:
-    """Class with the three functions needed to implement"""
+class hotelManager:
+    """Class with the three functions needed to implement."""
     def __init__(self):
         pass
 
     def validatecreditcard(self, x):
-        # PLEASE INCLUDE HERE THE CODE FOR VALIDATING THE GUID
-        # RETURN TRUE IF THE GUID IS RIGHT, OR FALSE IN OTHER CASE
+        """Method to check if the creditcard info is correct Assignment 2.1"""
 
         # Step 1: Transform the 16-digit number to a list containing the digits
         # of the number
@@ -41,10 +40,10 @@ class HotelManager:
         # False.
         return total % 10 == 0
 
-    def ReaddatafromJSOn(self, fi):
-
+    def readdatafromJSOn(self, fi):
+        """Used to decode and read a json file."""
         try:
-            with open(fi) as f:
+            with open(fi, encoding='utf-8') as f:
                 data = json.load(f)
         except FileNotFoundError as e:
             raise hotelManagementException("Wrong file or file path") from e
@@ -70,17 +69,18 @@ class HotelManager:
         return req
 
     # FIRST FUNCTION
-    def room_reservation(self, credit_card, name_surname, id_Card,
+    def roomReservation(self, credit_card, name_surname, id_card,
                          phone_number, room_type, arrival_date, num_days):
-
+        """First function to implement, related with the reservation of a
+        room"""
         # PROCESS 1 (Check Inputs)
         # Credit_card
         # Check if it is the correct format
-        credit_card = str(credit_card)
-        if (credit_card.isdigit() == False) or len(credit_card) != 16:
+        creditCard = str(credit_card)
+        if (creditCard.isdigit() is False) or len(creditCard) != 16:
             raise hotelManagementException("Invalid credit card format")
         # Check if the number is valid
-        if self.validatecreditcard(credit_card) == False:
+        if self.validatecreditcard(creditCard) is False:
             raise hotelManagementException("Invalid credit card number")
 
         # name_surname
@@ -94,13 +94,13 @@ class HotelManager:
 
         # id_Card
         # Check that the card id has 3 digits
-        id_Card = str(id_Card)
-        if len(id_Card) != 3:
+        idCard = str(id_card)
+        if len(idCard) != 3:
             raise hotelManagementException("Invalid ID card (3 digits needed")
 
         # phone_number
-        phone_number = str(phone_number)
-        if len(phone_number) != 9:
+        phoneNumber = str(phone_number)
+        if len(phoneNumber) != 9:
             raise hotelManagementException("Invalid phone number")
 
         # room_type
@@ -122,8 +122,8 @@ class HotelManager:
             raise hotelManagementException("Invalid day in arrival date")
         if month < 1 or month > 12:
             raise hotelManagementException("Invalid month in arrival date")
-        current_year = datetime.now().year
-        if year < current_year or year > 9999:
+        currentYear = datetime.now().year
+        if year < currentYear or year > 9999:
             raise hotelManagementException("Invalid year in arrival date")
 
         # num_days
@@ -131,64 +131,67 @@ class HotelManager:
             raise hotelManagementException("Invalid number of days")
 
         # If we have reached this point, it means that all inputs are correct
-        id_Card = int(id_Card)
+        idCard = int(idCard)
         # PROCESS 2 (Create reservation)
-        reservation = HotelReservation(id_Card, credit_card, name_surname,
-                                       phone_number, room_type,
+        reservation = HotelReservation(idCard, creditCard, name_surname,
+                                       phoneNumber, room_type,
                                        arrival_date, num_days)
         localizer = reservation.LOCALIZER
 
         # PROCESS 3 (Store data in JSON file)
         # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
-        json_string = str(reservation).replace("HotelReservation:","").replace(
+        jsonString = str(reservation).replace("HotelReservation:","").replace(
             "'", '"')
         # Convert the JSON string into a Python dictionary
-        reservation_data = json.loads(json_string)
+        reservationData = json.loads(jsonString)
         # Try to load existing data
-        jsonPath = str(Path.home()) + "\G88.2024.T05.GE2\Reservations.json"
+        jsonPath = str(Path.home()) + "/G88.2024.T05.GE2/Reservations.json"
         try:
-            with open(jsonPath, 'r') as f:
-                existing_data = json.load(f)
+            with open(jsonPath, 'r', encoding='utf-8') as f:
+                existingData = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             # If the file does not exist or is empty, initialize existing_data as an empty list
-            existing_data = []
+            existingData = []
         # Check if a reservation already exists for the same person
-        for existing_reservation in existing_data:
+        for existingReservation in existingData:
             # Check if the name and surname match
-            if existing_reservation.get('name_surname') == name_surname:
-                raise hotelManagementException("%s already has a reservation" % name_surname)
+            if existingReservation.get('name_surname') == name_surname:
+                raise hotelManagementException(f"{name_surname} already has a "
+                                               "reservation")
         # Append new reservation data
-        existing_data.append(reservation_data)
+        existingData.append(reservationData)
         # Write updated data back to file
-        with open(jsonPath, 'w') as f:
-            json.dump(existing_data, f, indent=4)
+        with open(jsonPath, 'w', encoding='utf-8') as f:
+            json.dump(existingData, f, indent=4)
 
         # We return the localizer
         return localizer
 
-    def guest_arrival(self, file_path):
+    def guestArrival(self, file_path):
         """This is the second function of the assignment and it corresponds to
             the arrival of the guest to the hotel, where we need to check if he/she
             is actually the expected guest and all the info is correct"""
         # First we open both json files (data, existing_data)
-        jsonPath1 = str(Path.home()) +"\G88.2024.T05.GE2\Reservations.json"
+        jsonPath1 = str(Path.home()) +"/G88.2024.T05.GE2/Reservations.json"
         try:
             # Open the JSON file and load its contents
             with open(file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError):
-            # If the file does not exist or is empty, return False
-            raise hotelManagementException("File not found or empty file")
+        except (FileNotFoundError, json.JSONDecodeError) as exc:
+            # If the file does not exist or is empty, raise a custom exception
+            raise hotelManagementException("File not found or empty file") \
+                from exc
         try:
             with open(jsonPath1, 'r', encoding='utf-8') as f:
                 existingData = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError):
+        except (FileNotFoundError, json.JSONDecodeError) as exc:
             # If the file does not exist or is empty, return False
-            raise hotelManagementException("File not found or empty file")
+            raise hotelManagementException("File not found or empty file") \
+                from exc
         # Check if 'Localizer' key exists in the data
         localizerFound = False
         localizer = " "
-        id = " "
+        idNum = " "
         for item in data:
             if 'Localizer' in item:
                 localizerFound = True
@@ -198,7 +201,7 @@ class HotelManager:
         if not localizerFound:
             raise hotelManagementException("'Localizer' key missing in JSON")
         # Check if the length of the localizer is correct (32 hexadecimal characters)
-        correct = self.check_localizer(localizer, existingData)
+        correct = self.checkLocalizer(localizer, existingData)
         if correct == 0:
             raise hotelManagementException("'Localizer' is not well defined")
         # Now we need to check if the locator info is correct (idCard)
@@ -207,13 +210,13 @@ class HotelManager:
         for item in data:
             if 'IdCard' in item:
                 idFound = True
-                id = item['IdCard']
+                idNum = item['IdCard']
                 break
         if not idFound:
             raise hotelManagementException("'Id' key missing in JSON")
         # NOW CHECK IF THE ID OF BOTH JSON FILES IS THE SAME
         idCorrect = False
-        if id == correct:
+        if idNum == correct:
             idCorrect = True
         if not idCorrect:
             raise hotelManagementException("new IdCard is not in reservation")
@@ -224,8 +227,8 @@ class HotelManager:
         arrival = " "
         founded = False
         for item in existingData:
-            if id == item['id_card'] and 'room_type' in item and 'num_days' in \
-                    item and 'arrival_date' in item:
+            if (id == item['id_card']) and ('room_type' in item and 'num_days'
+                    in item and 'arrival_date' in item):
                 founded = True
                 roomtype = item['room_type']
                 numdays = item['num_days']
@@ -240,27 +243,27 @@ class HotelManager:
         if arrival == myStay.arrival:
             if arrival == myStay.arrival:
                 # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
-                json_string = myStay.signature_string().replace(
+                jsonString = myStay.signature_string().replace(
                     "HotelReservation:","").replace("'", '"')
                 # Convert the JSON string into a Python dictionary
-                reservation_data = json.loads(json_string)
-                jsonPath2 = str(Path.home()) +"\G88.2024.T05.GE2\Stay.json"
+                reservationData = json.loads(jsonString)
+                jsonPath2 = str(Path.home()) +"/G88.2024.T05.GE2/Stay.json"
                 # We write in a json file all info related to the hotelStay
                 try:
-                    with open(jsonPath2, 'r') as f:
+                    with open(jsonPath2, 'r', encoding='utf-8') as f:
                         stayData = json.load(f)
                 except (FileNotFoundError, json.JSONDecodeError):
                     # If the file does not exist or is empty, initialize existing_data as an empty list
                     stayData = []
-                stayData.append(reservation_data)
+                stayData.append(reservationData)
                 # Write updated data back to file
-                with open(jsonPath2, 'w') as f:
+                with open(jsonPath2, 'w', encoding='utf-8') as f:
                     json.dump(stayData, f)
-            print("Room key: %s" % myStay.roomKey)
+            print(f"Room key: {myStay.roomKey}")
             return myStay.roomKey
 
     # FUNCTION TO PROVE IF THE LOCALIZER EXISTS
-    def check_localizer(self, localizer, existing_data):
+    def checkLocalizer(self, localizer, existing_data):
         """This is a function whose objective is to check if the localizer is
         correct and there is already a reservation with that localizer"""
         # Check if the localizer is in the correct format
@@ -282,7 +285,7 @@ class HotelManager:
         return 0
 
     # THIRD FUNCTION
-    def guest_checkout(self, room_key):
+    def guestCheckout(self, room_key):
         """This third function receives a room key (64-character-long string
         in hexadecimal) and checks that it corresponds to a reservation in
         our hotel. It also checks that the checkout is being held the day it
@@ -298,80 +301,80 @@ class HotelManager:
 
         # The key is processable. Now we check if it is valid. To do so, we compare the key provided to the keys generated by each of our
         # reservations.
-        jsonPath1 = str(Path.home()) +"\G88.2024.T05.GE2\Reservations.json"
-        jsonPath2 = str(Path.home()) +"\G88.2024.T05.GE2\Arrival.json"
+        jsonPath1 = str(Path.home()) +"/G88.2024.T05.GE2/Reservations.json"
+        jsonPath2 = str(Path.home()) +"/G88.2024.T05.GE2/Arrival.json"
         try:
             # Open the JSON file and load its contents.
             with open(jsonPath1, 'r', encoding='utf-8') as f:
                 reservationsData = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError):
+        except (FileNotFoundError, json.JSONDecodeError) as exc:
             # If the file does not exist or it is empty, we raise an error.
             raise hotelManagementException(
-                "Reservations file not found or it is empty.")
+                "Reservations file not found or it is empty.") from exc
         try:
             # Open the JSON file and load its contents.
             with open(jsonPath2, 'r', encoding='utf-8') as f:
                 arrivalData = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError):
+        except (FileNotFoundError, json.JSONDecodeError) as exc:
             # If the file does not exist or it is empty, we raise an error.
             raise hotelManagementException(
-                "Arrivals file not found or it is empty.")
+                "Arrivals file not found or it is empty.") from exc
 
-        aux_localizer, aux_id, aux_arrival, aux_days, aux_room = 0, 0, 0, 0, 0
-        valid_key = False
+        auxLocalizer, auxId, auxArrival, auxDays, auxRoom = 0, 0, 0, 0, 0
+        validKey = False
         for item in arrivalData:
-            localizer_found, all_data_retrieved = False, False
-            if not localizer_found and 'Localizer' in item and "IdCard" in item:
-                aux_localizer = item['Localizer']
-                aux_id = item['IdCard']
-                localizer_found = True
+            localizerFound, allDataRetrieved = False, False
+            if not localizerFound and 'Localizer' in item and "IdCard" in item:
+                auxLocalizer = item['Localizer']
+                auxId = item['IdCard']
+                localizerFound = True
 
-            if localizer_found:
+            if localizerFound:
                 for item2 in reservationsData:
-                    if not all_data_retrieved and 'id_card' in item2 and item2[
-                        'id_card'] == aux_id:
-                        aux_days = item2['num_days']
-                        aux_room = item2['room_type']
-                        aux_arrival = item2["arrival_date"]
-                        all_data_retrieved = True
+                    if not allDataRetrieved and 'id_card' in item2 and item2[
+                        'id_card'] == auxId:
+                        auxDays = item2['num_days']
+                        auxRoom = item2['room_type']
+                        auxArrival = item2["arrival_date"]
+                        allDataRetrieved = True
 
-            if all_data_retrieved:
-                auxStay = hotelStay(aux_id, aux_localizer, aux_days, aux_room)
+            if allDataRetrieved:
+                auxStay = hotelStay(auxId, auxLocalizer, auxDays, auxRoom)
                 auxKey = hashlib.sha256(
                     auxStay.signature_string().encode()).hexdigest()
                 print(auxKey)
                 if auxKey == room_key:
                     print('Valid key')
-                    valid_key = True
+                    validKey = True
                     break
 
-        if not valid_key:
+        if not validKey:
             raise hotelManagementException("Key is not registered.")
 
         # At this point, we know that the key is valid. Now let's check that the departure date is valid. To do so, we will calculate the departure
         # date planned in Reservations.json (arrival_date + num_days) and compare it to the current date (only taking the year, month and day into
         # account).
-        arrival_date = datetime.utcfromtimestamp(aux_arrival)
-        departure_date = arrival_date + timedelta(aux_days)
-        time1 = departure_date.strftime('%Y-%m-%d')
+        arrivalDate = datetime.utcfromtimestamp(auxArrival)
+        departureDate = arrivalDate + timedelta(auxDays)
+        time1 = departureDate.strftime('%Y-%m-%d')
 
-        time_now = datetime.utcnow()
-        time2 = time_now.strftime('%Y-%m-%d')
+        timeNow = datetime.utcnow()
+        time2 = timeNow.strftime('%Y-%m-%d')
         if time1 != time2:
             raise hotelManagementException("Departure date is not valid.")
 
         # Now we must save into a file the timestamp of the departure (UTC time) and the room key value.
-        json_string = {"departure": time_now,
+        jsonString = {"departure": timeNow,
                        "room_key": room_key}
-        jsonPath3 = str(Path.home()) +"\G88.2024.T05.GE2\checkOut.json"
+        jsonPath3 = str(Path.home()) +"/G88.2024.T05.GE2/checkOut.json"
         try:
-            with open(jsonPath3, 'r') as f:
-                checkout_data = json.load(f)
+            with open(jsonPath3, 'r', encoding='utf-8') as f:
+                checkoutData = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             # If the file does not exist or is empty, initialize existing_data as an empty list
-            checkout_data = []
-        checkout_data.append(json_string)
+            checkoutData = []
+        checkoutData.append(jsonString)
         # Write updated data back to file
-        with open(jsonPath3, 'w') as f:
-            json.dump(checkout_data, f)
+        with open(jsonPath3, 'w', encoding='utf-8') as f:
+            json.dump(checkoutData, f)
         return True
