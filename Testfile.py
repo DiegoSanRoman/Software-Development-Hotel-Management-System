@@ -1,34 +1,32 @@
 """File with all the tests of each function"""
 import unittest
-import json
-from pathlib import Path
+from freezegun import freeze_time
 from UC3MTravel import hotelManagementException
-from UC3MTravel.HotelManager import HotelManager
+from UC3MTravel.HotelManager import hotelManager
 class testRoomReservation(unittest.TestCase):
     """Test cases for the first function"""
-
     def testTc1Valid(self):
         """Valid case in which all the information is correct and the person
         does not already have a reservation"""
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         info = (5555555555554444, "Santiago P", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC1Valid
-        value = myManager.room_reservation(*info)
-        self.assertEqual(value, '1e08ee46484278bfce2bc1942af98e71')
+        value = myManager.roomReservation(*info)
+        self.assertEqual(value, '388170e32dc0ba9b864085b38e0e6442')
 
     def testTc2(self):
         """Invalid case in which all the information is correct but the person
         already has a reservation"""
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         info = (5555555555554444, "Santiago P", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC2
         exception = None
         try:
-            myManager.room_reservation(*info)
+            myManager.roomReservation(*info)
         except hotelManagementException as e:
             exception = e
 
@@ -38,23 +36,24 @@ class testRoomReservation(unittest.TestCase):
 
 class testGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
+    @freeze_time('2024-01-01')
     def testTc1Valid(self):
         """Valid case in which all the information is correct"""
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         filepath = "JSONtestsFunction2/TC1Valid.json"
         # TC1Valid.json
-        value = myManager.guest_arrival(filepath)
-        self.assertEqual(value, 'fce482f0817853def241cfd787177aff7e94b842f0db2c2faf8cb3e77e24ad20')
+        value = myManager.guestArrival(filepath)
+        self.assertEqual(value, '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3')
 
     def testTc2(self):
         """Test for the second case, empty file"""
         # JSON empty file name
-        myManager = HotelManager()
+        myManager = hotelManager()
         filePath = "JSONtestsFunction2/TC2.json"
         exception = None
         try:
-            myManager.guest_arrival(filePath)
+            myManager.guestArrival(filePath)
         except hotelManagementException as e:
             exception = e
 
@@ -66,11 +65,11 @@ class testGuestArrival(unittest.TestCase):
         """Test for the second case, duplicated files FileFile (without
         separator)"""
         # JSON empty file name
-        myManager = HotelManager()
+        myManager = hotelManager()
         filePath = "JSONtestsFunction2/TC3.json"
         exception = None
         try:
-            myManager.guest_arrival(filePath)
+            myManager.guestArrival(filePath)
         except hotelManagementException as e:
             exception = e
 
@@ -82,11 +81,11 @@ class testGuestArrival(unittest.TestCase):
         """Test for the 4th case, DEL/MOD/DUP. In this case we just check
         MOD, since with the other two the result will be the same.)"""
         # JSON empty file name
-        myManager = HotelManager()
+        myManager = hotelManager()
         filePath = "JSONtestsFunction2/TC4.json"
         exception = None
         try:
-            myManager.guest_arrival(filePath)
+            myManager.guestArrival(filePath)
         except hotelManagementException as e:
             exception = e
 
@@ -97,11 +96,11 @@ class testGuestArrival(unittest.TestCase):
     def testTc5(self):
         """Test for the fifth case, empty data"""
         # JSON empty file name
-        myManager = HotelManager()
+        myManager = hotelManager()
         filePath = "JSONtestsFunction2/TC5.json"
         exception = None
         try:
-            myManager.guest_arrival(filePath)
+            myManager.guestArrival(filePath)
         except hotelManagementException as e:
             exception = e
 
@@ -109,22 +108,24 @@ class testGuestArrival(unittest.TestCase):
         # displayed
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "'Localizer' key missing in JSON")
+
+    @freeze_time('2024-01-01')
     def testTc6(self):
         """Test for the sixth case, duplicated data"""
-        myManager = HotelManager()
+        myManager = hotelManager()
         filePath = "JSONtestsFunction2/TC6.json"  # Use the file test.json
-        value = myManager.guest_arrival(filePath)
+        value = myManager.guestArrival(filePath)
         self.assertEqual(value,
-                         'fce482f0817853def241cfd787177aff7e94b842f0db2c2faf8cb3e77e24ad20')
+                         '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3')
     def testTc7F1DEL(self):
         """Test for the seventh case, one of the fields is deleted. In this
         case only F1."""
 
         fileName = "JSONtestsFunction2/TC7F1.json"  # JSON empty file name
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -138,10 +139,10 @@ class testGuestArrival(unittest.TestCase):
 
         # JSON name
         fileName = "JSONtestsFunction2/TC7F2.json"
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -149,23 +150,24 @@ class testGuestArrival(unittest.TestCase):
         # displayed
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "'Id' key missing in JSON")
+    @freeze_time('2024-01-01')
     def testTc8F1DUP(self):
         """Test for the seventh case, one of the fields is duplicated"""
         # JSON name
         fileName = "JSONtestsFunction2/TC8.json"
-        myManager = HotelManager()
-        value = myManager.guest_arrival(fileName)
-        self.assertEqual(value, 'fce482f0817853def241cfd787177aff7e94b842f0db2c2faf8cb3e77e24ad20')
+        myManager = hotelManager()
+        value = myManager.guestArrival(fileName)
+        self.assertEqual(value, '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3')
 
     def testTc9MOD(self):
         """Test for the ninth case, separator is modified"""
 
         # JSON file name
         fileName = "JSONtestsFunction2/TC9.json"
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -178,10 +180,10 @@ class testGuestArrival(unittest.TestCase):
         # JSON file name
         fileName = "JSONtestsFunction2/TC9.json"
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -196,10 +198,10 @@ class testGuestArrival(unittest.TestCase):
         # JSON file name
         fileName = "JSONtestsFunction2/TC10.json"
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -215,10 +217,10 @@ class testGuestArrival(unittest.TestCase):
         # JSON file name
         fileName = "JSONtestsFunction2/TC11.json"
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -233,10 +235,10 @@ class testGuestArrival(unittest.TestCase):
         # JSON file name
         fileName = "JSONtestsFunction2/TC12.json"
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -251,10 +253,10 @@ class testGuestArrival(unittest.TestCase):
         # JSON file name
         fileName = "JSONtestsFunction2/TC12.json"
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -269,10 +271,10 @@ class testGuestArrival(unittest.TestCase):
         # JSON file name
         fileName = "JSONtestsFunction2/TC13.json"
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -287,10 +289,10 @@ class testGuestArrival(unittest.TestCase):
         # JSON file name
         fileName = "JSONtestsFunction2/TC14.json"
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -305,10 +307,10 @@ class testGuestArrival(unittest.TestCase):
         # JSON file name
         fileName = "JSONtestsFunction2/TC15.json"
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -323,10 +325,10 @@ class testGuestArrival(unittest.TestCase):
         # JSON file name
         fileName = "JSONtestsFunction2/TC16.json"
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(fileName)
+            myManager.guestArrival(fileName)
         except hotelManagementException as e:
             exception = e
 
@@ -341,10 +343,10 @@ class testGuestArrival(unittest.TestCase):
         # JSON file name
         filename = "JSONtestsFunction2/TC17.json"
 
-        myManager = HotelManager()
+        myManager = hotelManager()
         exception = None
         try:
-            myManager.guest_arrival(filename)
+            myManager.guestArrival(filename)
         except hotelManagementException as e:
             exception = e
 

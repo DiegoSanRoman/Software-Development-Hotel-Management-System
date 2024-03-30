@@ -1,7 +1,7 @@
 """ Class HotelStay (GE2.2) """
-import datetime
 import hashlib
-
+from datetime import datetime
+from datetime import timedelta
 class hotelStay():
     """This class contains all the information related with the stay of the
     guest, meaning, its localizer, idCard, information about the reservation
@@ -13,12 +13,14 @@ class hotelStay():
         self.__type = roomtype # pylint: disable=invalid-name
         self.__idcard = idcard # pylint: disable=invalid-name
         self.__localizer = localizer # pylint: disable=invalid-name
-        """justnow = datetime.utcnow()
-        self.__arrival = justnow.timestamp() # pylint: disable=invalid-name"""
-        specificDate = datetime.datetime(2024, 1, 1)
+        justnow = datetime.utcnow()
+        self.__arrival = justnow.strftime("%Y-%m-%d") # pylint: disable=invalid-name
+        """specificDate = datetime.datetime(2024, 1, 1)
         timestamp = specificDate.timestamp() # pylint: disable=invalid-name
-        self.__arrival = timestamp # pylint: disable=invalid-name
-        self.__departure = self.__arrival + (numdays * 24 * 60 * 60) # pylint: disable=invalid-name
+        self.__arrival = timestamp # pylint: disable=invalid-name"""
+        departure = justnow + timedelta(days= int(numdays))
+        self.__departure = departure.strftime('%Y-%m-%d') # pylint:
+        # disable=invalid-name
 
     def signature_string(self): # pylint: disable=invalid-name
         """Composes the string to be used for generating the key for the room

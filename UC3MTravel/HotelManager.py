@@ -7,7 +7,7 @@ from datetime import datetime
 from datetime import timedelta
 from pathlib import Path
 from UC3MTravel.HotelManagementException import hotelManagementException
-from UC3MTravel.HotelReservation import HotelReservation
+from UC3MTravel.HotelReservation import hotelReservation
 from UC3MTravel.HotelStay import hotelStay
 
 class hotelManager:
@@ -55,8 +55,8 @@ class hotelManager:
         try:
             c = firstItem["CreditCard"]
             p = firstItem["phoneNumber"]
-            req = HotelReservation(IDCARD="12345678Z", creditcardNumb=c,
-                                   nAMeAndSURNAME="John Doe", phonenumber=p,
+            req = hotelReservation(id_card="12345678Z", credit_card=c,
+                                   name_surname="John Doe", phonenumber=p,
                                    room_type="single",
                                    arrival_date="04/06/2034", numdays=3)
         except KeyError as e:
@@ -110,14 +110,14 @@ class hotelManager:
         # arrival_date
         if len(arrival_date) != 10:
             raise hotelManagementException("Invalid arrival date format")
-        parts = arrival_date.split('/')
+        parts = arrival_date.split('-')
         if len(parts) != 3:
             raise hotelManagementException("Invalid arrival date format")
         if not all(part.isdigit() for part in parts):
             raise hotelManagementException("Invalid arrival date format")
-        day = int(parts[0])
+        year = int(parts[0])
         month = int(parts[1])
-        year = int(parts[2])
+        day = int(parts[2])
         if day < 1 or day > 31:
             raise hotelManagementException("Invalid day in arrival date")
         if month < 1 or month > 12:
@@ -133,10 +133,10 @@ class hotelManager:
         # If we have reached this point, it means that all inputs are correct
         idCard = int(idCard)
         # PROCESS 2 (Create reservation)
-        reservation = HotelReservation(idCard, creditCard, name_surname,
+        reservation = hotelReservation(idCard, creditCard, name_surname,
                                        phoneNumber, room_type,
                                        arrival_date, num_days)
-        localizer = reservation.LOCALIZER
+        localizer = reservation.localizer
 
         # PROCESS 3 (Store data in JSON file)
         # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
@@ -227,7 +227,8 @@ class hotelManager:
         arrival = " "
         founded = False
         for item in existingData:
-            if (id == item['id_card']) and ('room_type' in item and 'num_days'
+            if (idNum == item['id_card']) and ('room_type' in item and
+                                              'num_days'
                     in item and 'arrival_date' in item):
                 founded = True
                 roomtype = item['room_type']
@@ -239,9 +240,9 @@ class hotelManager:
             hotelManagementException("Number of days or room type or arrival_date "
                 "are missing in the guest's info")
         # Now we create an instance of HotelStay
-        myStay = hotelStay(id, localizer, numdays, roomtype)
+        myStay = hotelStay(idNum, localizer, numdays, roomtype)
+        print(arrival, myStay.arrival)
         if arrival == myStay.arrival:
-            if arrival == myStay.arrival:
                 # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
                 jsonString = myStay.signature_string().replace(
                     "HotelReservation:","").replace("'", '"')
@@ -259,8 +260,8 @@ class hotelManager:
                 # Write updated data back to file
                 with open(jsonPath2, 'w', encoding='utf-8') as f:
                     json.dump(stayData, f)
-            print(f"Room key: {myStay.roomKey}")
-            return myStay.roomKey
+                print(f"Room key: {myStay.roomKey}")
+                return myStay.roomKey
 
     # FUNCTION TO PROVE IF THE LOCALIZER EXISTS
     def checkLocalizer(self, localizer, existing_data):
