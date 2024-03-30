@@ -13,8 +13,7 @@ def main():
                 "2024-01-01", 1)
     print(result1)"""
     jsonPath = (str(Path.home()) +
-                "/G88.2024.T05"
-                ".GE2\Arrival.json")
+                "/G88.2024.T05.GE2/Arrival.json")
     result2 = hotel.guestArrival(jsonPath)
 
 
