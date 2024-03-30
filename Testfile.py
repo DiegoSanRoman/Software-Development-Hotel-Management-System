@@ -3,6 +3,340 @@ import unittest
 from freezegun import freeze_time
 from UC3MTravel import hotelManagementException
 from UC3MTravel.HotelManager import hotelManager
+
+class testRoomReservation(unittest.TestCase):
+    """Test cases for the first function"""
+
+    def testTc1Valid(self):
+        """Valid case in which all the information is correct and the person
+        does not already have a reservation"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC1Valid
+        value = myManager.roomReservation(*info)
+        self.assertEqual(value, 'ea0a2dcb07062ade04d6b9097ae096b1')
+
+    def testTc2(self):
+        """Invalid case in which all the information is correct but the person
+        already has a reservation"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), info[1] + " already has a reservation")
+
+    def testTc3(self):
+        """Invalid case in which the credit card number is not of the
+        correct datatype"""
+
+        myManager = hotelManager()
+        info = ("credit_card_number", "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid credit card format")
+
+    def testTc4(self):
+        """Invalid case in which the credit card number is too long"""
+
+        myManager = hotelManager()
+        info = (55555555555544444, "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid credit card format")
+
+    def testTc5(self):
+        """Invalid case in which the credit card number is too short"""
+
+        myManager = hotelManager()
+        info = (555555555555444, "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid credit card format")
+
+    def testTc6(self):
+        """Invalid case in which the credit card number is with the correct
+        format (16 digits) but the number is not valid"""
+
+        myManager = hotelManager()
+        info = (1234567812345678, "Santiago P", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid credit card number")
+
+    def testTc7(self):
+        """Invalid case in which the name and surname are of the incorrect
+        datatype"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, 56.78, 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid name and surname format")
+
+    def testTc8(self):
+        """Invalid case in which the name and surname are separated by an
+        incorrect separator (not a blank space)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Marta,Pombo", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid name and surname format")
+
+    def testTc9(self):
+        """Invalid case in which the person has just a name and not a
+        surname"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Dulceida", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid name and surname format")
+
+    def testTc10(self):
+        """Invalid case in which the name and surname are a very short
+        string"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Lu Tema", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid name and surname length")
+
+    def testTc11(self):
+        """Invalid case in which the name and surname are a very long
+        string"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "This is a toooooooooooooooooooooooooooooo long name", 100, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid name and surname length")
+
+    def testTc12(self):
+        """Invalid case in which the id card is of the incorrect datatype"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", "cool_number", 100000000,
+                "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid ID card")
+
+    def testTc13(self):
+        """Invalid case in which the id card has 4 digits (instead of 3)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 7777, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid ID card")
+
+    def testTc14(self):
+        """Invalid case in which the id card has only two digits (instead of
+        3)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 33, 100000000, "single",
+                "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid ID card")
+
+    def testTc15(self):
+        """Invalid case in which the phone number is of the incorrect datatype"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, "phonenumber",
+                "single", "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid phone number")
+
+    def testTc16(self):
+        """Invalid case in which the phone number has 10 digits (instead of
+        9)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 7853498219,
+                "single", "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid phone number")
+
+    def testTc17(self):
+        """Invalid case in which the phone number has only 8 digits (instead of 9)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 12345678,
+                "single", "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid phone number")
+
+    def testTc18(self):
+        """Invalid case in which the room type is of the incorrect datatype"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                45, "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid room type")
+
+    def testTc19(self):
+        """Invalid case in which the room type is not one of the accepted
+        values (single, double, suite)"""
+
+        myManager = hotelManager()
+        info = (5555555555554444, "Belen Izantina", 100, 123456789,
+                "premium", "01/01/2024", 1)
+        # TC2
+        exception = None
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Invalid room type")
+
+
 class testRoomReservation(unittest.TestCase):
     """Test cases for the first function"""
     def testTc1Valid(self):
