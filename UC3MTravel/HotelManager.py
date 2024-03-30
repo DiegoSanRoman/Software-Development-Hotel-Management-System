@@ -244,24 +244,24 @@ class hotelManager:
         print(arrival, myStay.arrival)
         if arrival == myStay.arrival:
                 # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
-                jsonString = myStay.signature_string().replace(
-                    "HotelReservation:","").replace("'", '"')
-                # Convert the JSON string into a Python dictionary
-                reservationData = json.loads(jsonString)
-                jsonPath2 = str(Path.home()) +"/G88.2024.T05.GE2/Stay.json"
-                # We write in a json file all info related to the hotelStay
-                try:
-                    with open(jsonPath2, 'r', encoding='utf-8') as f:
-                        stayData = json.load(f)
-                except (FileNotFoundError, json.JSONDecodeError):
-                    # If the file does not exist or is empty, initialize existing_data as an empty list
-                    stayData = []
-                stayData.append(reservationData)
-                # Write updated data back to file
-                with open(jsonPath2, 'w', encoding='utf-8') as f:
-                    json.dump(stayData, f)
-                print(f"Room key: {myStay.roomKey}")
-                return myStay.roomKey
+            jsonString = myStay.signature_string().replace(
+                "HotelReservation:","").replace("'", '"')
+            # Convert the JSON string into a Python dictionary
+            reservationData = json.loads(jsonString)
+            jsonPath2 = str(Path.home()) +"/G88.2024.T05.GE2/Stay.json"
+            # We write in a json file all info related to the hotelStay
+            try:
+                with open(jsonPath2, 'r', encoding='utf-8') as f:
+                    stayData = json.load(f)
+            except (FileNotFoundError, json.JSONDecodeError):
+                # If the file does not exist or is empty, initialize existing_data as an empty list
+                stayData = []
+            stayData.append(reservationData)
+            # Write updated data back to file
+            with open(jsonPath2, 'w', encoding='utf-8') as f:
+                json.dump(stayData, f)
+            print(f"Room key: {myStay.roomKey}")
+            return myStay.roomKey
 
     # FUNCTION TO PROVE IF THE LOCALIZER EXISTS
     def checkLocalizer(self, localizer, existing_data):
