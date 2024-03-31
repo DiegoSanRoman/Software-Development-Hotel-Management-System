@@ -1,13 +1,7 @@
 """For now, we are using this file to record information about the functions
 of GE2. Then we will store those functions in HotelManager"""
-from datetime import datetime
-import json
-import hashlib
 from pathlib import Path
-from UC3MTravel.HotelReservation import hotelReservation
-from UC3MTravel.HotelManager import hotelManager
-from UC3MTravel.HotelManagementException import hotelManagementException
-from UC3MTravel.HotelStay import hotelStay
+from src.main.python.UC3MTravel.HotelManager import hotelManager
 
 
 # Main
