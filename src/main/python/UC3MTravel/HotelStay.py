@@ -26,18 +26,9 @@ class hotelStay():
          """
         # Original code
 
-        """return "{alg:" + self.__alg + ",typ:" + self.__type + ",localizer:" + \
+        return "{alg:" + self.__alg + ",typ:" + self.__type + ",localizer:" + \
             self.__localizer + ",arrival:" + str(self.__arrival) + \
-            ",departure:" + str(self.__departure) + "}"""
-
-        # New code
-        jsonInfo = {"alg:": self.__alg,
-                     "typ:": self.__type,
-                     "localizer:": self.__localizer,
-                     "arrival:": self.__arrival,
-                     "departure:": self.__departure,
-                     }
-        return jsonInfo.__str__()
+            ",departure:" + str(self.__departure) + "}"
     @property
     def idCard(self):
         """Property that represents the product_id of the patient"""
