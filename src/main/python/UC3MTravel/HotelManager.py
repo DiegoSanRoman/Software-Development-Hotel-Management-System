@@ -6,9 +6,9 @@ import hashlib
 from datetime import datetime
 from datetime import timedelta
 from pathlib import Path
-from src.main.python.UC3MTravel.HotelManagementException import hotelManagementException
-from src.main.python.UC3MTravel.HotelReservation import hotelReservation
-from src.main.python.UC3MTravel.HotelStay import hotelStay
+from UC3MTravel.HotelManagementException import hotelManagementException
+from UC3MTravel.HotelReservation import hotelReservation
+from UC3MTravel.HotelStay import hotelStay
 
 class hotelManager:
     """Class with the three functions needed to implement."""

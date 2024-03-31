@@ -1,8 +1,9 @@
 """File with all the tests of each function"""
 import unittest
 from freezegun import freeze_time
-from src.main.python.UC3MTravel.HotelManagementException import hotelManagementException
-from src.main.python.UC3MTravel.HotelManager import hotelManager
+from pathlib import Path
+from UC3MTravel.HotelManagementException import hotelManagementException
+from UC3MTravel.HotelManager import hotelManager
 
 class TestGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
@@ -11,7 +12,9 @@ class TestGuestArrival(unittest.TestCase):
         """Valid case in which all the information is correct"""
 
         myManager = hotelManager()
-        filepath = "../../JSONfiles/JsonForTests/TC1Valid.json"
+        filepath = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC1Valid.json"
         # TC1Valid.json
         value = myManager.guestArrival(filepath)
         self.assertEqual(value, '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3')
@@ -20,7 +23,9 @@ class TestGuestArrival(unittest.TestCase):
         """Test for the second case, empty file"""
         # JSON empty file name
         myManager = hotelManager()
-        filePath = "../../JSONfiles/JsonForTests/TC2.json"
+        filePath = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC2.json"
         exception = None
         try:
             myManager.guestArrival(filePath)
@@ -36,7 +41,9 @@ class TestGuestArrival(unittest.TestCase):
         separator)"""
         # JSON empty file name
         myManager = hotelManager()
-        filePath = "../../JSONfiles/JsonForTests/TC3.json"
+        filePath = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC3.json"
         exception = None
         try:
             myManager.guestArrival(filePath)
@@ -52,7 +59,9 @@ class TestGuestArrival(unittest.TestCase):
         MOD, since with the other two the result will be the same.)"""
         # JSON empty file name
         myManager = hotelManager()
-        filePath = "../../JSONfiles/JsonForTests/TC4.json"
+        filePath = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC4.json"
         exception = None
         try:
             myManager.guestArrival(filePath)
@@ -67,7 +76,9 @@ class TestGuestArrival(unittest.TestCase):
         """Test for the fifth case, empty data"""
         # JSON empty file name
         myManager = hotelManager()
-        filePath = "../../JSONfiles/JsonForTests/TC5.json"
+        filePath = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC5.json"
         exception = None
         try:
             myManager.guestArrival(filePath)
@@ -83,7 +94,9 @@ class TestGuestArrival(unittest.TestCase):
     def testTc6(self):
         """Test for the sixth case, duplicated data"""
         myManager = hotelManager()
-        filePath = "../../JSONfiles/JsonForTests/TC6.json"  # Use the file test.json
+        filePath = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC6.json"  # Use the file test.json
         value = myManager.guestArrival(filePath)
         self.assertEqual(value,
                          '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3')
@@ -91,7 +104,9 @@ class TestGuestArrival(unittest.TestCase):
         """Test for the seventh case, one of the fields is deleted. In this
         case only F1."""
 
-        fileName = "../../JSONfiles/JsonForTests/TC7F1.json"  # JSON empty file name
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC7F1.json"  # JSON empty file name
         myManager = hotelManager()
         exception = None
         try:
@@ -108,7 +123,9 @@ class TestGuestArrival(unittest.TestCase):
         case F2."""
 
         # JSON name
-        fileName = "../../JSONfiles/JsonForTests/TC7F2.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC7F2.json"
         myManager = hotelManager()
         exception = None
         try:
@@ -124,7 +141,9 @@ class TestGuestArrival(unittest.TestCase):
     def testTc8F1DUP(self):
         """Test for the seventh case, one of the fields is duplicated"""
         # JSON name
-        fileName = "../../JSONfiles/JsonForTests/TC8.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC8.json"
         myManager = hotelManager()
         value = myManager.guestArrival(fileName)
         self.assertEqual(value, '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3')
@@ -133,7 +152,9 @@ class TestGuestArrival(unittest.TestCase):
         """Test for the ninth case, separator is modified"""
 
         # JSON file name
-        fileName = "../../JSONfiles/JsonForTests/TC9.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC9.json"
         myManager = hotelManager()
         exception = None
         try:
@@ -148,7 +169,9 @@ class TestGuestArrival(unittest.TestCase):
         """Test for the ninth case, separator is duplicated"""
 
         # JSON file name
-        fileName = "../../JSONfiles/JsonForTests/TC9.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC9.json"
 
         myManager = hotelManager()
         exception = None
@@ -166,7 +189,9 @@ class TestGuestArrival(unittest.TestCase):
         only need to test one of the cases (data1 or value1 / DEL OR DUP)"""
 
         # JSON file name
-        fileName = "../../JSONfiles/JsonForTests/TC10.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC10.json"
 
         myManager = hotelManager()
         exception = None
@@ -185,7 +210,9 @@ class TestGuestArrival(unittest.TestCase):
         DEL OR DUP)"""
 
         # JSON file name
-        fileName = "../../JSONfiles/JsonForTests/TC11.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC11.json"
 
         myManager = hotelManager()
         exception = None
@@ -203,7 +230,9 @@ class TestGuestArrival(unittest.TestCase):
         DEL OR DUP), and only one json for all cases (result is the same)"""
 
         # JSON file name
-        fileName = "../../JSONfiles/JsonForTests/TC12.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC12.json"
 
         myManager = hotelManager()
         exception = None
@@ -221,7 +250,9 @@ class TestGuestArrival(unittest.TestCase):
         only one json for all cases (result is the same)"""
 
         # JSON file name
-        fileName = "../../JSONfiles/JsonForTests/TC12.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC12.json"
 
         myManager = hotelManager()
         exception = None
@@ -239,7 +270,9 @@ class TestGuestArrival(unittest.TestCase):
         only one json for all cases (result is the same)"""
 
         # JSON file name
-        fileName = "../../JSONfiles/JsonForTests/TC13.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC13.json"
 
         myManager = hotelManager()
         exception = None
@@ -257,7 +290,9 @@ class TestGuestArrival(unittest.TestCase):
         for all cases (result is the same)"""
 
         # JSON file name
-        fileName = "../../JSONfiles/JsonForTests/TC14.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC14.json"
 
         myManager = hotelManager()
         exception = None
@@ -275,7 +310,9 @@ class TestGuestArrival(unittest.TestCase):
         for all cases (result is the same)"""
 
         # JSON file name
-        fileName = "../../JSONfiles/JsonForTests/TC15.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC15.json"
 
         myManager = hotelManager()
         exception = None
@@ -293,7 +330,9 @@ class TestGuestArrival(unittest.TestCase):
         one json for all cases (result is the same)"""
 
         # JSON file name
-        fileName = "../../JSONfiles/JsonForTests/TC16.json"
+        fileName = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC16.json"
 
         myManager = hotelManager()
         exception = None
@@ -311,7 +350,9 @@ class TestGuestArrival(unittest.TestCase):
         for all cases (result is the same). Consider DEL as putting value 0"""
 
         # JSON file name
-        filename = "../../JSONfiles/JsonForTests/TC17.json"
+        filename = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForTests/TC17.json"
 
         myManager = hotelManager()
         exception = None
