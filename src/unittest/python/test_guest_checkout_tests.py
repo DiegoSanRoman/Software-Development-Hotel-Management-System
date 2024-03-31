@@ -75,3 +75,37 @@ class TestGuestCheckout(unittest.TestCase):
 
     def testTc3_9(self):
         """Invalid case in which the key is valid but not registered."""
+
+        myManager = hotelManager()
+        key = "1c8ffb7df9f4a520ad0353d10386b0b921c353ee16b9e4b9e2af56da4ed1d596"
+        exception = None
+        try:
+            myManager.guestCheckout(key)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Key is not registered.")
+
+    @freeze_time('2024-01-01')
+    def testTc3_10(self):
+        """Invalid case in which the key is valid but the departure date is not."""
+
+        myManager = hotelManager()
+        try:
+            info = (5555555555554444, "Robert DeNiro", 789, 987654321, "suite", "2024-01-01", 3)
+            myManager.roomReservation(*info)
+        except hotelManagementException:
+            ...
+
+        key = "69a45edce93701c66c7a1ecc9ab6dbec171ef889ab516460d522734f2ea26eca"
+        exception = None
+        try:
+            myManager.guestCheckout(key)
+        except hotelManagementException as e:
+            exception = e
+
+        # verify exception
+        self.assertIsNotNone(exception)
+        self.assertEqual(str(exception), "Departure date is not valid.")
