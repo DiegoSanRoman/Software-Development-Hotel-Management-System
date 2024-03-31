@@ -346,7 +346,7 @@ class hotelManager:
                 break
 
         if not validKey:
-            raise hotelManagementException("Key is not registered.")
+            raise hotelManagementException("Such key is not registered.")
 
         # At this point, we know that the key is correct. Now let's check that the departure date is valid. To do so, we will calculate the departure
         # date planned in Reservations.json (arrival_date + num_days) and compare it to the current date (only taking the year, month and day into

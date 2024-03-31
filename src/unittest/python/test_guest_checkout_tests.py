@@ -90,7 +90,7 @@ class TestGuestCheckout(unittest.TestCase):
 
         # verify exception
         self.assertIsNotNone(exception)
-        self.assertEqual(str(exception), "Key is not registered.")
+        self.assertEqual(str(exception), "Such key is not registered.")
 
     @freeze_time('2024-01-01')
     def testTc3_10(self):
