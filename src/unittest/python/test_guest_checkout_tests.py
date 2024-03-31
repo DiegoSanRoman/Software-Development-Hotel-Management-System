@@ -1,4 +1,5 @@
 import unittest
+from pathlib import Path
 from freezegun import freeze_time
 from UC3MTravel.HotelManagementException import hotelManagementException
 from UC3MTravel.HotelManager import hotelManager
@@ -6,9 +7,20 @@ from UC3MTravel.HotelManager import hotelManager
 
 class TestGuestCheckout(unittest.TestCase):
     """Test cases for the third function"""
-    @freeze_time('2024-01-01')
+    @freeze_time('2024-01-02')
     def testTc1Valid(self):
-        """Valid case in which the key, the departure date and the 2 json files are correct"""
+        """Valid case in which the key and the departure date are correct"""
+
+        myManager = hotelManager()
+        try:
+            info = (5555555555554444, "Barbara Sanchez", 456, 123456788, "single", "2024-01-01", 1)
+            myManager.roomReservation(*info)
+        except hotelManagementException:
+            ...
+
+        result = myManager.guestCheckout("1c8ffb7df9f4a520ad0353d10386b0b921c3532e16b9e4b9e2af56da4ed1d596")
+        self.assertEqual(result, True)
+
 
     def testTc3_2(self):
         """Invalid case in which the key is less than 64 bytes long."""
@@ -60,12 +72,6 @@ class TestGuestCheckout(unittest.TestCase):
 
     def testTc3_6(self):
         """Invalid case in which Reservations.json is empty."""
-
-    def testTc3_7(self):
-        """Invalid case in which Arrival.json does not exist."""
-
-    def testTc3_8(self):
-        """Invalid case in which Arrival.json is empty."""
 
     def testTc3_9(self):
         """Invalid case in which the key is valid but not registered."""

@@ -26,8 +26,8 @@ def main():
     # localizer = 96350e37cb66e2d6c5143ad15fa62060
     # id = 456
     #print(myManager.roomReservation(*info))
-    #print(myManager.guestArrival(filePath))
-    myManager.guestCheckout("1c8ffb7df9f4a520ad0353d10386b0b921c3532e16b9e4b9e2af56da4ed1d596")
+    print(myManager.guestArrival(filePath))
+    #myManager.guestCheckout("1c8ffb7df9f4a520ad0353d10386b0b921c3532e16b9e4b9e2af56da4ed1d596")
 
 
 if __name__ == "__main__":
