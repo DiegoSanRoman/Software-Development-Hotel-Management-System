@@ -357,7 +357,6 @@ class hotelManager:
 
         timeNow = datetime.utcnow()
         time2 = timeNow.strftime('%Y-%m-%d')
-        print(time1, time2)
         if time1 != time2:
             raise hotelManagementException("Departure date is not valid.")
 
@@ -376,5 +375,4 @@ class hotelManager:
         # Write updated data back to file
         with open(jsonPath2, 'w', encoding='utf-8') as f:
             json.dump(checkoutData, f, indent=4)
-        print('Checkout successful')
         return True

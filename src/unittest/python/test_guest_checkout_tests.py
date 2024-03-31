@@ -16,9 +16,13 @@ class TestGuestCheckout(unittest.TestCase):
             info = (5555555555554444, "Barbara Sanchez", 456, 123456788, "single", "2024-01-01", 1)
             myManager.roomReservation(*info)
         except hotelManagementException:
+            """Reservation already done"""
             ...
 
-        result = myManager.guestCheckout("1c8ffb7df9f4a520ad0353d10386b0b921c3532e16b9e4b9e2af56da4ed1d596")
+        filePath = (str(Path.home()) + "\G88.2024.T05.GE2\src\JSONfiles\JsonForTests\TC_3_1.json")
+        key = myManager.guestArrival(filePath)
+
+        result = myManager.guestCheckout(key)
         self.assertEqual(result, True)
 
 
@@ -97,9 +101,11 @@ class TestGuestCheckout(unittest.TestCase):
             info = (5555555555554444, "Robert DeNiro", 789, 987654321, "suite", "2024-01-01", 3)
             myManager.roomReservation(*info)
         except hotelManagementException:
+            """Reservation already done"""
             ...
 
-        key = "69a45edce93701c66c7a1ecc9ab6dbec171ef889ab516460d522734f2ea26eca"
+        filePath = (str(Path.home()) + "\G88.2024.T05.GE2\src\JSONfiles\JsonForTests\TC_3_2.json")
+        key = myManager.guestArrival(filePath)
         exception = None
         try:
             myManager.guestCheckout(key)

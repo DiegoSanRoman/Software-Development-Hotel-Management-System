@@ -7,5 +7,32 @@
         "arrival_date": "2024-01-01",
         "num_days": 1,
         "room_type": "single"
+    },
+    {
+        "id_card": 123,
+        "name_surname": "Anthony Edwards",
+        "credit_card": "5555555555554444",
+        "phone_number:": "123456785",
+        "arrival_date": "2024-01-01",
+        "num_days": 1,
+        "room_type": "suite"
+    },
+    {
+        "id_card": 789,
+        "name_surname": "Robert DeNiro",
+        "credit_card": "5555555555554444",
+        "phone_number:": "987654321",
+        "arrival_date": "2024-01-01",
+        "num_days": 3,
+        "room_type": "suite"
+    },
+    {
+        "id_card": 456,
+        "name_surname": "Barbara Sanchez",
+        "credit_card": "5555555555554444",
+        "phone_number:": "123456788",
+        "arrival_date": "2024-01-01",
+        "num_days": 1,
+        "room_type": "single"
     }
 ]

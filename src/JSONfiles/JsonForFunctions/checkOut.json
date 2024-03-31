@@ -22,5 +22,21 @@
     {
         "departure": "2024-01-02",
         "room_key": "1c8ffb7df9f4a520ad0353d10386b0b921c3532e16b9e4b9e2af56da4ed1d596"
+    },
+    {
+        "departure": "2024-01-02",
+        "room_key": "348d3e1f88b3000e680a9c74963aaf50d3fd55bad0ce106f86082c5b6c03aa9c"
+    },
+    {
+        "departure": "2024-01-02",
+        "room_key": "348d3e1f88b3000e680a9c74963aaf50d3fd55bad0ce106f86082c5b6c03aa9c"
+    },
+    {
+        "departure": "2024-01-02",
+        "room_key": "348d3e1f88b3000e680a9c74963aaf50d3fd55bad0ce106f86082c5b6c03aa9c"
+    },
+    {
+        "departure": "2024-01-02",
+        "room_key": "348d3e1f88b3000e680a9c74963aaf50d3fd55bad0ce106f86082c5b6c03aa9c"
     }
 ]
