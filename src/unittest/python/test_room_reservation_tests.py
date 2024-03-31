@@ -13,10 +13,10 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Santiago P", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC1Valid
         value = myManager.roomReservation(*info)
-        self.assertEqual(value, 'ea0a2dcb07062ade04d6b9097ae096b1')
+        self.assertEqual(value, '388170e32dc0ba9b864085b38e0e6442')
 
     def testTc2(self):
         """Invalid case in which all the information is correct but the person
@@ -24,7 +24,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Santiago P", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC2
         exception = None
         try:
@@ -42,7 +42,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = ("credit_card_number", "Santiago P", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC3
         exception = None
         try:
@@ -59,7 +59,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (55555555555544444, "Santiago P", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC4
         exception = None
         try:
@@ -76,7 +76,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (555555555555444, "Santiago P", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC5
         exception = None
         try:
@@ -94,7 +94,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (1234567812345678, "Santiago P", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC6
         exception = None
         try:
@@ -112,7 +112,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, 56.78, 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC7
         exception = None
         try:
@@ -130,7 +130,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Marta,Pombo", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC8
         exception = None
         try:
@@ -148,7 +148,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Dulceida", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC9
         exception = None
         try:
@@ -166,7 +166,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Lu Tema", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC10
         exception = None
         try:
@@ -184,7 +184,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "This is a toooooooooooooooooooooooooooooo long name", 100, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC11
         exception = None
         try:
@@ -202,7 +202,7 @@ class TestRoomReservation(unittest.TestCase):
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", "cool_number", 100000000,
                 "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC12
         exception = None
         try:
@@ -219,7 +219,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 7777, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC13
         exception = None
         try:
