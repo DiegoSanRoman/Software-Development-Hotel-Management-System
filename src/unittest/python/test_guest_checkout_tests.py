@@ -1,7 +1,8 @@
 import unittest
 from freezegun import freeze_time
-from src.main.python.UC3MTravel.HotelManagementException import hotelManagementException
-from src.main.python.UC3MTravel.HotelManager import hotelManager
+from UC3MTravel.HotelManagementException import hotelManagementException
+from UC3MTravel.HotelManager import hotelManager
+
 
 class TestGuestCheckout(unittest.TestCase):
     """Test cases for the third function"""
@@ -53,3 +54,18 @@ class TestGuestCheckout(unittest.TestCase):
         # verify exception
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "Not processable room code.")
+
+    def testTc3_5(self):
+        """Invalid case in which Reservations.json does not exist."""
+
+    def testTc3_6(self):
+        """Invalid case in which Reservations.json is empty."""
+
+    def testTc3_7(self):
+        """Invalid case in which Arrival.json does not exist."""
+
+    def testTc3_8(self):
+        """Invalid case in which Arrival.json is empty."""
+
+    def testTc3_9(self):
+        """Invalid case in which the key is valid but not registered."""

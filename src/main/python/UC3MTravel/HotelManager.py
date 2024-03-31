@@ -320,9 +320,6 @@ class hotelManager:
         jsonPath1 = str(Path.home()) + \
                    "/G88.2024.T05.GE2/src/JSONfiles" \
                    "/JsonForFunctions/Reservations.json"
-        jsonPath2 = str(Path.home()) + \
-                   "/G88.2024.T05.GE2/src/JSONfiles" \
-                   "/JsonForFunctions/Arrival.json"
         try:
             # Open the JSON file and load its contents.
             with open(jsonPath1, 'r', encoding='utf-8') as f:
@@ -330,48 +327,31 @@ class hotelManager:
         except (FileNotFoundError, json.JSONDecodeError) as exc:
             # If the file does not exist or it is empty, we raise an error.
             raise hotelManagementException(
-                "Reservations file not found or it is empty.") from exc
-        try:
-            # Open the JSON file and load its contents.
-            with open(jsonPath2, 'r', encoding='utf-8') as f:
-                arrivalData = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError) as exc:
-            # If the file does not exist or it is empty, we raise an error.
-            raise hotelManagementException(
-                "Arrivals file not found or it is empty.") from exc
+                "Reservations.json not found or it is empty.") from exc
 
-        auxLocalizer, auxId, auxArrival, auxDays, auxRoom = 0, 0, 0, 0, 0
+        #auxLocalizer, auxId, auxArrival, auxDays, auxRoom = 0, 0, 0, 0, 0
         validKey = False
-        for item in arrivalData:
-            localizerFound, allDataRetrieved = False, False
-            if not localizerFound and 'Localizer' in item and "IdCard" in item:
-                auxLocalizer = item['Localizer']
-                auxId = item['IdCard']
-                localizerFound = True
+        for item in reservationsData:
+            auxId = item['id_card']
+            auxArrival = item['arrival_date']
+            auxDays = item['num_days']
+            auxRoom = item['room_type']
+            auxReservation = hotelReservation(item['id_card'], item['credit_card'], item['name_surname'], item['phone_number'], item['room_type'],
+                                              item['arrival_date'], item['num_days'])
+            auxLocalizer = auxReservation.localizer
 
-            if localizerFound:
-                for item2 in reservationsData:
-                    if not allDataRetrieved and 'id_card' in item2 and item2[
-                        'id_card'] == auxId:
-                        auxDays = item2['num_days']
-                        auxRoom = item2['room_type']
-                        auxArrival = item2["arrival_date"]
-                        allDataRetrieved = True
+            auxStay = hotelStay(auxId, auxLocalizer, auxDays, auxRoom)
+            auxKey = hashlib.sha256(auxStay.signature_string().encode()).hexdigest()
 
-            if allDataRetrieved:
-                auxStay = hotelStay(auxId, auxLocalizer, auxDays, auxRoom)
-                auxKey = hashlib.sha256(
-                    auxStay.signature_string().encode()).hexdigest()
-                print(auxKey)
-                if auxKey == room_key:
-                    print('Valid key')
-                    validKey = True
-                    break
+            if auxKey == room_key:
+                print('Valid key')
+                validKey = True
+                break
 
         if not validKey:
             raise hotelManagementException("Key is not registered.")
 
-        # At this point, we know that the key is valid. Now let's check that the departure date is valid. To do so, we will calculate the departure
+        # At this point, we know that the key is correct. Now let's check that the departure date is valid. To do so, we will calculate the departure
         # date planned in Reservations.json (arrival_date + num_days) and compare it to the current date (only taking the year, month and day into
         # account).
 
@@ -386,19 +366,18 @@ class hotelManager:
             raise hotelManagementException("Departure date is not valid.")
 
         # Now we must save into a file the timestamp of the departure (UTC time) and the room key value.
-        jsonString = {"departure": time2,
-                       "room_key": room_key}
-        jsonPath3 = str(Path.home()) + \
+        jsonString = {"departure": time2, "room_key": room_key}
+        jsonPath2 = str(Path.home()) + \
                    "/G88.2024.T05.GE2/src/JSONfiles" \
                    "/JsonForFunctions/checkOut.json"
         try:
-            with open(jsonPath3, 'r', encoding='utf-8') as f:
+            with open(jsonPath2, 'r', encoding='utf-8') as f:
                 checkoutData = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             # If the file does not exist or is empty, initialize existing_data as an empty list
             checkoutData = []
         checkoutData.append(jsonString)
         # Write updated data back to file
-        with open(jsonPath3, 'w', encoding='utf-8') as f:
+        with open(jsonPath2, 'w', encoding='utf-8') as f:
             json.dump(checkoutData, f, indent=4)
         return True
