@@ -7,5 +7,14 @@
         "arrival_date": "2024-01-01",
         "num_days": 1,
         "room_type": "single"
+    },
+    {
+        "id_card": 100,
+        "name_surname": "Belen Izantina",
+        "credit_card": "5555555555554444",
+        "phone_number:": "123456789",
+        "arrival_date": "11-13-2024",
+        "num_days": 1,
+        "room_type": "single"
     }
 ]
