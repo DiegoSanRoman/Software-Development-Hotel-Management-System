@@ -6,7 +6,7 @@ import hashlib
 from datetime import datetime
 from datetime import timedelta
 from pathlib import Path
-from UC3MTravel.HotelManagementException import hotelManagementException
+from UC3MTravel.HotelManagementException import (hotelManagementException)
 from UC3MTravel.HotelReservation import hotelReservation
 from UC3MTravel.HotelStay import hotelStay
 
@@ -84,19 +84,22 @@ class hotelManager:
             raise hotelManagementException("Invalid credit card number")
 
         # name_surname
+        # Check if the datatype is correct
+        if not isinstance(name_surname, str):
+            raise hotelManagementException("Invalid name and surname format")
         # Check that the length of the string is correct
         if len(name_surname) < 10 or len(name_surname) > 50:
-            raise hotelManagementException("Invalid name and surname")
+            raise hotelManagementException("Invalid name and surname length")
         # Check that the string contains at least two strings separated by a space
         strings = name_surname.split()
         if len(strings) < 2:
-            raise hotelManagementException("Invalid name and surname")
+            raise hotelManagementException("Invalid name and surname format")
 
         # id_Card
         # Check that the card id has 3 digits
         idCard = str(id_card)
         if len(idCard) != 3:
-            raise hotelManagementException("Invalid ID card (3 digits needed")
+            raise hotelManagementException("Invalid ID card (3 digits needed)")
 
         # phone_number
         phoneNumber = str(phone_number)
@@ -108,6 +111,9 @@ class hotelManager:
             raise hotelManagementException("Invalid room type")
 
         # arrival_date
+        # Check if it is a string
+        if not isinstance(arrival_date, str):
+            raise hotelManagementException("Invalid arrival date format")
         if len(arrival_date) != 10:
             raise hotelManagementException("Invalid arrival date format")
         parts = arrival_date.split('-')
@@ -127,6 +133,9 @@ class hotelManager:
             raise hotelManagementException("Invalid year in arrival date")
 
         # num_days
+        # Check if num_days is of the correct datatype
+        if not isinstance(num_days, int):
+            raise hotelManagementException("Invalid number of days")
         if num_days < 1 or num_days > 10:
             raise hotelManagementException("Invalid number of days")
 

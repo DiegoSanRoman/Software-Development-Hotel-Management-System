@@ -3,7 +3,6 @@ from UC3MTravel.HotelManagementException import hotelManagementException
 from UC3MTravel.HotelManager import hotelManager
 
 
-
 class TestRoomReservation(unittest.TestCase):
     """Test cases for the first function"""
 
@@ -147,7 +146,8 @@ class TestRoomReservation(unittest.TestCase):
         surname"""
 
         myManager = hotelManager()
-        info = (5555555555554444, "Dulceida", 100, 100000000, "single",
+        info = (5555555555554444, "Dulceidainfluencer", 100, 100000000,
+                "single",
                 "2024-01-01", 1)
         # TC9
         exception = None
@@ -212,7 +212,7 @@ class TestRoomReservation(unittest.TestCase):
 
         # verify exception
         self.assertIsNotNone(exception)
-        self.assertEqual(str(exception), "Invalid ID card")
+        self.assertEqual(str(exception), "Invalid ID card (3 digits needed)")
 
     def testTc13(self):
         """Invalid case in which the id card has 4 digits (instead of 3)"""
@@ -229,7 +229,7 @@ class TestRoomReservation(unittest.TestCase):
 
         # verify exception
         self.assertIsNotNone(exception)
-        self.assertEqual(str(exception), "Invalid ID card")
+        self.assertEqual(str(exception), "Invalid ID card (3 digits needed)")
 
     def testTc14(self):
         """Invalid case in which the id card has only two digits (instead of
@@ -237,7 +237,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 33, 100000000, "single",
-                "01/01/2024", 1)
+                "2024-01-01", 1)
         # TC14
         exception = None
         try:
@@ -247,14 +247,14 @@ class TestRoomReservation(unittest.TestCase):
 
         # verify exception
         self.assertIsNotNone(exception)
-        self.assertEqual(str(exception), "Invalid ID card")
+        self.assertEqual(str(exception), "Invalid ID card (3 digits needed)")
 
     def testTc15(self):
         """Invalid case in which the phone number is of the incorrect datatype"""
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, "phonenumber",
-                "single", "01/01/2024", 1)
+                "single", "2024-01-01", 1)
         # TC15
         exception = None
         try:
@@ -272,7 +272,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 7853498219,
-                "single", "01/01/2024", 1)
+                "single", "2024-01-01", 1)
         # TC16
         exception = None
         try:
@@ -289,7 +289,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 12345678,
-                "single", "01/01/2024", 1)
+                "single", "2024-01-01", 1)
         # TC17
         exception = None
         try:
@@ -306,7 +306,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                45, "01/01/2024", 1)
+                45, "2024-01-01", 1)
         # TC18
         exception = None
         try:
@@ -324,7 +324,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                "premium", "01/01/2024", 1)
+                "premium", "2024-01-01", 1)
         # TC19
         exception = None
         try:
@@ -397,7 +397,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                "single", "0103//2024", 1)
+                "single", "0103--2024", 1)
         # TC23
         exception = None
         try:
@@ -416,7 +416,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                "single", "00/11/2024", 1)
+                "single", "2024-11-00", 1)
         # TC24
         exception = None
         try:
@@ -435,7 +435,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                "single", "32/112024", 1)
+                "single", "2024-11-32", 1)
         # TC25
         exception = None
         try:
@@ -454,7 +454,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                "single", "11/00/2024", 1)
+                "single", "2024-00-11", 1)
         # TC26
         exception = None
         try:
@@ -473,7 +473,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                "single", "11/132024", 1)
+                "single", "2024-13-11", 1)
         # TC27
         exception = None
         try:
@@ -492,7 +492,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                "single", "11/11/2023", 1)
+                "single", "2023-11-11", 1)
         # TC28
         exception = None
         try:
@@ -511,7 +511,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                "single", "11/11/10000", 1)
+                "single", "10000-11-11", 1)
         # TC29
         exception = None
         try:
@@ -521,7 +521,7 @@ class TestRoomReservation(unittest.TestCase):
 
         # verify exception
         self.assertIsNotNone(exception)
-        self.assertEqual(str(exception), "Invalid year in arrival date")
+        self.assertEqual(str(exception), "Invalid arrival date format")
 
     def testTc30(self):
         """Invalid case in which the number of days is not of the correct
@@ -529,7 +529,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                "single", "11/11/2031", "nini")
+                "single", "2031-11-11", "nini")
         # TC30
         exception = None
         try:
@@ -547,7 +547,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                "single", "11/11/2031", 0)
+                "single", "2031-11-11", 0)
         # TC31
         exception = None
         try:
@@ -565,7 +565,7 @@ class TestRoomReservation(unittest.TestCase):
 
         myManager = hotelManager()
         info = (5555555555554444, "Belen Izantina", 100, 123456789,
-                "single", "11/11/2031", 11)
+                "single", "2031-11-11", 11)
         # TC32
         exception = None
         try:
@@ -576,3 +576,6 @@ class TestRoomReservation(unittest.TestCase):
         # verify exception
         self.assertIsNotNone(exception)
         self.assertEqual(str(exception), "Invalid number of days")
+
+if __name__ == '__main__':
+    unittest.main()
