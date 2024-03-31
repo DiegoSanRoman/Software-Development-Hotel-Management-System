@@ -1,7 +1,7 @@
 """For now, we are using this file to record information about the functions
 of GE2. Then we will store those functions in HotelManager"""
 from pathlib import Path
-from src.main.python.UC3MTravel.HotelManager import hotelManager
+from UC3MTravel.HotelManager import hotelManager
 
 
 # Main
