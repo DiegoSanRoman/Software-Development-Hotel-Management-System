@@ -254,13 +254,10 @@ class hotelManager:
                 "are missing in the guest's info")
         # Now we create an instance of HotelStay
         myStay = hotelStay(idNum, localizer, numdays, roomtype)
-        print(arrival, myStay.arrival)
         if arrival == myStay.arrival:
                 # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
-            jsonString = myStay.signature_string().replace(
-                "HotelReservation:","").replace("'", '"')
+            reservationData = myStay.__dict__
             # Convert the JSON string into a Python dictionary
-            reservationData = json.loads(jsonString)
             jsonPath2 = str(Path.home()) + \
                            "/G88.2024.T05.GE2/src/JSONfiles" \
                            "/JsonForFunctions/Stay.json"
