@@ -2,5 +2,9 @@
     {
         "departure": "2024-03-31",
         "room_key": "e21263a92c0651e895a03558af54cf71399af99094e0f041063ed8c676241355"
+    },
+    {
+        "departure": "2024-01-02",
+        "room_key": "1c8ffb7df9f4a520ad0353d10386b0b921c3532e16b9e4b9e2af56da4ed1d596"
     }
 ]

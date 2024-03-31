@@ -329,14 +329,14 @@ class hotelManager:
             raise hotelManagementException(
                 "Reservations.json not found or it is empty.") from exc
 
-        #auxLocalizer, auxId, auxArrival, auxDays, auxRoom = 0, 0, 0, 0, 0
         validKey = False
         for item in reservationsData:
             auxId = item['id_card']
             auxArrival = item['arrival_date']
             auxDays = item['num_days']
             auxRoom = item['room_type']
-            auxReservation = hotelReservation(item['id_card'], item['credit_card'], item['name_surname'], item['phone_number'], item['room_type'],
+            auxReservation = hotelReservation(item['id_card'], item['credit_card'], item['name_surname'], item['phone_number:'],
+                                              item['room_type'],
                                               item['arrival_date'], item['num_days'])
             auxLocalizer = auxReservation.localizer
 
@@ -354,7 +354,6 @@ class hotelManager:
         # At this point, we know that the key is correct. Now let's check that the departure date is valid. To do so, we will calculate the departure
         # date planned in Reservations.json (arrival_date + num_days) and compare it to the current date (only taking the year, month and day into
         # account).
-
         arrivalDate = datetime.strptime(auxArrival, '%Y-%m-%d')
         departureDate = arrivalDate + timedelta(days=auxDays)
         time1 = departureDate.strftime('%Y-%m-%d')
@@ -380,4 +379,5 @@ class hotelManager:
         # Write updated data back to file
         with open(jsonPath2, 'w', encoding='utf-8') as f:
             json.dump(checkoutData, f, indent=4)
+        print('Checkout successful')
         return True
