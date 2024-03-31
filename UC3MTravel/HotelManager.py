@@ -355,17 +355,19 @@ class hotelManager:
         # At this point, we know that the key is valid. Now let's check that the departure date is valid. To do so, we will calculate the departure
         # date planned in Reservations.json (arrival_date + num_days) and compare it to the current date (only taking the year, month and day into
         # account).
-        arrivalDate = datetime.utcfromtimestamp(auxArrival)
-        departureDate = arrivalDate + timedelta(auxDays)
+
+        arrivalDate = datetime.strptime(auxArrival, '%Y-%m-%d')
+        departureDate = arrivalDate + timedelta(days=auxDays)
         time1 = departureDate.strftime('%Y-%m-%d')
 
         timeNow = datetime.utcnow()
         time2 = timeNow.strftime('%Y-%m-%d')
+        print(time1, time2)
         if time1 != time2:
             raise hotelManagementException("Departure date is not valid.")
 
         # Now we must save into a file the timestamp of the departure (UTC time) and the room key value.
-        jsonString = {"departure": timeNow,
+        jsonString = {"departure": time2,
                        "room_key": room_key}
         jsonPath3 = str(Path.home()) +"/G88.2024.T05.GE2/checkOut.json"
         try:

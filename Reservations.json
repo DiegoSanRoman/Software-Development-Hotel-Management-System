@@ -7,14 +7,5 @@
         "arrival_date": "2024-01-01",
         "num_days": 1,
         "room_type": "single"
-    },
-    {
-        "id_card": 999,
-        "name_surname": "Maria Sanchez",
-        "credit_card": "4539677908016808",
-        "phone_number:": "999999999",
-        "arrival_date": 1711753200.0,
-        "num_days": 1,
-        "room_type": "suite"
     }
 ]
