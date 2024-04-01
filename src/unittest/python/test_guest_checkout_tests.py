@@ -72,12 +72,6 @@ class TestGuestCheckout(unittest.TestCase):
         self.assertEqual(str(exception), "Not processable room code.")
 
     def testTc3_5(self):
-        """Invalid case in which Reservations.json does not exist."""
-
-    def testTc3_6(self):
-        """Invalid case in which Reservations.json is empty."""
-
-    def testTc3_9(self):
         """Invalid case in which the key is valid but not registered."""
 
         myManager = hotelManager()
@@ -93,7 +87,7 @@ class TestGuestCheckout(unittest.TestCase):
         self.assertEqual(str(exception), "Such key is not registered.")
 
     @freeze_time('2024-01-01')
-    def testTc3_10(self):
+    def testTc3_6(self):
         """Invalid case in which the key is valid but the departure date is not."""
 
         myManager = hotelManager()
