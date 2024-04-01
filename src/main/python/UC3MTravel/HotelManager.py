@@ -254,6 +254,7 @@ class hotelManager:
                 "are missing in the guest's info")
         # Now we create an instance of HotelStay
         myStay = hotelStay(idNum, localizer, numdays, roomtype)
+        print(myStay.departure)
         if arrival == myStay.arrival:
                 # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
             reservationData = myStay.__dict__

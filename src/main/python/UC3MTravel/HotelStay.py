@@ -13,13 +13,12 @@ class hotelStay():
         self.__type = roomtype # pylint: disable=invalid-name
         self.__idcard = idcard # pylint: disable=invalid-name
         self.__localizer = localizer # pylint: disable=invalid-name
-        specificDate = datetime(2024, 1, 1)
-        self.__arrival = specificDate.strftime('%Y-%m-%d') # pylint: disable=invalid-name
+        """specificDate = datetime(2024, 1, 1)
+        self.__arrival = specificDate.strftime('%Y-%m-%d') # pylint: disable=invalid-name"""
         justnow = datetime.utcnow()
-        """self.__arrival = justnow.strftime("%Y-%m-%d")  # pylint: disable=invalid-name"""
+        self.__arrival = justnow.strftime("%Y-%m-%d")  # pylint: disable=invalid-name
         departure = justnow + timedelta(days= int(numdays))
-        self.__departure = departure.strftime('%Y-%m-%d') # pylint:
-        # disable=invalid-name
+        self.__departure = departure.strftime('%Y-%m-%d') # pylint:disable=invalid-name
 
     def signature_string(self): # pylint: disable=invalid-name
         """Composes the string to be used for generating the key for the room

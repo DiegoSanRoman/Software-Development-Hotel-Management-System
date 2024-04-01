@@ -13,7 +13,7 @@ def main():
                 "2024-01-01", 1)
     print(result1)"""
     jsonPath = (str(Path.home()) +
-                "/G88.2024.T05.GE2/src/JSONfiles/JsonForFunctions/Arrival"
+                "/G88.2024.T05.GE2/src/JSONfiles/JsonForTests/TC1Valid"
                 ".json")
     hotel.guestArrival(jsonPath)
     """result3 = hotel.guestCheckout('e21263a92c0651e895a03558af54cf71399af99094e0f041063ed8c676241355')
