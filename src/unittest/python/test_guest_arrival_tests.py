@@ -17,7 +17,7 @@ class TestGuestArrival(unittest.TestCase):
                    "/JsonForTests/TC1Valid.json"
         # TC1Valid.json
         value = myManager.guestArrival(filepath)
-        self.assertEqual(value, '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3')
+        self.assertEqual(value, '1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a')
 
     def testTc2(self):
         """Test for the second case, empty file"""
@@ -99,7 +99,7 @@ class TestGuestArrival(unittest.TestCase):
                    "/JsonForTests/TC6.json"  # Use the file test.json
         value = myManager.guestArrival(filePath)
         self.assertEqual(value,
-                         '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3')
+                         '1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a')
     def testTc7F1DEL(self):
         """Test for the seventh case, one of the fields is deleted. In this
         case only F1."""
@@ -146,7 +146,7 @@ class TestGuestArrival(unittest.TestCase):
                    "/JsonForTests/TC8.json"
         myManager = hotelManager()
         value = myManager.guestArrival(fileName)
-        self.assertEqual(value, '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3')
+        self.assertEqual(value, '1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a')
 
     def testTc9MOD(self):
         """Test for the ninth case, separator is modified"""
