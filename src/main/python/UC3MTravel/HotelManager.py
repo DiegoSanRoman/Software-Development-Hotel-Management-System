@@ -376,4 +376,5 @@ class hotelManager:
         # Write updated data back to file
         with open(jsonPath2, 'w', encoding='utf-8') as f:
             json.dump(checkoutData, f, indent=4)
+        print('Checkout successful')
         return True
