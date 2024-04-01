@@ -248,13 +248,11 @@ class hotelManager:
                 numdays = item['num_days']
                 arrival = item['arrival_date']
                 break
-        print(roomtype, numdays, arrival)
         if not founded:
             hotelManagementException("Number of days or room type or arrival_date "
                 "are missing in the guest's info")
         # Now we create an instance of HotelStay
         myStay = hotelStay(idNum, localizer, numdays, roomtype)
-        print(myStay.departure)
         if arrival == myStay.arrival:
                 # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
             reservationData = myStay.__dict__
@@ -340,7 +338,6 @@ class hotelManager:
 
             auxStay = hotelStay(auxId, auxLocalizer, auxDays, auxRoom)
             auxKey = hashlib.sha256(auxStay.signature_string().encode()).hexdigest()
-
             if auxKey == room_key:
                 print('Valid key')
                 validKey = True
@@ -349,6 +346,7 @@ class hotelManager:
         if not validKey:
             raise hotelManagementException("Such key is not registered.")
 
+
         # At this point, we know that the key is correct. Now let's check that the departure date is valid. To do so, we will calculate the departure
         # date planned in Reservations.json (arrival_date + num_days) and compare it to the current date (only taking the year, month and day into
         # account).
@@ -356,25 +354,25 @@ class hotelManager:
         departureDate = arrivalDate + timedelta(days=auxDays)
         time1 = departureDate.strftime('%Y-%m-%d')
 
-        timeNow = datetime.utcnow()
+        timeNow = datetime.utcnow() + timedelta(days=auxDays)
         time2 = timeNow.strftime('%Y-%m-%d')
         if time1 != time2:
             raise hotelManagementException("Departure date is not valid.")
 
         # Now we must save into a file the timestamp of the departure (UTC time) and the room key value.
         jsonString = {"departure": time2, "room_key": room_key}
-        jsonPath2 = str(Path.home()) + \
+        jsonPath3 = str(Path.home()) + \
                    "/G88.2024.T05.GE2/src/JSONfiles" \
                    "/JsonForFunctions/checkOut.json"
         try:
-            with open(jsonPath2, 'r', encoding='utf-8') as f:
+            with open(jsonPath3, 'r', encoding='utf-8') as f:
                 checkoutData = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             # If the file does not exist or is empty, initialize existing_data as an empty list
             checkoutData = []
         checkoutData.append(jsonString)
         # Write updated data back to file
-        with open(jsonPath2, 'w', encoding='utf-8') as f:
+        with open(jsonPath3, 'w', encoding='utf-8') as f:
             json.dump(checkoutData, f, indent=4)
         print('Checkout successful')
         return True

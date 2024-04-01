@@ -7,19 +7,21 @@ from UC3MTravel.HotelManager import hotelManager
 
 class TestGuestCheckout(unittest.TestCase):
     """Test cases for the third function"""
-    @freeze_time('2024-01-02')
+    @freeze_time('2024-01-01')
     def testTc1Valid(self):
         """Valid case in which the key and the departure date are correct"""
-
         myManager = hotelManager()
         try:
-            info = (5555555555554444, "Barbara Sanchez", 456, 123456788, "single", "2024-01-01", 1)
+            info = (
+            5555555555554444, "Barbara Sanchez", 456, 123456788, "single",
+            "2024-01-01", 1)
             myManager.roomReservation(*info)
         except hotelManagementException:
             """Reservation already done"""
             ...
 
-        filePath = (str(Path.home()) + "\G88.2024.T05.GE2\src\JSONfiles\JsonForTests\TC_3_1.json")
+        filePath = (
+                    str(Path.home()) + "\G88.2024.T05.GE2\src\JSONfiles\JsonForTests\TC_3_1.json")
         key = myManager.guestArrival(filePath)
 
         result = myManager.guestCheckout(key)

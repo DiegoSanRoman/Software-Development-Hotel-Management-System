@@ -12,6 +12,10 @@ class TestGuestArrival(unittest.TestCase):
         """Valid case in which all the information is correct"""
 
         myManager = hotelManager()
+        info = (5555555555554444, "Santiago P", 100, 100000000, "single",
+                "2024-01-01", 1)
+        # We first create a reservation and then check if correct
+        myManager.roomReservation(*info)
         filepath = str(Path.home()) + \
                    "/G88.2024.T05.GE2/src/JSONfiles" \
                    "/JsonForTests/TC1Valid.json"
