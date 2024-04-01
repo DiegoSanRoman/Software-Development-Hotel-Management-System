@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_guest_arrival_tests.TestGuestArrival-20240401104516" tests="20" file="test_guest_arrival_tests.py" time="0.163" timestamp="2024-04-01T10:45:17" failures="3" errors="0" skipped="0">
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc10DUP" time="0.003" timestamp="2024-04-01T10:45:16"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc11DEL" time="0.003" timestamp="2024-04-01T10:45:16"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc12DUP" time="0.003" timestamp="2024-04-01T10:45:16"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc12MOD" time="0.003" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc13" time="0.003" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc14" time="0.003" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc15" time="0.004" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc16" time="0.004" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc17" time="0.004" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc2" time="0.004" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc3" time="0.003" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc4" time="0.003" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc5" time="0.004" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc7F1DEL" time="0.004" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc7F2DEL" time="0.004" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc9DUP" time="0.003" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc9MOD" time="0.003" timestamp="2024-04-01T10:45:17"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc1Valid" time="0.056" timestamp="2024-04-01T10:45:17">
+		<failure type="AssertionError" message="'1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a' != '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3'
+- 1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a
++ 3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "C:\Users\izans\G88.2024.T05.GE2\venv\lib\site-packages\freezegun\api.py", line 827, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 20, in testTc1Valid
+    self.assertEqual(value, '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3')
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: '1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a' != '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3'
+- 1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a
++ 3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc6" time="0.024" timestamp="2024-04-01T10:45:17">
+		<failure type="AssertionError" message="'1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a' != '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3'
+- 1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a
++ 3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "C:\Users\izans\G88.2024.T05.GE2\venv\lib\site-packages\freezegun\api.py", line 827, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 101, in testTc6
+    self.assertEqual(value,
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: '1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a' != '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3'
+- 1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a
++ 3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc8F1DUP" time="0.024" timestamp="2024-04-01T10:45:17">
+		<failure type="AssertionError" message="'1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a' != '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3'
+- 1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a
++ 3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "C:\Users\izans\G88.2024.T05.GE2\venv\lib\site-packages\freezegun\api.py", line 827, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 149, in testTc8F1DUP
+    self.assertEqual(value, '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3')
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: '1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a' != '3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3'
+- 1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a
++ 3b1d74eb423528c1f948a13a01ee880589ca0c2c489c5d1fa6b06fb0b1c527b3
+
+]]></failure>
+	</testcase>
+</testsuite>

@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_room_reservation_tests.TestRoomReservation-20240331174212" tests="32" file="test_room_reservation_tests.py" time="0.091" timestamp="2024-03-31T17:42:13" failures="17" errors="3" skipped="0">
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc15" time="0.002" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc16" time="0.001" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc17" time="0.002" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc18" time="0.001" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc19" time="0.001" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc21" time="0.001" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc22" time="0.002" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc23" time="0.002" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc3" time="0.001" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc4" time="0.002" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc5" time="0.001" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc6" time="0.002" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc10" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid name and surname' != 'Invalid name and surname length'
+- Invalid name and surname
++ Invalid name and surname length
+?                         +++++++
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 179, in testTc10
+    self.assertEqual(str(exception), "Invalid name and surname length")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid name and surname' != 'Invalid name and surname length'
+- Invalid name and surname
++ Invalid name and surname length
+?                         +++++++
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc11" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid name and surname' != 'Invalid name and surname length'
+- Invalid name and surname
++ Invalid name and surname length
+?                         +++++++
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 197, in testTc11
+    self.assertEqual(str(exception), "Invalid name and surname length")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid name and surname' != 'Invalid name and surname length'
+- Invalid name and surname
++ Invalid name and surname length
+?                         +++++++
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc12" time="0.004" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid ID card (3 digits needed' != 'Invalid ID card'
+- Invalid ID card (3 digits needed
++ Invalid ID card
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 215, in testTc12
+    self.assertEqual(str(exception), "Invalid ID card")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid ID card (3 digits needed' != 'Invalid ID card'
+- Invalid ID card (3 digits needed
++ Invalid ID card
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc13" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid ID card (3 digits needed' != 'Invalid ID card'
+- Invalid ID card (3 digits needed
++ Invalid ID card
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 232, in testTc13
+    self.assertEqual(str(exception), "Invalid ID card")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid ID card (3 digits needed' != 'Invalid ID card'
+- Invalid ID card (3 digits needed
++ Invalid ID card
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc14" time="0.004" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid ID card (3 digits needed' != 'Invalid ID card'
+- Invalid ID card (3 digits needed
++ Invalid ID card
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 250, in testTc14
+    self.assertEqual(str(exception), "Invalid ID card")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid ID card (3 digits needed' != 'Invalid ID card'
+- Invalid ID card (3 digits needed
++ Invalid ID card
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc2" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid arrival date format' != 'Santiago P already has a reservation'
+- Invalid arrival date format
++ Santiago P already has a reservation
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 37, in testTc2
+    self.assertEqual(str(exception), info[1] + " already has a reservation")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid arrival date format' != 'Santiago P already has a reservation'
+- Invalid arrival date format
++ Santiago P already has a reservation
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc24" time="0.004" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid arrival date format' != 'Invalid day in arrival date'
+- Invalid arrival date format
+?                     -------
++ Invalid day in arrival date
+?         +++++++
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 429, in testTc24
+    self.assertEqual(str(exception), "Invalid day in arrival date")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid arrival date format' != 'Invalid day in arrival date'
+- Invalid arrival date format
+?                     -------
++ Invalid day in arrival date
+?         +++++++
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc25" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid arrival date format' != 'Invalid day in arrival date'
+- Invalid arrival date format
+?                     -------
++ Invalid day in arrival date
+?         +++++++
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 448, in testTc25
+    self.assertEqual(str(exception), "Invalid day in arrival date")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid arrival date format' != 'Invalid day in arrival date'
+- Invalid arrival date format
+?                     -------
++ Invalid day in arrival date
+?         +++++++
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc26" time="0.004" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid arrival date format' != 'Invalid month in arrival date'
+- Invalid arrival date format
++ Invalid month in arrival date
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 467, in testTc26
+    self.assertEqual(str(exception), "Invalid month in arrival date")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid arrival date format' != 'Invalid month in arrival date'
+- Invalid arrival date format
++ Invalid month in arrival date
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc27" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid arrival date format' != 'Invalid month in arrival date'
+- Invalid arrival date format
++ Invalid month in arrival date
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 486, in testTc27
+    self.assertEqual(str(exception), "Invalid month in arrival date")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid arrival date format' != 'Invalid month in arrival date'
+- Invalid arrival date format
++ Invalid month in arrival date
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc28" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid arrival date format' != 'Invalid year in arrival date'
+- Invalid arrival date format
++ Invalid year in arrival date
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 505, in testTc28
+    self.assertEqual(str(exception), "Invalid year in arrival date")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid arrival date format' != 'Invalid year in arrival date'
+- Invalid arrival date format
++ Invalid year in arrival date
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc29" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid arrival date format' != 'Invalid year in arrival date'
+- Invalid arrival date format
++ Invalid year in arrival date
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 524, in testTc29
+    self.assertEqual(str(exception), "Invalid year in arrival date")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid arrival date format' != 'Invalid year in arrival date'
+- Invalid arrival date format
++ Invalid year in arrival date
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc30" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid arrival date format' != 'Invalid number of days'
+- Invalid arrival date format
++ Invalid number of days
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 542, in testTc30
+    self.assertEqual(str(exception), "Invalid number of days")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid arrival date format' != 'Invalid number of days'
+- Invalid arrival date format
++ Invalid number of days
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc31" time="0.004" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid arrival date format' != 'Invalid number of days'
+- Invalid arrival date format
++ Invalid number of days
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 560, in testTc31
+    self.assertEqual(str(exception), "Invalid number of days")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid arrival date format' != 'Invalid number of days'
+- Invalid arrival date format
++ Invalid number of days
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc32" time="0.004" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid arrival date format' != 'Invalid number of days'
+- Invalid arrival date format
++ Invalid number of days
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 578, in testTc32
+    self.assertEqual(str(exception), "Invalid number of days")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid arrival date format' != 'Invalid number of days'
+- Invalid arrival date format
++ Invalid number of days
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc8" time="0.004" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid name and surname' != 'Invalid name and surname format'
+- Invalid name and surname
++ Invalid name and surname format
+?                         +++++++
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 143, in testTc8
+    self.assertEqual(str(exception), "Invalid name and surname format")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid name and surname' != 'Invalid name and surname format'
+- Invalid name and surname
++ Invalid name and surname format
+?                         +++++++
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc9" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'Invalid name and surname' != 'Invalid name and surname format'
+- Invalid name and surname
++ Invalid name and surname format
+?                         +++++++
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 161, in testTc9
+    self.assertEqual(str(exception), "Invalid name and surname format")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'Invalid name and surname' != 'Invalid name and surname format'
+- Invalid name and surname
++ Invalid name and surname format
+?                         +++++++
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc1Valid" time="0.008" timestamp="2024-03-31T17:42:13">
+		<error type="hotelManagementException" message="Invalid arrival date format"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 18, in testTc1Valid
+    value = myManager.roomReservation(*info)
+  File "c:\users\izans\g88.2024.t05.ge2\src\main\python\UC3MTravel\HotelManager.py", line 115, in roomReservation
+    raise hotelManagementException("Invalid arrival date format")
+UC3MTravel.HotelManagementException.hotelManagementException: Invalid arrival date format
+]]></error>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc20" time="0.005" timestamp="2024-03-31T17:42:13">
+		<error type="TypeError" message="object of type 'int' has no len()"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 349, in testTc20
+    myManager.roomReservation(*info)
+  File "c:\users\izans\g88.2024.t05.ge2\src\main\python\UC3MTravel\HotelManager.py", line 111, in roomReservation
+    if len(arrival_date) != 10:
+TypeError: object of type 'int' has no len()
+]]></error>
+	</testcase>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc7" time="0.004" timestamp="2024-03-31T17:42:13">
+		<error type="TypeError" message="object of type 'float' has no len()"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 119, in testTc7
+    myManager.roomReservation(*info)
+  File "c:\users\izans\g88.2024.t05.ge2\src\main\python\UC3MTravel\HotelManager.py", line 88, in roomReservation
+    if len(name_surname) < 10 or len(name_surname) > 50:
+TypeError: object of type 'float' has no len()
+]]></error>
+	</testcase>
+</testsuite>

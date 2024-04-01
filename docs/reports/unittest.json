@@ -1,0 +1,10 @@
+{
+  "errors": [
+    {
+      "test": "test_room_reservation_tests.TestRoomReservation.testTc1Valid",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\izans\\AppData\\Local\\Programs\\Python\\Python310\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n  File \"C:\\Users\\izans\\AppData\\Local\\Programs\\Python\\Python310\\lib\\unittest\\case.py\", line 591, in run\n    self._callTestMethod(testMethod)\n  File \"C:\\Users\\izans\\AppData\\Local\\Programs\\Python\\Python310\\lib\\unittest\\case.py\", line 549, in _callTestMethod\n    method()\n  File \"c:\\users\\izans\\g88.2024.t05.ge2\\src\\unittest\\python\\test_room_reservation_tests.py\", line 17, in testTc1Valid\n    value = myManager.roomReservation(*info)\n  File \"c:\\users\\izans\\g88.2024.t05.ge2\\src\\main\\python\\UC3MTravel\\HotelManager.py\", line 170, in roomReservation\n    raise hotelManagementException(f\"{name_surname} already has a \"\nUC3MTravel.HotelManagementException.hotelManagementException: Santiago P already has a reservation\n"
+    }
+  ],
+  "failures": [],
+  "tests-run": 60
+}

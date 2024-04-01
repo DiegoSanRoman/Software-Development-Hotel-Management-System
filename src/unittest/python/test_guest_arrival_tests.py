@@ -185,7 +185,7 @@ class TestGuestArrival(unittest.TestCase):
         self.assertEqual(str(exception), "File not found or empty file")
 
     def testTc10DUP(self):
-        """Test for the tenth case, data1 or value1 duplicated or deleted. We
+        """Test for the tenth case, data1 duplicated or deleted. We
         only need to test one of the cases (data1 or value1 / DEL OR DUP)"""
 
         # JSON file name
