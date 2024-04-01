@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_room_reservation_tests.TestRoomReservation-20240401110729" tests="32" file="test_room_reservation_tests.py" time="0.092" timestamp="2024-04-01T11:07:30" failures="0" errors="1" skipped="0">
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc10" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc11" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc12" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc13" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc14" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc15" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc16" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc17" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc18" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc19" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc2" time="0.003" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc20" time="0.003" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc21" time="0.003" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc22" time="0.004" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc23" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc24" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc25" time="0.003" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc26" time="0.003" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc27" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc28" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc29" time="0.003" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc3" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc30" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc31" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc32" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc4" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc5" time="0.003" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc6" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc7" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc8" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc9" time="0.002" timestamp="2024-04-01T11:07:30"/>
+	<testcase classname="test_room_reservation_tests.TestRoomReservation" name="testTc1Valid" time="0.020" timestamp="2024-04-01T11:07:30">
+		<error type="hotelManagementException" message="Santiago P already has a reservation"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_room_reservation_tests.py", line 17, in testTc1Valid
+    value = myManager.roomReservation(*info)
+  File "c:\users\izans\g88.2024.t05.ge2\src\main\python\UC3MTravel\HotelManager.py", line 170, in roomReservation
+    raise hotelManagementException(f"{name_surname} already has a "
+UC3MTravel.HotelManagementException.hotelManagementException: Santiago P already has a reservation
+]]></error>
+	</testcase>
+</testsuite>

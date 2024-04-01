@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_guest_arrival_tests.TestGuestArrival-20240331174212" tests="20" file="test_guest_arrival_tests.py" time="0.122" timestamp="2024-03-31T17:42:13" failures="7" errors="3" skipped="0">
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc10DUP" time="0.001" timestamp="2024-03-31T17:42:12"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc11DEL" time="0.001" timestamp="2024-03-31T17:42:12"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc12DUP" time="0.002" timestamp="2024-03-31T17:42:12"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc12MOD" time="0.002" timestamp="2024-03-31T17:42:12"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc13" time="0.001" timestamp="2024-03-31T17:42:12"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc2" time="0.002" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc3" time="0.002" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc4" time="0.002" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc9DUP" time="0.002" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc9MOD" time="0.001" timestamp="2024-03-31T17:42:13"/>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc14" time="0.007" timestamp="2024-03-31T17:42:12">
+		<failure type="AssertionError" message="'File not found or empty file' != &quot;'Localizer' key missing in JSON&quot;
+- File not found or empty file
++ 'Localizer' key missing in JSON
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 271, in testTc14
+    self.assertEqual(str(exception), "'Localizer' key missing in JSON")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'File not found or empty file' != "'Localizer' key missing in JSON"
+- File not found or empty file
++ 'Localizer' key missing in JSON
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc15" time="0.005" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'File not found or empty file' != &quot;'Id' key missing in JSON&quot;
+- File not found or empty file
++ 'Id' key missing in JSON
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 289, in testTc15
+    self.assertEqual(str(exception), "'Id' key missing in JSON")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'File not found or empty file' != "'Id' key missing in JSON"
+- File not found or empty file
++ 'Id' key missing in JSON
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc16" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'File not found or empty file' != &quot;'Localizer' is not well defined&quot;
+- File not found or empty file
++ 'Localizer' is not well defined
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 307, in testTc16
+    self.assertEqual(str(exception), "'Localizer' is not well defined")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'File not found or empty file' != "'Localizer' is not well defined"
+- File not found or empty file
++ 'Localizer' is not well defined
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc17" time="0.003" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'File not found or empty file' != 'new IdCard is not in reservation'
+- File not found or empty file
++ new IdCard is not in reservation
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 325, in testTc17
+    self.assertEqual(str(exception), "new IdCard is not in reservation")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'File not found or empty file' != 'new IdCard is not in reservation'
+- File not found or empty file
++ new IdCard is not in reservation
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc5" time="0.004" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'File not found or empty file' != &quot;'Localizer' key missing in JSON&quot;
+- File not found or empty file
++ 'Localizer' key missing in JSON
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 80, in testTc5
+    self.assertEqual(str(exception), "'Localizer' key missing in JSON")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'File not found or empty file' != "'Localizer' key missing in JSON"
+- File not found or empty file
++ 'Localizer' key missing in JSON
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc7F1DEL" time="0.004" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'File not found or empty file' != &quot;'Localizer' key missing in JSON&quot;
+- File not found or empty file
++ 'Localizer' key missing in JSON
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 105, in testTc7F1DEL
+    self.assertEqual(str(exception), "'Localizer' key missing in JSON")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'File not found or empty file' != "'Localizer' key missing in JSON"
+- File not found or empty file
++ 'Localizer' key missing in JSON
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc7F2DEL" time="0.004" timestamp="2024-03-31T17:42:13">
+		<failure type="AssertionError" message="'File not found or empty file' != &quot;'Id' key missing in JSON&quot;
+- File not found or empty file
++ 'Id' key missing in JSON
+"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 122, in testTc7F2DEL
+    self.assertEqual(str(exception), "'Id' key missing in JSON")
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 845, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 1226, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 675, in fail
+    raise self.failureException(msg)
+AssertionError: 'File not found or empty file' != "'Id' key missing in JSON"
+- File not found or empty file
++ 'Id' key missing in JSON
+
+]]></failure>
+	</testcase>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc1Valid" time="0.043" timestamp="2024-03-31T17:42:13">
+		<error type="hotelManagementException" message="File not found or empty file"><![CDATA[Traceback (most recent call last):
+  File "c:\users\izans\g88.2024.t05.ge2\src\main\python\UC3MTravel\HotelManager.py", line 182, in guestArrival
+    with open(file_path, 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '../../JSONfiles/JsonForTests/TC1Valid.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "C:\Users\izans\G88.2024.T05.GE2\venv\lib\site-packages\freezegun\api.py", line 827, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 16, in testTc1Valid
+    value = myManager.guestArrival(filepath)
+  File "c:\users\izans\g88.2024.t05.ge2\src\main\python\UC3MTravel\HotelManager.py", line 186, in guestArrival
+    raise hotelManagementException("File not found or empty file") \
+UC3MTravel.HotelManagementException.hotelManagementException: File not found or empty file
+]]></error>
+	</testcase>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc6" time="0.018" timestamp="2024-03-31T17:42:13">
+		<error type="hotelManagementException" message="File not found or empty file"><![CDATA[Traceback (most recent call last):
+  File "c:\users\izans\g88.2024.t05.ge2\src\main\python\UC3MTravel\HotelManager.py", line 182, in guestArrival
+    with open(file_path, 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '../../JSONfiles/JsonForTests/TC6.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "C:\Users\izans\G88.2024.T05.GE2\venv\lib\site-packages\freezegun\api.py", line 827, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 87, in testTc6
+    value = myManager.guestArrival(filePath)
+  File "c:\users\izans\g88.2024.t05.ge2\src\main\python\UC3MTravel\HotelManager.py", line 186, in guestArrival
+    raise hotelManagementException("File not found or empty file") \
+UC3MTravel.HotelManagementException.hotelManagementException: File not found or empty file
+]]></error>
+	</testcase>
+	<testcase classname="test_guest_arrival_tests.TestGuestArrival" name="testTc8F1DUP" time="0.015" timestamp="2024-03-31T17:42:13">
+		<error type="hotelManagementException" message="File not found or empty file"><![CDATA[Traceback (most recent call last):
+  File "c:\users\izans\g88.2024.t05.ge2\src\main\python\UC3MTravel\HotelManager.py", line 182, in guestArrival
+    with open(file_path, 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '../../JSONfiles/JsonForTests/TC8.json'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 591, in run
+    self._callTestMethod(testMethod)
+  File "C:\Users\izans\AppData\Local\Programs\Python\Python310\lib\unittest\case.py", line 549, in _callTestMethod
+    method()
+  File "C:\Users\izans\G88.2024.T05.GE2\venv\lib\site-packages\freezegun\api.py", line 827, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\users\izans\g88.2024.t05.ge2\src\unittest\python\test_guest_arrival_tests.py", line 129, in testTc8F1DUP
+    value = myManager.guestArrival(fileName)
+  File "c:\users\izans\g88.2024.t05.ge2\src\main\python\UC3MTravel\HotelManager.py", line 186, in guestArrival
+    raise hotelManagementException("File not found or empty file") \
+UC3MTravel.HotelManagementException.hotelManagementException: File not found or empty file
+]]></error>
+	</testcase>
+</testsuite>
