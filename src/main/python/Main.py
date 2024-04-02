@@ -11,9 +11,10 @@ def main():
     jsonPath = (str(Path.home()) +
                 "/G88.2024.T05.GE2/src/JSONfiles/JsonForFunctions/Arrival.json")
     info = (
-        5555555555554444, "Santiago P", 100, 100000000, "single",
-        "2024-01-01", 1)
-    print(hotel.roomReservation(*info))
+    5555555555554444, "Robert DeNiro", 789, 987654321, "suite", "2024-01-01",
+    3)
+    #result = hotel.roomReservation(*info)
+    #print(result)
     hotel.guestArrival(jsonPath)
 
 
