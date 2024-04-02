@@ -254,8 +254,10 @@ class hotelManager:
         # Now we create an instance of HotelStay
         myStay = hotelStay(idNum, localizer, numdays, roomtype)
         if arrival == myStay.arrival:
-                # Remove the "HotelReservation:" prefix and replace single quotes with double quotes
+            #Create a dictionary with hotelStay data and also append the
+            # roomkey
             reservationData = myStay.__dict__
+            reservationData["RoomKey"] = myStay.roomKey
             # Convert the JSON string into a Python dictionary
             jsonPath2 = str(Path.home()) + \
                            "/G88.2024.T05.GE2/src/JSONfiles" \
@@ -327,14 +329,7 @@ class hotelManager:
 
         validKey = False
         for item in stayData:
-            auxId = item["_hotelStay__idcard"]
-            auxLocalizer = item["_hotelStay__localizer"]
-            dep = item["_hotelStay__departure"][-2:]
-            arr = item["_hotelStay__arrival"][-2:]
-            auxDays = int(dep) - int(arr)
-            auxRoom = item["_hotelStay__type"]
-            auxStay = hotelStay(auxId, auxLocalizer, auxDays, auxRoom)
-            auxKey = hashlib.sha256(auxStay.signature_string().encode()).hexdigest()
+            auxKey = item["RoomKey"]
             if auxKey == room_key:
                 validKey = True
                 print('Valid key')
@@ -347,13 +342,9 @@ class hotelManager:
         # At this point, we know that the key is correct. Now let's check that the departure date is valid. To do so, we will calculate the departure
         # date planned in Reservations.json (arrival_date + num_days) and compare it to the current date (only taking the year, month and day into
         # account).
-        time1 = departureDate
-
         timeNow = datetime.utcnow()
         time2 = timeNow.strftime('%Y-%m-%d')
-        print(time1)
-        print(time2)
-        if time1 != time2:
+        if departureDate != time2:
             raise hotelManagementException("Departure date is not valid.")
 
         # Now we must save into a file the timestamp of the departure (UTC time) and the room key value.
