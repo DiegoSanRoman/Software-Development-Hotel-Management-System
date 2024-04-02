@@ -1,6 +1,8 @@
 import unittest
 from UC3MTravel.HotelManagementException import hotelManagementException
 from UC3MTravel.HotelManager import hotelManager
+import json
+from pathlib import Path
 
 
 class TestRoomReservation(unittest.TestCase):
@@ -11,29 +13,73 @@ class TestRoomReservation(unittest.TestCase):
         does not already have a reservation"""
 
         myManager = hotelManager()
-        info = (5555555555554444, "Santiago P", 100, 100000000, "single",
+        info = (5555555555554444, "Izan Diego P", 100, 100000000, "single",
                 "2024-01-01", 1)
         # TC1Valid
         value = myManager.roomReservation(*info)
-        self.assertEqual(value, '388170e32dc0ba9b864085b38e0e6442')
+        self.assertEqual(value, '0d1855050c5134b31b39ad881e446564')
+
+        # Cleanup: Remove the information from Reservations.json
+        reservation_file = str(
+            Path.home()) + "/G88.2024.T05.GE2/src/JSONfiles/JsonForFunctions/Reservations.json"
+        try:
+            with open(reservation_file, 'r+') as f:
+                reservations = json.load(f)
+
+                # Remove both reservations (if they exist)
+                if reservations:
+                    reservations.pop()
+
+                f.seek(0)  # Move the file pointer to the beginning
+                json.dump(reservations, f, indent=4)
+                f.truncate()  # Remove any remaining content beyond the new JSON data
+        except FileNotFoundError:
+            pass
 
     def testTc2(self):
         """Invalid case in which all the information is correct but the person
         already has a reservation"""
 
         myManager = hotelManager()
-        info = (5555555555554444, "Santiago P", 100, 100000000, "single",
+        info = (5555555555554444, "Izan Diego P", 100, 100000000, "single",
                 "2024-01-01", 1)
-        # TC2
+
+        # First attempt to introduce the reservation (We expect no output,
+        # just for the reservation to be succesfully introduced in the file)
+        try:
+            myManager.roomReservation(*info)
+        except hotelManagementException as e:
+            self.fail("First attempt to reserve a room failed unexpectedly: {}".format(e))
+
+        # Second attempt to introduce the same reservation (We expect an exception)
         exception = None
         try:
             myManager.roomReservation(*info)
         except hotelManagementException as e:
             exception = e
 
-        # verify exception
+        # Verify exception
         self.assertIsNotNone(exception)
-        self.assertEqual(str(exception), info[1] + " already has a reservation")
+        self.assertEqual(str(exception),
+                         info[1] + " already has a reservation")
+
+        # Cleanup: Remove the information from Reservations.json
+        reservation_file = str(
+            Path.home()) + "/G88.2024.T05.GE2/src/JSONfiles/JsonForFunctions/Reservations.json"
+        try:
+            with open(reservation_file, 'r+') as f:
+                reservations = json.load(f)
+
+                # Remove both reservations (if they exist)
+                if reservations:
+                    reservations.pop()
+
+
+                f.seek(0)  # Move the file pointer to the beginning
+                json.dump(reservations, f, indent=4)
+                f.truncate()  # Remove any remaining content beyond the new JSON data
+        except FileNotFoundError:
+            pass
 
     def testTc3(self):
         """Invalid case in which the credit card number is not of the

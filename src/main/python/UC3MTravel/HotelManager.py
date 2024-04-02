@@ -143,8 +143,8 @@ class hotelManager:
         # If we have reached this point, it means that all inputs are correct
         idCard = int(idCard)
         # PROCESS 2 (Create reservation)
-        reservation = hotelReservation(idCard, creditCard, name_surname,
-                                       phoneNumber, room_type,
+        reservation = hotelReservation(idCard, credit_card, name_surname,
+                                       phone_number, room_type,
                                        arrival_date, num_days)
         localizer = reservation.localizer
 
