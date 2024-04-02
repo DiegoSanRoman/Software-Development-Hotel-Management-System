@@ -13,11 +13,11 @@ class TestRoomReservation(unittest.TestCase):
         does not already have a reservation"""
 
         myManager = hotelManager()
-        info = (5555555555554444, "Santiago P", 100, 100000000, "single",
+        info = (5555555555554444, "Izan Diego P", 100, 100000000, "single",
                 "2024-01-01", 1)
         # TC1Valid
         value = myManager.roomReservation(*info)
-        self.assertEqual(value, 'c2ed8a2592353c525477b7c33771fc4f')
+        self.assertEqual(value, '0d1855050c5134b31b39ad881e446564')
 
         # Cleanup: Remove the information from Reservations.json
         reservation_file = str(
@@ -41,7 +41,7 @@ class TestRoomReservation(unittest.TestCase):
         already has a reservation"""
 
         myManager = hotelManager()
-        info = (5555555555554444, "Santiago P", 100, 100000000, "single",
+        info = (5555555555554444, "Izan Diego P", 100, 100000000, "single",
                 "2024-01-01", 1)
 
         # First attempt to introduce the reservation (We expect no output,
