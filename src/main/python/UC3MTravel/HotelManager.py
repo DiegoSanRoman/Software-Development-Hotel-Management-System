@@ -10,6 +10,7 @@ from UC3MTravel.HotelManagementException import (hotelManagementException)
 from UC3MTravel.HotelReservation import hotelReservation
 from UC3MTravel.HotelStay import hotelStay
 
+# READ BEFORE CORRECTING:
 class hotelManager:
     """Class with the three functions needed to implement."""
     def __init__(self):
