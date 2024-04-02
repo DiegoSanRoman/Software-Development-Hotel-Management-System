@@ -20,6 +20,15 @@
     {
         "id_card": 100,
         "name_surname": "Santiago P",
+        "credit_card": 5555555555554444,
+        "phone_number:": 100000000,
+        "arrival_date": "2024-01-01",
+        "num_days": 1,
+        "room_type": "single"
+    },
+    {
+        "id_card": 100,
+        "name_surname": "Santiago P",
         "credit_card": "5555555555554444",
         "phone_number:": "100000000",
         "arrival_date": "2024-01-01",
