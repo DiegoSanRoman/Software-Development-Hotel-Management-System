@@ -7,6 +7,36 @@ from UC3MTravel.HotelManagementException import hotelManagementException
 from UC3MTravel.HotelManager import hotelManager
 from UC3MTravel.HotelReservation import hotelReservation
 
+# Before starting the tests we need to ensure that we have a valid
+# reservation in the json file:
+resPath = str(Path.home()) + \
+                   "/G88.2024.T05.GE2/src/JSONfiles" \
+                   "/JsonForFunctions/Reservations.json"
+
+jsonInfo = {"id_card": 100,
+                    "name_surname": "Santiago P",
+                    "credit_card": "5555555555554444",
+                    "phone_number:": "100000000",
+                    "arrival_date": "2024-01-01",
+                    "num_days": 1,
+                    "room_type": "single",
+                    }
+jsonString = str(jsonInfo).replace("HotelReservation:", "").replace(
+            "'", '"')
+# We charge the string in JSON format
+reservationData = json.loads(jsonString)
+# We open the reservations.json and append the new data
+try:
+    with open(resPath, 'r', encoding='utf-8') as f:
+                existingData = json.load(f)
+except (FileNotFoundError, json.JSONDecodeError):
+    # If the file does not exist or is empty, initialize existing_data as an empty list
+    existingData = []
+existingData.append(reservationData)
+# Write updated data back to file
+with open(resPath, 'w', encoding='utf-8') as f:
+    json.dump(existingData, f, indent=4)
+
 class TestGuestArrival(unittest.TestCase):
     """Test cases for the second function"""
     @freeze_time('2024-01-01')
@@ -19,33 +49,6 @@ class TestGuestArrival(unittest.TestCase):
         testpath = str(Path.home()) + \
                    "/G88.2024.T05.GE2/src/JSONfiles" \
                    "/JsonForTests/TC1Valid.json"
-        resPath = str(Path.home()) + \
-                   "/G88.2024.T05.GE2/src/JSONfiles" \
-                   "/JsonForFunctions/Reservations.json"
-
-        jsonInfo = {"id_card": 100,
-                    "name_surname": "Santiago P",
-                    "credit_card": "5555555555554444",
-                    "phone_number:": "100000000",
-                    "arrival_date": "2024-01-01",
-                    "num_days": 1,
-                    "room_type": "single",
-                    }
-        jsonString = str(jsonInfo).replace("HotelReservation:", "").replace(
-            "'", '"')
-        # We charge the string in JSON format
-        reservationData = json.loads(jsonString)
-        # We open the reservations.json and append the new data
-        try:
-            with open(resPath, 'r', encoding='utf-8') as f:
-                existingData = json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError):
-            # If the file does not exist or is empty, initialize existing_data as an empty list
-            existingData = []
-        existingData.append(reservationData)
-        # Write updated data back to file
-        with open(resPath, 'w', encoding='utf-8') as f:
-            json.dump(existingData, f, indent=4)
         value = myManager.guestArrival(testpath)
         self.assertEqual(value, '1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a')
 
