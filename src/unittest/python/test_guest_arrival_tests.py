@@ -13,10 +13,11 @@ resPath = str(Path.home()) + \
                    "/G88.2024.T05.GE2/src/JSONfiles" \
                    "/JsonForFunctions/Reservations.json"
 
-jsonInfo = {"id_card": 100,
+jsonInfo = {
+                    "id_card": 100,
                     "name_surname": "Santiago P",
-                    "credit_card": "5555555555554444",
-                    "phone_number:": "100000000",
+                    "credit_card": 5555555555554444,
+                    "phone_number:": 100000000,
                     "arrival_date": "2024-01-01",
                     "num_days": 1,
                     "room_type": "single",
@@ -50,7 +51,7 @@ class TestGuestArrival(unittest.TestCase):
                    "/G88.2024.T05.GE2/src/JSONfiles" \
                    "/JsonForTests/TC1Valid.json"
         value = myManager.guestArrival(testpath)
-        self.assertEqual(value, '1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a')
+        self.assertEqual(value, '3698305d5a45eded7ed2d2f504f2fbfaa80bcf1bfb0b3e2e33215407addc752f')
 
     def testTc2(self):
         """Test for the second case, empty file"""
@@ -132,7 +133,7 @@ class TestGuestArrival(unittest.TestCase):
                    "/JsonForTests/TC6.json"  # Use the file test.json
         value = myManager.guestArrival(filePath)
         self.assertEqual(value,
-                         '1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a')
+                         '3698305d5a45eded7ed2d2f504f2fbfaa80bcf1bfb0b3e2e33215407addc752f')
     def testTc7F1DEL(self):
         """Test for the seventh case, one of the fields is deleted. In this
         case only F1."""
@@ -179,7 +180,7 @@ class TestGuestArrival(unittest.TestCase):
                    "/JsonForTests/TC8.json"
         myManager = hotelManager()
         value = myManager.guestArrival(fileName)
-        self.assertEqual(value, '1c09ee0a41504a55c8b43e1de211f2231edf227742efd70bab0a4bca99399a2a')
+        self.assertEqual(value, '3698305d5a45eded7ed2d2f504f2fbfaa80bcf1bfb0b3e2e33215407addc752f')
 
     def testTc9MOD(self):
         """Test for the ninth case, separator is modified"""
