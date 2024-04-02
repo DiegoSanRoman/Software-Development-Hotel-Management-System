@@ -7,7 +7,7 @@ from UC3MTravel.HotelManager import hotelManager
 
 class TestGuestCheckout(unittest.TestCase):
     """Test cases for the third function"""
-    def testTc1Valid(self):
+    def testTc3_1(self):
         """Valid case in which the key and the departure date are correct"""
         myManager = hotelManager()
         try:

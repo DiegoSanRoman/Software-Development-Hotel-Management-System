@@ -10,7 +10,11 @@ from UC3MTravel.HotelManagementException import (hotelManagementException)
 from UC3MTravel.HotelReservation import hotelReservation
 from UC3MTravel.HotelStay import hotelStay
 
-# READ BEFORE CORRECTING:
+# IMPORTANT INFO: Our path format has been directly starting in the project
+# itself, G88.2024.T05.GE2, we didn't write pycharmprojects/G88...
+# This decision was made to avoid errors since the three of us had that
+# configuration.
+
 class hotelManager:
     """Class with the three functions needed to implement."""
     def __init__(self):
